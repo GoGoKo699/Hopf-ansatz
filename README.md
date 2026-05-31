@@ -450,57 +450,7 @@ The optimization experiments are exact state-vector simulations. They do not mod
 
 The generated stress-test datasets use the real Hopf chart. `hopf_utils.py` also contains real and complex Hopf utilities used by the paper.
 
-## Suggested `.gitignore`
-
-Generated data, diagnostics, local safeguard outputs, and paper-facing figures are reproducible and should usually stay out of version control.
-
-```gitignore
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-
-# Generated CSV data
-data/
-data_smoke/
-*_hopf_data_n*.csv
-*_adam_data_n*.csv
-*_hopf_data_n*.csv.gz
-*_adam_data_n*.csv.gz
-
-# Diagnostics
-diagnostics/
-*_diagnostics.txt
-hopf_data_diagnostics.txt
-adam_data_diagnostics.txt
-
-# Generated figures
-figures_smoke/
-figures_hopf_clean/
-figures_all_clean/
-figures_safeguards/
-
-# Safeguard-script local outputs
-hopf_gate_count.pdf
-hopf_gate_count.png
-hopf_gate_count.svg
-VQE_ADAM_MC_qibo.pdf
-
-# Local notebook/editor files
-.ipynb_checkpoints/
-.DS_Store
-```
-
-The two GitHub preview images may be committed at the repository root:
-
-```text
-all_vqe_n10_clean.png
-all_met_n10_clean.png
-```
 
 ## Citation
 
 If you use this code, cite the accompanying Hopf ansatz paper.
-
-Add the final arXiv, DOI, or BibTeX entry here when available.
