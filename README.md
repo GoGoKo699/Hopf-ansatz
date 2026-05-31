@@ -163,22 +163,57 @@ gzip data/*.csv
 ## Synthetic tasks
 
 Each task is scrambled by a fixed real orthogonal circuit. This prevents the optimizers from exploiting an obvious computational-basis target.
-
 ### VQE tasks
 
-| ID | Name | Objective | Stress feature |
-|---|---|---|---|
-| `VQE-1` | Parent Hamiltonian | Minimize `1 - |<tau|psi>|^2`. | Direct scrambled target-state recovery. |
-| `VQE-2` | Scrambled Hamming spectrum | Minimize a Hamming-distance spectrum conjugated by the scrambler. | Structured diagonal spectrum hidden by a real orthogonal circuit. |
-| `VQE-3` | Small-gap spectrum | Minimize a scrambled diagonal Hamiltonian with one ground state and one nearby excited state at gap `1e-2`. | A small spectral gap near the optimum. |
+**`VQE-1`: Parent Hamiltonian**
+
+Minimizes the parent-Hamiltonian gap for a scrambled target state. This is the direct target-state recovery task.
+
+**Objective:** minimize one minus the squared target overlap.
+
+**Stress feature:** direct scrambled target-state recovery.
+
+**`VQE-2`: Scrambled Hamming spectrum**
+
+Minimizes a diagonal Hamming-distance spectrum after conjugation by the real scrambler.
+
+**Objective:** minimize the scrambled Hamming-spectrum energy.
+
+**Stress feature:** a structured diagonal spectrum hidden by a real orthogonal circuit.
+
+**`VQE-3`: Small-gap spectrum**
+
+Minimizes a scrambled diagonal Hamiltonian with one ground state, one nearby excited state, and all other levels at unit energy.
+
+**Objective:** minimize the scrambled small-gap Hamiltonian energy.
+
+**Stress feature:** a small spectral gap of `1e-2` near the optimum.
 
 ### Metrology-inspired tasks
 
-| ID | Name | Objective | Stress feature |
-|---|---|---|---|
-| `MET-1` | Single-target Fisher | Minimize `1 - F`, where `F = <tau|rho|tau>^2`. | Nonlinear single-target fixed-readout Fisher proxy. |
-| `MET-2` | QFI superposition | Maximize normalized pure-state QFI for a scrambled diagonal generator. | Optimum is an equal superposition of the extremal generator eigenstates. |
-| `MET-3` | Balanced Fisher | Minimize a soft-min gap for two target Fisher contributions. | Nonlinear two-target objective requiring balanced overlap. |
+**`MET-1`: Single-target Fisher**
+
+Optimizes a nonlinear fixed-readout Fisher proxy for a scrambled target state.
+
+**Objective:** minimize one minus the squared Fisher proxy.
+
+**Stress feature:** nonlinear single-target fixed-readout objective.
+
+**`MET-2`: QFI superposition**
+
+Optimizes normalized pure-state QFI for a scrambled diagonal generator.
+
+**Objective:** maximize normalized QFI, equivalently minimize the normalized-QFI gap.
+
+**Stress feature:** the optimum is an equal superposition of the extremal generator eigenstates.
+
+**`MET-3`: Balanced Fisher**
+
+Optimizes a nonlinear two-target Fisher soft-min objective.
+
+**Objective:** minimize the balanced two-target Fisher gap.
+
+**Stress feature:** the optimum requires balanced overlap with two scrambled target states.
 
 Lower cost or gap is better in all diagnostic summaries.
 
