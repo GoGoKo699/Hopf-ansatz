@@ -24,10 +24,150 @@ Generated datasets, diagnostic reports, local safeguard outputs, and paper-facin
 
 The two plots below are plain-scale GitHub preview plots at `n=10`. They are not paper-facing figures.
 
+Each panel shows the mean optimization trace for one synthetic task, comparing the geometry-native Hopf optimizers with the Adam baselines. The horizontal axis is the outer optimization step. The vertical axis is the task cost: for VQE it is the energy gap or energy-like cost, and for the metrology-inspired tasks it is the Fisher or normalized-QFI optimality gap. Lower values are better.
+
+## Preview plots
+
+The two plots below are plain-scale GitHub preview plots at `n=10`. They are not paper-facing figures.
+
+Each panel shows the mean optimization trace for one synthetic task, comparing the geometry-native Hopf optimizers with the Adam baselines. The horizontal axis is the outer optimization step. The vertical axis is the task cost: for VQE it is the energy gap or energy-like cost, and for the metrology-inspired tasks it is the Fisher or normalized-QFI optimality gap. Lower values are better.
+
+The VQE preview contains three scrambled Hamiltonian tests:
+
+**Parent Hamiltonian:** recover a scrambled target state by minimizing the parent-Hamiltonian gap. The task cost is the missing target overlap,
+
+```math
+\mathcal{C}_{\mathrm{parent}}(\psi)
+=
+1 - |\langle \tau|\psi\rangle|^2 .
+```
+
+Here τ is the scrambled target state. The minimum is zero, reached when the variational state ψ equals τ up to the real global sign convention used in the code.
+
+**Hamming spectrum:** minimize a structured diagonal Hamming-distance spectrum hidden by a real orthogonal scrambling circuit. The task cost is the expected normalized Hamming distance in the unscrambled basis,
+
+```math
+\mathcal{C}_{\mathrm{Ham}}(\psi)
+=
+\sum_x
+\frac{d_{\mathrm{H}}(x,x_0)}{n}
+\,
+|(S^\top\psi)_x|^2 .
+```
+
+Here S is the fixed real scrambler and x₀ is the hidden target bit string. Physically, this tests whether the optimizer can find the scrambled computational-basis ground state of a simple but hidden diagonal spectrum.
+
+**Small-gap spectrum:** minimize a scrambled Hamiltonian with a deliberately small spectral gap near the ground state. The task cost is the expected value of a scrambled diagonal spectrum,
+
+```math
+\mathcal{C}_{\mathrm{gap}}(\psi)
+=
+\sum_x
+E_x
+|(S^\top\psi)_x|^2 ,
+```
+
+with
+
+```math
+E_{x_0}=0,\qquad
+E_{x_1}=10^{-2},\qquad
+E_x=1\ \text{for all other }x .
+```
+
+The physical stress feature is the nearby distractor state x₁: the optimizer must distinguish the true ground state from a low-lying excited state.
+
 ![VQE cost traces, n=10](all_vqe_n10_clean.png)
 
-![MET cost traces, n=10](all_met_n10_clean.png)
+The metrology preview contains three nonlinear sensing-inspired tests:
 
+**Single-target Fisher:** maximize a fixed-readout Fisher proxy for one scrambled target state. The task cost is
+
+```math
+\mathcal{C}_{\mathrm{single}}(\psi)
+=
+1 - F,
+\qquad
+F =
+|\langle \tau|\psi\rangle|^4 .
+```
+
+Equivalently, the code first computes the target probability A = |⟨τ|ψ⟩|² and then uses F = A². Physically, this rewards concentration of the probe state on one scrambled readout pattern.
+
+**QFI superposition:** maximize normalized pure-state QFI for a scrambled diagonal generator. In the unscrambled basis, the code computes
+
+```math
+\mu =
+\sum_x g_x |(S^\top\psi)_x|^2,
+\qquad
+\nu =
+\sum_x g_x^2 |(S^\top\psi)_x|^2,
+```
+
+and then uses the normalized QFI objective
+
+```math
+F_Q^{\mathrm{norm}}(\psi)
+=
+\frac{4(\nu-\mu^2)}{\mathrm{span}(G)^2}.
+```
+
+The task cost is
+
+```math
+\mathcal{C}_{\mathrm{QFI}}(\psi)
+=
+1 - F_Q^{\mathrm{norm}}(\psi).
+```
+
+Physically, this rewards a probe state with large generator variance. The optimum is an equal superposition of the scrambled minimum- and maximum-generator eigenstates.
+
+**Balanced Fisher:** optimize a two-target Fisher objective where the optimum requires balanced overlap with two scrambled target states. The code computes
+
+```math
+e_1 = |\langle \tau_1|\psi\rangle|^2,
+\qquad
+e_2 = |\langle \tau_2|\psi\rangle|^2,
+```
+
+then
+
+```math
+F_1=e_1^2,
+\qquad
+F_2=e_2^2.
+```
+
+The balanced Fisher score is a soft minimum,
+
+```math
+F_{\mathrm{bal}}(\psi)
+=
+-\frac{1}{\beta}
+\log\!\left(
+\frac{
+e^{-\beta F_1}
++
+e^{-\beta F_2}
+}{2}
+\right),
+\qquad
+\beta=20 .
+```
+
+The task cost is
+
+```math
+\mathcal{C}_{\mathrm{bal}}(\psi)
+=
+\frac{1}{4}
+-
+F_{\mathrm{bal}}(\psi).
+```
+
+The optimum has balanced probability on the two scrambled targets, giving approximately e₁ = e₂ = 1/2, hence F₁ = F₂ = 1/4 and zero cost.
+
+![MET cost traces, n=10](all_met_n10_clean.png)
 To regenerate these preview plots locally, generate the datasets and run `plot_all.py`; see the sections below.
 
 ## Requirements
