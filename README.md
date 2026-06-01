@@ -26,12 +26,6 @@ The two plots below are plain-scale GitHub preview plots at `n=10`. They are not
 
 Each panel shows the mean optimization trace for one synthetic task, comparing the geometry-native Hopf optimizers with the Adam baselines. The horizontal axis is the outer optimization step. The vertical axis is the task cost: for VQE it is the energy gap or energy-like cost, and for the metrology-inspired tasks it is the Fisher or normalized-QFI optimality gap. Lower values are better.
 
-## Preview plots
-
-The two plots below are plain-scale GitHub preview plots at `n=10`. They are not paper-facing figures.
-
-Each panel shows the mean optimization trace for one synthetic task, comparing the geometry-native Hopf optimizers with the Adam baselines. The horizontal axis is the outer optimization step. The vertical axis is the task cost: for VQE it is the energy gap or energy-like cost, and for the metrology-inspired tasks it is the Fisher or normalized-QFI optimality gap. Lower values are better.
-
 The VQE preview contains three scrambled Hamiltonian tests:
 
 **Parent Hamiltonian:** recover a scrambled target state by minimizing the parent-Hamiltonian gap. The task cost is the missing target overlap,
