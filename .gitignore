@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env/
+
+# Generated data and diagnostics
+data/
+data_smoke/
+figures*/
+diagnostics/
+*.csv
+*.csv.gz
+*_diagnostics.txt
+
+# Generated local figures
+*.pdf
+*.png
+!all_vqe_n10_clean.png
+!all_met_n10_clean.png
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
