@@ -372,11 +372,11 @@ Run:
 MPLBACKEND=Agg python VQE_qibo.py
 ```
 
-This script uses Qibo to build explicit ancilla Hadamard-test circuits for real-Hopf tangent-state transition moments of the form:
+This script uses Qibo to build explicit ancilla Hadamard-test circuits for real-Hopf tangent-state transition moments of the form
 
-```text
-Re <partial_i psi(theta)| P_alpha |psi(theta)>
-```
+$$
+\mathrm{Re}\,\langle \partial_i \psi(\theta) \mid P_\alpha \mid \psi(\theta)\rangle
+$$
 
 inside a small TFIM VQE example. It compares a sampled circuit-gradient trajectory with an exact state-vector-gradient trajectory and writes:
 
