@@ -2,9 +2,9 @@
 
 This repository contains reproducible synthetic stress-test code for the Hopf ansatz.
 
-The code generates synthetic VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguard scripts for the Hopf CNOT-count formulas and the circuit-level real-Hopf gradient construction.
+The code generates synthetic VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguards for the Hopf CNOT-count formulas and Qibo layerwise gradient-access circuits.
 
-Full generated CSV datasets and local safeguard figure outputs are not included in this archive. Included diagnostic text files and the paper PDF are release artifacts; they can be regenerated from the scripts once the full CSV datasets are present.
+Full generated CSV datasets are not included in this archive. Included diagnostic text files, the paper PDF, and the Qibo toy-circuit panel `VQE_qibo.pdf` are release artifacts; the diagnostics and panel can be regenerated from the scripts.
 
 ## Repository contents
 
@@ -17,7 +17,12 @@ Full generated CSV datasets and local safeguard figure outputs are not included 
 | `diagnose_adam.py` | Checks completeness and numerical quality of Adam baseline CSVs. |
 | `plot_hopf.py` | Generates summary and convergence plots from Hopf CSVs. |
 | `hopf_gate_count.py` | Safeguard script for the CNOT-count formulas. It builds real and complex Hopf gate schedules and checks numerical counts against the closed-form binomial formulas. |
-| `VQE_qibo.py` | Circuit-level safeguard script for the real-Hopf gradient formula. It builds explicit Qibo ancilla circuits for transition-moment estimation in a small VQE example. |
+| `VQE_qibo.py` | Qibo layerwise gradient-access safeguard for local `n=4` real and complex Hopf VQE toys; compares exact Hopf-gradient Adam with sampled layerwise-circuit Adam. |
+| `VQE_qibo.pdf` | Included output panel from `VQE_qibo.py`, showing the real and complex `n=4` local toy trajectories. |
+
+## Synthetic tasks
+
+The main synthetic dataset uses six scrambled real-state tasks. Each task is scrambled by a fixed real orthogonal circuit, preventing the optimizers from exploiting an obvious computational-basis target.
 
 The VQE test contains three scrambled Hamiltonian tests:
 
@@ -152,6 +157,8 @@ F_{\mathrm{bal}}(\psi).
 
 The optimum has balanced probability on the two scrambled targets, giving approximately e₁ = e₂ = 1/2, hence F₁ = F₂ = 1/4 and zero cost.
 
+Lower cost or gap is better in all diagnostic summaries.
+
 To regenerate the plots locally, generate the datasets and run `plot_hopf.py`; see the sections below.
 
 ## Requirements
@@ -164,71 +171,15 @@ Install the required packages for data generation, diagnostics, CNOT counting, a
 pip install numpy scipy matplotlib
 ```
 
-Optional package for circuit-level checks:
+Optional package for explicit circuit-level checks:
 
 ```bash
 pip install qibo
 ```
 
-`qibo` is only needed for optional circuit checks in `hopf_utils.py` and for the standalone circuit-safeguard script `VQE_qibo.py`. The synthetic data-generation, diagnostic, CNOT-count, and plotting scripts do not require Qibo.
+`qibo` is used by optional circuit checks in `hopf_utils.py` and by `VQE_qibo.py` when running the explicit Qibo sampler. The synthetic data-generation, diagnostic, CNOT-count, and plotting scripts do not require Qibo.
 
 
-## Synthetic tasks
-
-Each task is scrambled by a fixed real orthogonal circuit. This prevents the optimizers from exploiting an obvious computational-basis target.
-### VQE tasks
-
-**`VQE-1`: Parent Hamiltonian**
-
-Minimizes the parent-Hamiltonian gap for a scrambled target state. This is the direct target-state recovery task.
-
-**Objective:** minimize one minus the squared target overlap.
-
-**Stress feature:** direct scrambled target-state recovery.
-
-**`VQE-2`: Scrambled Hamming spectrum**
-
-Minimizes a diagonal Hamming-distance spectrum after conjugation by the real scrambler.
-
-**Objective:** minimize the scrambled Hamming-spectrum energy.
-
-**Stress feature:** a structured diagonal spectrum hidden by a real orthogonal circuit.
-
-**`VQE-3`: Small-gap spectrum**
-
-Minimizes a scrambled diagonal Hamiltonian with one ground state, one nearby excited state, and all other levels at unit energy.
-
-**Objective:** minimize the scrambled small-gap Hamiltonian energy.
-
-**Stress feature:** a small spectral gap of `1e-2` near the optimum.
-
-### Metrology-inspired tasks
-
-**`MET-1`: Single-target Fisher**
-
-Optimizes a nonlinear fixed-readout Fisher proxy for a scrambled target state.
-
-**Objective:** minimize one minus the squared Fisher proxy.
-
-**Stress feature:** nonlinear single-target fixed-readout objective.
-
-**`MET-2`: QFI superposition**
-
-Optimizes normalized pure-state QFI for a scrambled diagonal generator.
-
-**Objective:** maximize normalized QFI, equivalently minimize the normalized-QFI gap.
-
-**Stress feature:** the optimum is an equal superposition of the extremal generator eigenstates.
-
-**`MET-3`: Balanced Fisher**
-
-Optimizes a nonlinear two-target Fisher soft-min objective.
-
-**Objective:** minimize the balanced two-target Fisher gap.
-
-**Stress feature:** the optimum requires balanced overlap with two scrambled target states.
-
-Lower cost or gap is better in all diagnostic summaries.
 
 ## Optimizer modes
 
@@ -335,7 +286,7 @@ This executes consistency checks for inverse mapping, tangent-state synthesis, m
 
 ## Safeguard scripts
 
-The repository includes two standalone safeguard scripts. They are not part of the main synthetic-data pipeline, and their generated figure files are not committed.
+The repository includes two standalone safeguard scripts. They are separate from the main synthetic-data pipeline. `VQE_qibo.pdf` is included as a small release panel for the Qibo layerwise-circuit check; other generated safeguard outputs can be regenerated locally.
 
 ### CNOT-count safeguard
 
@@ -364,7 +315,7 @@ python hopf_gate_count.py \
 
 The script compares counts obtained directly from the generated Hopf gate schedules against the closed-form binomial count formulas. The saved plot is only a local check and is not shown in this README.
 
-### Qibo circuit-level gradient safeguard
+### Qibo layerwise gradient-access safeguard
 
 Run:
 
@@ -372,19 +323,29 @@ Run:
 MPLBACKEND=Agg python VQE_qibo.py
 ```
 
-This script uses Qibo to build explicit ancilla Hadamard-test circuits for real-Hopf tangent-state transition moments of the form
+This script runs two local `n=4` VQE toy models:
 
-$$
-\mathrm{Re}\,\langle \partial_i \psi(\theta) \mid P_\alpha \mid \psi(\theta)\rangle
-$$
+- **Real Hopf:** a real nearest-neighbor chain with `X`, `Z`, `XX`, `YY`, and `ZZ` terms.
+- **Complex Hopf:** a local chiral chain with `X`, `Y`, `Z`, `XX`, `YY`, `ZZ`, and `XY - YX` terms.
 
-inside a small TFIM VQE example. It compares a sampled circuit-gradient trajectory with an exact state-vector-gradient trajectory and writes:
+For each toy, Adam uses a fixed learning rate and a fully random initialization. The plot compares the exact Hopf-gradient trajectory with the sampled layerwise-circuit trajectory. The layerwise estimator uses the baseline energy, indexed derivative-layer energies, and indexed signed-branch energies; the complex toy also uses the single indexed phase layer.
+
+The setting counts per Pauli readout are:
 
 ```text
-VQE_ADAM_MC_qibo.pdf
+real Hopf:    1 + 2*4 = 9
+complex Hopf: 1 + 2*5 = 11
 ```
 
-This output is a local circuit-realizability check and is not shown in this README.
+The script writes:
+
+```text
+VQE_qibo.pdf
+```
+
+[Open the included output panel: `VQE_qibo.pdf`](VQE_qibo.pdf)
+
+The included panel shows the sampled layerwise-circuit trajectories tracking the exact-gradient trajectories and approaching the exact ground-energy lines for both local toy Hamiltonians. This is a circuit-realizability check for the Hopf gradient-access protocol, not a synthetic stress-test result.
 
 ## Reproducibility notes
 
@@ -392,7 +353,7 @@ The scripts use deterministic random seeds by default. Re-running the same comma
 
 In Hopf CSVs, `last_line_evals` is a line-search work counter. It includes trial objective evaluations and, when strong-Wolfe curvature checks are reached, gradient-oracle calls used only by the line search. In Adam CSVs, `last_line_evals` counts adaptive cost-only trial evaluations.
 
-The generated stress-test datasets use the real Hopf chart. `hopf_utils.py` also contains real and complex Hopf utilities used by the paper.
+The generated stress-test datasets use the real Hopf chart. `hopf_utils.py` also contains real and complex Hopf utilities used by the paper, and `VQE_qibo.py` exercises both versions in small local toy examples.
 
 
 ## Citation
