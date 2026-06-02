@@ -4,7 +4,7 @@ This repository contains reproducible synthetic stress-test code for the Hopf an
 
 The code generates synthetic VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguard scripts for the Hopf CNOT-count formulas and the circuit-level real-Hopf gradient construction.
 
-Generated datasets, diagnostic reports, local safeguard outputs, and paper-facing figure outputs are intentionally not committed. They can be regenerated from the scripts.
+Full generated CSV datasets and local safeguard figure outputs are not included in this archive. Included diagnostic text files and the paper PDF are release artifacts; they can be regenerated from the scripts once the full CSV datasets are present.
 
 ## Repository contents
 
@@ -13,7 +13,7 @@ Generated datasets, diagnostic reports, local safeguard outputs, and paper-facin
 | `hopf_utils.py` | Core Hopf utilities: real and complex coordinate maps, inverse maps, Jacobians, diagonal metrics, tangent-state assignments, gate schedules, and optional Qibo circuit checks. |
 | `hopf_data.py` | Generates synthetic stress-test CSVs for the three geometry-native Hopf optimizers. |
 | `adam_data.py` | Generates synthetic stress-test CSVs for the two adaptive Adam baselines. |
-| `diagnose_hopf_data.py` | Checks completeness and numerical quality of Hopf optimizer CSVs. |
+| `diagnose_hopf.py` | Checks completeness and numerical quality of Hopf optimizer CSVs. |
 | `diagnose_adam.py` | Checks completeness and numerical quality of Adam baseline CSVs. |
 | `plot_hopf.py` | Generates summary and convergence plots from Hopf CSVs. |
 | `hopf_gate_count.py` | Safeguard script for the CNOT-count formulas. It builds real and complex Hopf gate schedules and checks numerical counts against the closed-form binomial formulas. |
@@ -284,7 +284,7 @@ To change the number of initial states, pass the same value to both the data-gen
 python hopf_data.py --n 8 --num-seeds 5 --outdir data
 python adam_data.py --n 8 --num-seeds 5 --outdir data
 
-python diagnose_hopf_data.py --indir data --ns 8 --num-seeds 5
+python diagnose_hopf.py --indir data --ns 8 --num-seeds 5
 python diagnose_adam.py --indir data --ns 8 --num-seeds 5
 ```
 
@@ -295,7 +295,7 @@ Run diagnostics after generating the datasets.
 ```bash
 mkdir -p diagnostics
 
-python diagnose_hopf_data.py \
+python diagnose_hopf.py \
     --indir data \
     --ns 6-10 \
     --steps 200 \
@@ -390,7 +390,7 @@ This output is a local circuit-realizability check and is not shown in this READ
 
 The scripts use deterministic random seeds by default. Re-running the same commands with the same Python, NumPy, and SciPy versions should reproduce the same synthetic task definitions and initial-state seeds.
 
-The optimization experiments are exact state-vector simulations. They do not model finite-shot sampling noise.
+In Hopf CSVs, `last_line_evals` is a line-search work counter. It includes trial objective evaluations and, when strong-Wolfe curvature checks are reached, gradient-oracle calls used only by the line search. In Adam CSVs, `last_line_evals` counts adaptive cost-only trial evaluations.
 
 The generated stress-test datasets use the real Hopf chart. `hopf_utils.py` also contains real and complex Hopf utilities used by the paper.
 
