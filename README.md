@@ -340,10 +340,10 @@ complex Hopf: 1 + 2*5 = 11
 The script writes:
 
 ```text
-VQE_qibo.pdf
+VQE_qibo.png
 ```
 
-[Open the included output panel: `VQE_qibo.pdf`](VQE_qibo.pdf)
+![Qibo layerwise-circuit safeguard output](VQE_qibo.png)
 
 The included panel shows the sampled layerwise-circuit trajectories tracking the exact-gradient trajectories and approaching the exact ground-energy lines for both local toy Hamiltonians. This is a circuit-realizability check for the Hopf gradient-access protocol, not a synthetic stress-test result.
 
