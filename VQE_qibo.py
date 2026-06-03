@@ -1220,7 +1220,7 @@ def parse_args() -> argparse.Namespace:
         default="auto",
         help="Layerwise sampler. 'auto' uses Qibo if available, otherwise statevector fallback.",
     )
-    parser.add_argument("--output", default="VQE_qibo.png", help="Output PDF path.")
+    parser.add_argument("--output", default="VQE_qibo.png", help="Output plot path. The file extension controls the Matplotlib output format.")
     parser.add_argument("--exact-only", action="store_true", help="Skip the sampled layerwise trajectories.")
     parser.add_argument("--plot-gap", action="store_true", help="Plot E(theta)-E0 on a logarithmic y-axis instead of raw energies.")
     parser.add_argument("--log-every", type=int, default=10, help="Console logging period. Set to 0 to suppress per-iteration logs.")
