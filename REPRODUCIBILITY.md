@@ -1,7 +1,8 @@
 # Reproducibility checklist
 
-This repository contains the scripts used for the synthetic Hopf ansatz stress
-tests and local safeguards.
+This repository intentionally does not track the full generated CSV datasets. They are large derived artifacts, and they can be regenerated from the deterministic scripts in this repository.
+
+The commands below assume they are run from the repository root.
 
 ## Environment
 
