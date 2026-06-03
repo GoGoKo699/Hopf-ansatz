@@ -4,7 +4,7 @@ This repository contains reproducible synthetic stress-test code for the Hopf an
 
 The code generates synthetic VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguards for the Hopf CNOT-count formulas and Qibo layerwise gradient-access circuits.
 
-Full generated CSV datasets are not included in this archive. Included diagnostic text files, the paper PDF, and the Qibo toy-circuit panel `VQE_qibo.pdf` are release artifacts; the diagnostics and panel can be regenerated from the scripts.
+Full generated CSV datasets are intentionally not tracked in GitHub because they are large derived artifacts. They can be regenerated from deterministic scripts; see `REPRODUCIBILITY.md`. Included diagnostic text files, the paper PDF, and the Qibo toy-circuit panel `VQE_qibo.png` are release artifacts; the diagnostics can be regenerated after regenerating the CSVs, and the panel can be regenerated from `VQE_qibo.py`.
 
 ## Repository contents
 
@@ -17,9 +17,8 @@ Full generated CSV datasets are not included in this archive. Included diagnosti
 | `diagnose_adam.py` | Checks completeness and numerical quality of Adam baseline CSVs. |
 | `plot_hopf.py` | Generates summary and convergence plots from Hopf CSVs. |
 | `hopf_gate_count.py` | Safeguard script for the CNOT-count formulas. It builds real and complex Hopf gate schedules and checks numerical counts against the closed-form binomial formulas. |
-| `VQE_qibo.py` | Qibo layerwise gradient-access safeguard for local `n=4` real and complex Hopf VQE toys; compares exact Hopf-gradient Adam with sampled layerwise-circuit Adam. |
-| `VQE_qibo.pdf` | Included output panel from `VQE_qibo.py`, showing the real and complex `n=4` local toy trajectories. |
-
+| `VQE_qibo.py` | Functional Qibo/statevector layerwise gradient-access safeguard for local `n=4` real and complex Hopf VQE toys; compares exact Hopf-gradient Adam with sampled layerwise-circuit Adam. This is a local circuit-realizability demo, not the asymptotically optimized indexed-gradient scaling implementation. |
+| `VQE_qibo.png` | Included output panel from `VQE_qibo.py`, showing the real and complex `n=4` local toy trajectories. |
 ## Synthetic tasks
 
 The main synthetic dataset uses six scrambled real-state tasks. Each task is scrambled by a fixed real orthogonal circuit, preventing the optimizers from exploiting an obvious computational-basis target.
@@ -244,6 +243,7 @@ python diagnose_adam.py --indir data --ns 8 --num-seeds 5
 Run diagnostics after generating the datasets.
 
 ```bash
+repo_root="$(pwd)"
 mkdir -p diagnostics
 
 python diagnose_hopf.py \
@@ -251,14 +251,14 @@ python diagnose_hopf.py \
     --ns 6-10 \
     --steps 200 \
     --num-seeds 10 \
-    --out diagnostics/hopf_data_diagnostics.txt
+    --out "$repo_root/diagnostics/hopf_data_diagnostics.txt"
 
 python diagnose_adam.py \
     --indir data \
     --ns 6-10 \
     --steps 200 \
     --num-seeds 10 \
-    --out diagnostics/adam_data_diagnostics.txt
+    --out "$repo_root/diagnostics/adam_data_diagnostics.txt"
 ```
 
 The reports check:
@@ -273,6 +273,7 @@ The reports check:
 - win counts and final rankings.
 
 The diagnostic scripts are streaming and avoid loading the full vector columns into pandas.
+`diagnose_hopf.py` and `diagnose_adam.py` resolve relative `--out` paths inside `--indir`; the commands above use absolute output paths to keep the reports in the top-level `diagnostics/` directory.
 
 ## Optional Hopf utility checks
 
@@ -286,7 +287,7 @@ This executes consistency checks for inverse mapping, tangent-state synthesis, m
 
 ## Safeguard scripts
 
-The repository includes two standalone safeguard scripts. They are separate from the main synthetic-data pipeline. `VQE_qibo.pdf` is included as a small release panel for the Qibo layerwise-circuit check; other generated safeguard outputs can be regenerated locally.
+The repository includes two standalone safeguard scripts. They are separate from the main synthetic-data pipeline. `VQE_qibo.png` is included as a small release panel for the local `n=4` Qibo/statevector layerwise-circuit check; other generated safeguard outputs can be regenerated locally. The Qibo script is a functional circuit-realizability safeguard, not the asymptotically optimized indexed-gradient scaling implementation.
 
 ### CNOT-count safeguard
 
@@ -328,7 +329,7 @@ This script runs two local `n=4` VQE toy models:
 - **Real Hopf:** a real nearest-neighbor chain with `X`, `Z`, `XX`, `YY`, and `ZZ` terms.
 - **Complex Hopf:** a local chiral chain with `X`, `Y`, `Z`, `XX`, `YY`, `ZZ`, and `XY - YX` terms.
 
-For each toy, Adam uses a fixed learning rate and a fully random initialization. The plot compares the exact Hopf-gradient trajectory with the sampled layerwise-circuit trajectory. The layerwise estimator uses the baseline energy, indexed derivative-layer energies, and indexed signed-branch energies; the complex toy also uses the single indexed phase layer.
+For each toy, Adam uses a fixed learning rate and a fully random initialization. The plot compares the exact Hopf-gradient trajectory with the sampled layerwise-circuit trajectory. The layerwise estimator uses the baseline energy, indexed derivative-layer energies, and indexed signed-branch energies; the complex toy also uses the single indexed phase layer. The explicit-Qibo path builds label-controlled local circuits for clarity at `n=4`; it intentionally does not optimize control sharing or compile-depth asymptotics.
 
 The setting counts per Pauli readout are:
 
@@ -345,7 +346,7 @@ VQE_qibo.png
 
 ![Qibo layerwise-circuit safeguard output](VQE_qibo.png)
 
-The included panel shows the sampled layerwise-circuit trajectories tracking the exact-gradient trajectories and approaching the exact ground-energy lines for both local toy Hamiltonians. This is a circuit-realizability check for the Hopf gradient-access protocol, not a synthetic stress-test result.
+The included panel shows the sampled layerwise-circuit trajectories tracking the exact-gradient trajectories and approaching the exact ground-energy lines for both local toy Hamiltonians. This is a local circuit-realizability check for the Hopf gradient-access protocol, not a synthetic stress-test result or an asymptotic gate-count benchmark.
 
 ## Reproducibility notes
 
