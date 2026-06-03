@@ -4,19 +4,18 @@ __pycache__/
 .env/
 
 # Generated data and diagnostics
-data/
-data_smoke/
-figures*/
-diagnostics/
+# Full CSVs are large derived artifacts; regenerate them locally.
+data*/
+diagnostics*/
 *.csv
 *.csv.gz
-*_diagnostics.txt
 
 # Generated local figures
-*.pdf
-*.png
-!all_vqe_n10_clean.png
-!all_met_n10_clean.png
+# Figure directories are ignored, but release images/PDFs in the repository root
+# remain trackable, including VQE_qibo.png.
+figures*/
+hopf_gate_count.pdf
+hopf_gate_count.png
 
 # OS/editor files
 .DS_Store
