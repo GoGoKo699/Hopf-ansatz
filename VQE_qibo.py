@@ -1,6 +1,13 @@
-"""VQE_qibo_real_complex_layerwise_toys.py
+"""VQE_qibo.py
 ================================================================================
 Layerwise-circuit VQE safeguard for two local n=4 Hopf toy models.
+
+Scope:
+    This is a small functional circuit-realizability demo. It explicitly builds
+    n=4 label-controlled derivative/branch circuits so the layerwise energy
+    estimator can be checked against the exact Hopf gradient. It is not the
+    asymptotically optimized indexed-gradient circuit construction or a scaling
+    benchmark for the gate-count claims in the paper.
 
 This script replaces the per-parameter Hadamard-test gradient with the
 layerwise signed-energy estimator used in the draft:
@@ -27,11 +34,11 @@ there is no line search.
 
 Default run:
 
-    MPLBACKEND=Agg python VQE_qibo_real_complex_layerwise_toys.py
+    MPLBACKEND=Agg python VQE_qibo.py
 
 Output:
 
-    VQE_real_complex_hopf_qibo.pdf
+    VQE_qibo.png
 
 The default sampler is "auto": it uses explicit Qibo indexed-preparation
 circuits when Qibo is importable, and otherwise falls back to an equivalent
