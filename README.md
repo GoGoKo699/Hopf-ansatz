@@ -4,7 +4,7 @@ This repository contains reproducible synthetic stress-test code for the Hopf an
 
 The code generates synthetic VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguards for the Hopf CNOT-count formulas and Qibo layerwise gradient-access circuits.
 
-Full generated CSV datasets are intentionally not tracked in GitHub because they are large derived artifacts. They can be regenerated from deterministic scripts; see `REPRODUCIBILITY.md`. Included diagnostic text files, the paper PDF, and the Qibo toy-circuit panel `VQE_qibo.png` are release artifacts; the diagnostics can be regenerated after regenerating the CSVs, and the panel can be regenerated from `VQE_qibo.py`.
+Full generated CSV datasets are intentionally not tracked in GitHub because they are large derived artifacts. They can be regenerated from deterministic scripts; see `REPRODUCIBILITY.md`. The included `VQE_qibo.png` panel is a small release artifact and can be regenerated from `VQE_qibo.py`. Diagnostic text files and full data files are generated locally and are ignored by default.
 
 ## Repository contents
 
@@ -19,6 +19,13 @@ Full generated CSV datasets are intentionally not tracked in GitHub because they
 | `hopf_gate_count.py` | Safeguard script for the CNOT-count formulas. It builds real and complex Hopf gate schedules and checks numerical counts against the closed-form binomial formulas. |
 | `VQE_qibo.py` | Functional Qibo/statevector layerwise gradient-access safeguard for local `n=4` real and complex Hopf VQE toys; compares exact Hopf-gradient Adam with sampled layerwise-circuit Adam. This is a local circuit-realizability demo, not the asymptotically optimized indexed-gradient scaling implementation. |
 | `VQE_qibo.png` | Included output panel from `VQE_qibo.py`, showing the real and complex `n=4` local toy trajectories. |
+
+## Scope relative to the paper
+
+The paper is kept focused on the analytic construction. This repository carries implementation-level material: inverse-map checks, metric/Jacobian consistency checks, tangent-state synthesis checks, generated gate schedules, CNOT-count safeguards, synthetic optimizer traces, and a small real/complex layerwise gradient-access toy. These scripts make the construction inspectable without adding more detail to the manuscript.
+
+Hopf is used here as an optimization chart, not just as an amplitude loader. Existing state-preparation constructions address loading; this code focuses on the additional structures used in the paper's optimizer story: an explicit inverse chart, a diagonal metric, tangent-state assignments on the same circuit skeleton, and layerwise circuit checks. The Qibo/statevector demo is a local realizability safeguard, not a complete hardware-resource or sampling-complexity analysis.
+
 ## Synthetic tasks
 
 The main synthetic dataset uses six scrambled real-state tasks. Each task is scrambled by a fixed real orthogonal circuit, preventing the optimizers from exploiting an obvious computational-basis target.
@@ -167,18 +174,18 @@ Use Python 3.10 or newer.
 Install the required packages for data generation, diagnostics, CNOT counting, and plotting:
 
 ```bash
-pip install numpy scipy matplotlib
+python -m pip install -r requirements.txt
 ```
 
-Optional package for explicit circuit-level checks:
+Optional packages for explicit circuit-level checks:
 
 ```bash
-pip install qibo
+python -m pip install -r requirements-optional.txt
 ```
 
 `qibo` is used by optional circuit checks in `hopf_utils.py` and by `VQE_qibo.py` when running the explicit Qibo sampler. The synthetic data-generation, diagnostic, CNOT-count, and plotting scripts do not require Qibo.
 
-
+For a minimal local check without generating the full CSV archive, run the smoke-test commands in `REPRODUCIBILITY.md`.
 
 ## Optimizer modes
 
@@ -207,7 +214,7 @@ Mottonen-ideal-PS-Adam
 
 `Mottonen-ideal-PS-Adam` applies Adam to the physical post-multiplexing Möttönen rotation angles with an exact gradient equivalent to infinite-shot parameter shift.
 
-Both Adam baselines use adaptive cost-only backtracking. Trial evaluations are additional objective calls, not additional gradient, metric-estimation, Hessian, or Hamiltonian-action primitives.
+Both Adam baselines use adaptive cost-only backtracking. The diagnostics record the associated trial-evaluation counter, but these baselines are intended as implementation diagnostics rather than a standalone resource-accounting study.
 
 ## Seed convention
 
