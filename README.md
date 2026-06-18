@@ -17,7 +17,7 @@ Full generated CSV datasets are intentionally not tracked in GitHub because they
 | `diagnose_adam.py` | Checks completeness and numerical quality of Adam baseline CSVs. |
 | `plot_hopf.py` | Generates summary and convergence plots from the real-Hopf and Adam CSVs. |
 | `hopf_complex.py` | Focused complex-Hopf stress test at `n=6`. It runs the same six VQE and metrology-inspired objective families with complex scrambling, ten deterministic initial states per task, and four optimizer tracks; it writes the CSV, prints diagnostics, and produces the final-gap summary plot. |
-| `complex_stress_summary.pdf` | Included final-gap summary for the default complex-Hopf stress test. |
+| `hopf_complex.png` | Included final-gap summary for the default complex-Hopf stress test. |
 | `hopf_gate_count.py` | Safeguard script for the CNOT-count formulas. It builds real and complex Hopf gate schedules and checks numerical counts against the closed-form binomial formulas. |
 | `VQE_qibo.py` | Functional Qibo/statevector layerwise gradient-access safeguard for local `n=4` real and complex Hopf VQE toys; compares exact Hopf-gradient Adam with sampled layerwise-circuit Adam. This is a local circuit-realizability demo, not the asymptotically optimized indexed-gradient scaling implementation. |
 | `VQE_qibo.png` | Included output panel from `VQE_qibo.py`, showing the real and complex `n=4` local toy trajectories. |
@@ -253,7 +253,7 @@ This writes:
 
 ```text
 complex_hopf_stress_data.csv
-complex_stress_summary.pdf
+hopf_complex.png
 ```
 
 The CSV is a generated artifact and is not intended to be tracked in source control. The PDF contains one two-panel final-gap figure with the same meaning, optimizer order, plotting conventions, and color code as the upper row of the main real-Hopf summary figure.
@@ -272,7 +272,7 @@ python hopf_complex.py --plot-only
 
 The default run completed all `240` expected task-seed-mode traces and all `48,240` expected rows, with no missing steps, nonfinite gaps, materially negative gaps, or traces whose final gap was worse than their initial gap. The maximum state-norm error was `4.441e-16`. R-BB reached the `10^-8` threshold in all `30` VQE and all `30` metrology-inspired traces. EGT-CG and R-LBFGS had near-machine-precision medians with small slow-convergence tails, while coordinate Hopf-Adam retained substantially larger aggregate gaps.
 
-[View the complex-Hopf stress-test summary](complex_stress_summary.pdf)
+![View the complex-Hopf stress-test summary](hopf_complex.png)
 
 Roundoff-level negative final gaps are retained in the terminal diagnostics and clipped only when plotting on a logarithmic axis.
 
