@@ -2,9 +2,9 @@
 
 This repository contains reproducible synthetic stress-test code for the Hopf ansatz.
 
-The code generates synthetic VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguards for the Hopf CNOT-count formulas and Qibo layerwise gradient-access circuits.
+The code generates real- and complex-Hopf VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguards for the Hopf CNOT-count formulas and Qibo layerwise gradient-access circuits.
 
-Full generated CSV datasets are intentionally not tracked in GitHub because they are large derived artifacts. They can be regenerated from deterministic scripts; see `REPRODUCIBILITY.md`. The included `VQE_qibo.png` panel is a small release artifact and can be regenerated from `VQE_qibo.py`. Diagnostic text files and full data files are generated locally and are ignored by default.
+Full generated CSV datasets are intentionally not tracked in GitHub because they are large derived artifacts. They can be regenerated from deterministic scripts; see `REPRODUCIBILITY.md`. The included `VQE_qibo.png` and `complex_stress_summary.pdf` files are small release artifacts that can be regenerated from `VQE_qibo.py` and `hopf_complex.py`, respectively. Diagnostic text files and full data files are generated locally and are ignored by default.
 
 ## Repository contents
 
@@ -15,20 +15,22 @@ Full generated CSV datasets are intentionally not tracked in GitHub because they
 | `adam_data.py` | Generates synthetic stress-test CSVs for the two adaptive Adam baselines. |
 | `diagnose_hopf.py` | Checks completeness and numerical quality of Hopf optimizer CSVs. |
 | `diagnose_adam.py` | Checks completeness and numerical quality of Adam baseline CSVs. |
-| `plot_hopf.py` | Generates summary and convergence plots from Hopf CSVs. |
+| `plot_hopf.py` | Generates summary and convergence plots from the real-Hopf and Adam CSVs. |
+| `hopf_complex.py` | Focused complex-Hopf stress test at `n=6`. It runs the same six VQE and metrology-inspired objective families with complex scrambling, ten deterministic initial states per task, and four optimizer tracks; it writes the CSV, prints diagnostics, and produces the final-gap summary plot. |
+| `complex_stress_summary.pdf` | Included final-gap summary for the default complex-Hopf stress test. |
 | `hopf_gate_count.py` | Safeguard script for the CNOT-count formulas. It builds real and complex Hopf gate schedules and checks numerical counts against the closed-form binomial formulas. |
 | `VQE_qibo.py` | Functional Qibo/statevector layerwise gradient-access safeguard for local `n=4` real and complex Hopf VQE toys; compares exact Hopf-gradient Adam with sampled layerwise-circuit Adam. This is a local circuit-realizability demo, not the asymptotically optimized indexed-gradient scaling implementation. |
 | `VQE_qibo.png` | Included output panel from `VQE_qibo.py`, showing the real and complex `n=4` local toy trajectories. |
 
 ## Scope relative to the paper
 
-The paper is kept focused on the analytic construction. This repository carries implementation-level material: inverse-map checks, metric/Jacobian consistency checks, tangent-state synthesis checks, generated gate schedules, CNOT-count safeguards, synthetic optimizer traces, and a small real/complex layerwise gradient-access toy. These scripts make the construction inspectable without adding more detail to the manuscript.
+The paper is kept focused on the analytic construction. This repository carries implementation-level material: inverse-map checks, metric/Jacobian consistency checks, tangent-state synthesis checks, generated gate schedules, CNOT-count safeguards, the multi-size real-Hopf optimizer traces, a focused complex-Hopf stress test, and a small real/complex layerwise gradient-access toy. These scripts make the construction inspectable without adding more detail to the manuscript.
 
 Hopf is used here as an optimization chart, not just as an amplitude loader. Existing state-preparation constructions address loading; this code focuses on the additional structures used in the paper's optimizer story: an explicit inverse chart, a diagonal metric, tangent-state assignments on the same circuit skeleton, and layerwise circuit checks. The Qibo/statevector demo is a local realizability safeguard, not a complete hardware-resource or sampling-complexity analysis.
 
 ## Synthetic tasks
 
-The main synthetic dataset uses six scrambled real-state tasks. Each task is scrambled by a fixed real orthogonal circuit, preventing the optimizers from exploiting an obvious computational-basis target.
+The main multi-size synthetic dataset uses six scrambled real-state tasks. Each task is scrambled by a fixed real orthogonal circuit, preventing the optimizers from exploiting an obvious computational-basis target. The focused complex experiment in `hopf_complex.py` repeats the same six objective families at `n=6` with complex unitary scrambling.
 
 The VQE test contains three scrambled Hamiltonian tests:
 
@@ -165,7 +167,7 @@ The optimum has balanced probability on the two scrambled targets, giving approx
 
 Lower cost or gap is better in all diagnostic summaries.
 
-To regenerate the plots locally, generate the datasets and run `plot_hopf.py`; see the sections below.
+To regenerate the real-Hopf plots locally, generate the datasets and run `plot_hopf.py`; see the sections below. The complex-Hopf script generates its CSV, diagnostics, and summary plot through one entry point.
 
 ## Requirements
 
@@ -216,6 +218,64 @@ Mottonen-ideal-PS-Adam
 
 Both Adam baselines use adaptive cost-only backtracking. The diagnostics record the associated trial-evaluation counter, but these baselines are intended as implementation diagnostics rather than a standalone resource-accounting study.
 
+## Complex Hopf stress test
+
+`hopf_complex.py` provides a focused repository-level check of the complex Hopf extension. It repeats the same three VQE and three metrology-inspired objective families used in the real study, replacing the real orthogonal scrambling circuits with complex unitary scrambling circuits. It depends on `hopf_utils.py` in the same directory.
+
+The default experiment uses:
+
+```text
+n = 6
+3 VQE tasks
+3 metrology-inspired tasks
+10 deterministic initial states per task
+200 accepted optimizer updates
+```
+
+The four tracks are:
+
+```text
+Hopf-Adam
+Hopf-EGT-CG
+Hopf-Riemannian-BB
+Hopf-Riemannian-LBFGS
+```
+
+A complex Möttönen-Adam baseline is not included because a directly comparable extension of our chosen real post-multiplexing $R_y$ chart to a complex $R_y/R_z$ physical-angle chart was not implemented or validated here.
+
+Run the default experiment with:
+
+```bash
+python hopf_complex.py
+```
+
+This writes:
+
+```text
+complex_hopf_stress_data.csv
+complex_stress_summary.pdf
+```
+
+The CSV is a generated artifact and is not intended to be tracked in source control. The PDF contains one two-panel final-gap figure with the same meaning, optimizer order, plotting conventions, and color code as the upper row of the main real-Hopf summary figure.
+
+For a minimal local check, run:
+
+```bash
+python hopf_complex.py --quick
+```
+
+To regenerate the diagnostics and plot from an existing CSV without rerunning the optimizers:
+
+```bash
+python hopf_complex.py --plot-only
+```
+
+The default run completed all `240` expected task-seed-mode traces and all `48,240` expected rows, with no missing steps, nonfinite gaps, materially negative gaps, or traces whose final gap was worse than their initial gap. The maximum state-norm error was `4.441e-16`. R-BB reached the `10^-8` threshold in all `30` VQE and all `30` metrology-inspired traces. EGT-CG and R-LBFGS had near-machine-precision medians with small slow-convergence tails, while coordinate Hopf-Adam retained substantially larger aggregate gaps.
+
+[View the complex-Hopf stress-test summary](complex_stress_summary.pdf)
+
+Roundoff-level negative final gaps are retained in the terminal diagnostics and clipped only when plotting on a logarithmic axis.
+
 ## Seed convention
 
 By default, every fixed synthetic task is run from `10` deterministic initial-state seeds.
@@ -233,7 +293,7 @@ seed_offset = 77777
 seed_index = 0, 1, ..., num_seeds - 1
 ```
 
-The default `num_seeds` is `10`.
+The default `num_seeds` is `10`. `hopf_complex.py` uses the same rule for its complex initial states.
 
 To change the number of initial states, pass the same value to both the data-generation and diagnostic scripts:
 
@@ -361,8 +421,7 @@ The scripts use deterministic random seeds by default. Re-running the same comma
 
 In Hopf CSVs, `last_line_evals` is a line-search work counter. It includes trial objective evaluations and, when strong-Wolfe curvature checks are reached, gradient-oracle calls used only by the line search. In Adam CSVs, `last_line_evals` counts adaptive cost-only trial evaluations.
 
-The generated stress-test datasets use the real Hopf chart. `hopf_utils.py` also contains real and complex Hopf utilities used by the paper, and `VQE_qibo.py` exercises both versions in small local toy examples.
-
+The multi-size datasets generated by `hopf_data.py` and `adam_data.py` use the real Hopf chart. `hopf_complex.py` provides a focused `n=6` complex-chart extension using the same six objective families and four Hopf optimizer tracks. `hopf_utils.py` contains the shared real and complex Hopf maps, inverse maps, Jacobians, metrics, and tangent-state utilities, while `VQE_qibo.py` exercises both versions in small local circuit-level examples.
 
 ## Citation
 
