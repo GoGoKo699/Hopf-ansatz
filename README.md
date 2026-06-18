@@ -2,9 +2,9 @@
 
 This repository contains reproducible synthetic stress-test code for the Hopf ansatz.
 
-The code generates real- and complex-Hopf VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguards for the Hopf CNOT-count formulas and Qibo layerwise gradient-access circuits.
+The code generates real- and complex-Hopf VQE and metrology-inspired optimization traces, runs seed-aware diagnostics, produces GitHub-facing comparison plots, and includes standalone safeguards for the Hopf CNOT-count formulas, the finite-shot signed-branch gradient estimator, and Qibo layerwise gradient-access circuits.
 
-Full generated CSV datasets are intentionally not tracked in GitHub because they are large derived artifacts. They can be regenerated from deterministic scripts; see `REPRODUCIBILITY.md`. The included `VQE_qibo.png` and `complex_stress_summary.pdf` files are small release artifacts that can be regenerated from `VQE_qibo.py` and `hopf_complex.py`, respectively. Diagnostic text files and full data files are generated locally and are ignored by default.
+Full generated CSV datasets are intentionally not tracked in GitHub because they are derived artifacts. They can be regenerated from deterministic scripts; see `REPRODUCIBILITY.md`. The included `VQE_qibo.png`, `complex_stress_summary.pdf`, and `finite_shot_sanity.png`/`.pdf` files are small release artifacts that can be regenerated from `VQE_qibo.py`, `hopf_complex.py`, and `finite_shot_sanity_check.py`, respectively. Diagnostic text files and generated CSV files are ignored by default.
 
 ## Repository contents
 
@@ -17,16 +17,18 @@ Full generated CSV datasets are intentionally not tracked in GitHub because they
 | `diagnose_adam.py` | Checks completeness and numerical quality of Adam baseline CSVs. |
 | `plot_hopf.py` | Generates summary and convergence plots from the real-Hopf and Adam CSVs. |
 | `hopf_complex.py` | Focused complex-Hopf stress test at `n=6`. It runs the same six VQE and metrology-inspired objective families with complex scrambling, ten deterministic initial states per task, and four optimizer tracks; it writes the CSV, prints diagnostics, and produces the final-gap summary plot. |
-| `hopf_complex.png` | Included final-gap summary for the default complex-Hopf stress test. |
+| `complex_stress_summary.pdf` | Included final-gap summary for the default complex-Hopf stress test. |
+| `finite_shot_sanity_check.py` | Fixed-state finite-shot check of the symmetric signed-branch Hopf gradient estimator. It compares sampled full coordinate gradients with an exact tree-gradient reference, prints statistical diagnostics, and generates its CSV plus PNG/PDF summary. |
+| `finite_shot_sanity.png` / `finite_shot_sanity.pdf` | Included finite-shot estimator summary for the default `n=6`, 50-trial experiment. |
 | `hopf_gate_count.py` | Safeguard script for the CNOT-count formulas. It builds real and complex Hopf gate schedules and checks numerical counts against the closed-form binomial formulas. |
 | `VQE_qibo.py` | Functional Qibo/statevector layerwise gradient-access safeguard for local `n=4` real and complex Hopf VQE toys; compares exact Hopf-gradient Adam with sampled layerwise-circuit Adam. This is a local circuit-realizability demo, not the asymptotically optimized indexed-gradient scaling implementation. |
 | `VQE_qibo.png` | Included output panel from `VQE_qibo.py`, showing the real and complex `n=4` local toy trajectories. |
 
 ## Scope relative to the paper
 
-The paper is kept focused on the analytic construction. This repository carries implementation-level material: inverse-map checks, metric/Jacobian consistency checks, tangent-state synthesis checks, generated gate schedules, CNOT-count safeguards, the multi-size real-Hopf optimizer traces, a focused complex-Hopf stress test, and a small real/complex layerwise gradient-access toy. These scripts make the construction inspectable without adding more detail to the manuscript.
+The paper is kept focused on the analytic construction. This repository carries implementation-level material: inverse-map checks, metric/Jacobian consistency checks, tangent-state synthesis checks, generated gate schedules, CNOT-count safeguards, the multi-size real-Hopf optimizer traces, a focused complex-Hopf stress test, a finite-shot signed-branch estimator check, and a small real/complex layerwise gradient-access toy. These scripts make the construction inspectable without adding more detail to the manuscript.
 
-Hopf is used here as an optimization chart, not just as an amplitude loader. Existing state-preparation constructions address loading; this code focuses on the additional structures used in the paper's optimizer story: an explicit inverse chart, a diagonal metric, tangent-state assignments on the same circuit skeleton, and layerwise circuit checks. The Qibo/statevector demo is a local realizability safeguard, not a complete hardware-resource or sampling-complexity analysis.
+Hopf is used here as an optimization chart, not just as an amplitude loader. Existing state-preparation constructions address loading; this code focuses on the additional structures used in the paper's optimizer story: an explicit inverse chart, a diagonal metric, tangent-state assignments on the same circuit skeleton, and layerwise circuit checks. The finite-shot and Qibo/statevector demos are local estimator and circuit-realizability safeguards; they are not complete hardware-resource or total sampling-complexity analyses.
 
 ## Synthetic tasks
 
@@ -185,7 +187,7 @@ Optional packages for explicit circuit-level checks:
 python -m pip install -r requirements-optional.txt
 ```
 
-`qibo` is used by optional circuit checks in `hopf_utils.py` and by `VQE_qibo.py` when running the explicit Qibo sampler. The synthetic data-generation, diagnostic, CNOT-count, and plotting scripts do not require Qibo.
+`qibo` is used by optional circuit checks in `hopf_utils.py` and by `VQE_qibo.py` when running the explicit Qibo sampler. The synthetic data-generation, diagnostic, CNOT-count, finite-shot, and plotting scripts do not require Qibo.
 
 For a minimal local check without generating the full CSV archive, run the smoke-test commands in `REPRODUCIBILITY.md`.
 
@@ -253,7 +255,7 @@ This writes:
 
 ```text
 complex_hopf_stress_data.csv
-hopf_complex.png
+hopf_complex.pdf
 ```
 
 The CSV is a generated artifact and is not intended to be tracked in source control. The PDF contains one two-panel final-gap figure with the same meaning, optimizer order, plotting conventions, and color code as the upper row of the main real-Hopf summary figure.
@@ -354,7 +356,7 @@ This executes consistency checks for inverse mapping, tangent-state synthesis, m
 
 ## Safeguard scripts
 
-The repository includes two standalone safeguard scripts. They are separate from the main synthetic-data pipeline. `VQE_qibo.png` is included as a small release panel for the local `n=4` Qibo/statevector layerwise-circuit check; other generated safeguard outputs can be regenerated locally. The Qibo script is a functional circuit-realizability safeguard, not the asymptotically optimized indexed-gradient scaling implementation.
+The repository includes three standalone safeguard scripts. They are separate from the optimizer stress-test pipeline. `finite_shot_sanity.png` and `VQE_qibo.png` are included as small release panels for the estimator-level and circuit-level checks. These safeguards test specific parts of the construction; they are not full hardware-resource or total sampling-complexity benchmarks.
 
 ### CNOT-count safeguard
 
@@ -382,6 +384,62 @@ python hopf_gate_count.py \
 ```
 
 The script compares counts obtained directly from the generated Hopf gate schedules against the closed-form binomial count formulas. The saved plot is only a local check and is not shown in this README.
+
+### Finite-shot signed-branch gradient safeguard
+
+`finite_shot_sanity_check.py` isolates the statistical layer of the Hopf gradient protocol. It fixes one real Hopf state at `n=6`, uses a normalized diagonal Hamming-spectrum Hamiltonian, prepares the exact normalized tangent state for every one of the `63` Hopf coordinates, and estimates the symmetric signed-branch identity
+
+```math
+\partial_{\theta_i} E
+=
+\sqrt{g_{i,i}}
+\left(E_{\varphi_i^{(+)}}-E_{\varphi_i^{(-)}}\right).
+```
+
+The exact branch expectations first reproduce the independent tree-gradient reference to machine precision. Finite-shot branch energies are then sampled over `50` independent trials at each default shot count.
+
+Run:
+
+```bash
+python finite_shot_sanity_check.py
+```
+
+This writes:
+
+```text
+finite_shot_sanity_data.csv
+finite_shot_sanity.png
+finite_shot_sanity.pdf
+```
+
+To regenerate the plot from the existing CSV without rerunning the sampling experiment:
+
+```bash
+python finite_shot_sanity_check.py --plot-only
+```
+
+Default diagnostics:
+
+```text
+exact branch-identity residual       2.513e-16
+Tree/Jacobian reference residual     2.355e-16
+maximum |<psi|tangent>|              2.220e-16
+
+shots/branch     mean relative error        SEM
+100              0.186020                   0.005300
+1,000            0.056339                   0.001429
+10,000           0.018599                   0.000477
+
+log-log slope of mean error          -0.500036
+ideal independent-shot slope         -0.5
+```
+
+The plotted error bars are standard errors over the `50` trials. The fitted slope is consistent with the expected `S^{-1/2}` statistical convergence. In the script's convention, `S` samples are allocated to each of the `+` and `-` branch-energy estimates for each component; this fixed-state diagonal-observable check does not model indexed-label allocation, Pauli grouping, device noise, or a global full-gradient shot budget.
+
+<p align="center">
+  <img src="finite_shot_sanity.png" width="500">
+</p>
+
 
 ### Qibo layerwise gradient-access safeguard
 
@@ -421,7 +479,7 @@ The scripts use deterministic random seeds by default. Re-running the same comma
 
 In Hopf CSVs, `last_line_evals` is a line-search work counter. It includes trial objective evaluations and, when strong-Wolfe curvature checks are reached, gradient-oracle calls used only by the line search. In Adam CSVs, `last_line_evals` counts adaptive cost-only trial evaluations.
 
-The multi-size datasets generated by `hopf_data.py` and `adam_data.py` use the real Hopf chart. `hopf_complex.py` provides a focused `n=6` complex-chart extension using the same six objective families and four Hopf optimizer tracks. `hopf_utils.py` contains the shared real and complex Hopf maps, inverse maps, Jacobians, metrics, and tangent-state utilities, while `VQE_qibo.py` exercises both versions in small local circuit-level examples.
+The multi-size datasets generated by `hopf_data.py` and `adam_data.py` use the real Hopf chart. `hopf_complex.py` provides a focused `n=6` complex-chart extension using the same six objective families and four Hopf optimizer tracks. `finite_shot_sanity_check.py` tests the finite-shot symmetric branch estimator at a fixed real state, while `VQE_qibo.py` exercises real and complex layerwise constructions in small local circuit-level examples. `hopf_utils.py` contains the shared real and complex Hopf maps, inverse maps, Jacobians, metrics, and tangent-state utilities.
 
 ## Citation
 
