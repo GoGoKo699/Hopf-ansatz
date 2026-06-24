@@ -55,6 +55,11 @@ python finite_shot_sanity_check.py \
 
 The `VQE_qibo.py --sampler statevector` path is the dependency-light fallback. Use `--sampler qibo-explicit` after installing Qibo to force the explicit Qibo circuit path.
 
+The numerical implementation uses chart tolerances of `1e-6` for non-final
+magnitude angles and `1e-9` at final-layer trigonometric zeros in
+`clip_theta_hopf_real`, together with a default diagonal-metric division floor
+of `1e-12` set by `--metric-eps`.
+
 ## Generate the full synthetic CSV data
 
 ```bash
