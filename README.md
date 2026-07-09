@@ -459,7 +459,7 @@ This script runs two local `n=4` VQE toy models:
 - **Real Hopf:** a real nearest-neighbor chain with `X`, `Z`, `XX`, `YY`, and `ZZ` terms.
 - **Complex Hopf:** a local chiral chain with `X`, `Y`, `Z`, `XX`, `YY`, `ZZ`, and `XY - YX` terms.
 
-For each toy, Adam uses a fixed learning rate and a fully random initialization. The plot compares the exact Hopf-gradient trajectory with the sampled layerwise-circuit trajectory. The layerwise estimator uses the baseline energy, indexed derivative-layer energies, and indexed signed-branch energies; the complex toy also uses the single indexed phase layer. The explicit-Qibo path builds label-controlled local circuits for clarity at `n=4`; it intentionally does not optimize control sharing or compile-depth asymptotics.
+For each toy, Adam uses a fixed learning rate and a fully random initialization. The plot compares the exact Hopf-gradient trajectory with the sampled layerwise-circuit trajectory. The layerwise estimator uses the baseline energy, indexed derivative-layer energies, and indexed signed-branch energies; the complex toy also uses the single indexed phase layer. The explicit-Qibo path builds label-controlled local circuits for clarity at `n=4`. Here `Ns` denotes the number of shots per indexed label/sign for each Hamiltonian Pauli term.
 
 The setting counts per Pauli readout are:
 
