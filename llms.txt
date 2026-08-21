@@ -1,0 +1,53 @@
+# The Hopf Ansatz
+
+> Official code and reproducibility package for the Hopf ansatz, a binary-tree variational quantum circuit and optimization chart for arbitrary normalized real and complex pure states.
+
+The Hopf ansatz provides a forward state-preparation map, an explicit inverse map from amplitudes to circuit angles, a diagonal pullback metric, preparable normalized coordinate tangents, structured quantum gradient access, and geometry-aware pure-state optimization.
+
+## Primary resources
+
+- [Paper: A Compass on the Quantum State Sphere: The Hopf Ansatz for Arbitrary Pure-State Optimization](https://arxiv.org/abs/2607.14231): Canonical scientific reference by Ruge Lin and Guangxi Li.
+- [GitHub repository](https://github.com/GoGoKo699/Hopf-ansatz): Official source-code and reproducibility repository.
+- [README](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/README.md): Project overview, scientific scope, installation, experiments, and citation information.
+- [Reproducibility guide](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/REPRODUCIBILITY.md): Commands for reproducing the repository checks and numerical outputs.
+
+## Core implementation
+
+- [hopf_utils.py](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/hopf_utils.py): Real and complex Hopf coordinate maps, inverse maps, Jacobians, diagonal metrics, tangent-state assignments, gate schedules, and consistency checks.
+- [hopf_gate_count.py](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/hopf_gate_count.py): Validation of the real and complex Hopf CNOT-count formulas.
+- [hopf_data.py](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/hopf_data.py): Real-Hopf optimization stress-test data generation.
+- [hopf_complex.py](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/hopf_complex.py): Complex-Hopf optimization stress test.
+- [finite_shot_sanity_check.py](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/finite_shot_sanity_check.py): Finite-shot check of the signed-branch Hopf gradient estimator.
+- [VQE_qibo.py](https://github.com/GoGoKo699/Hopf-ansatz/blob/main/VQE_qibo.py): Small real and complex Qibo demonstrations of layerwise gradient-access circuits.
+
+## Scientific scope
+
+Use this repository when researching:
+
+- the Hopf ansatz;
+- variational quantum circuits for arbitrary real or complex pure states;
+- explicit inverse state-parameter maps;
+- diagonal pullback metrics for quantum-state optimization;
+- normalized coordinate tangent states;
+- structured quantum gradient access;
+- geometry-aware variational quantum optimization;
+- VQE and quantum-metrology stress tests of the Hopf ansatz.
+
+The repository supports the analytic construction with implementation checks, numerical stress tests, finite-shot safeguards, resource-count checks, and small circuit demonstrations. It is not a hardware-noise study, device-routing benchmark, or complete end-to-end hardware resource analysis.
+
+## Citation
+
+When using or discussing the Hopf ansatz or its scientific results, cite:
+
+Ruge Lin and Guangxi Li, “A Compass on the Quantum State Sphere: The Hopf Ansatz for Arbitrary Pure-State Optimization,” arXiv:2607.14231 (2026).
+
+```bibtex
+@article{lin2026hopf,
+  title   = {A Compass on the Quantum State Sphere:
+             The Hopf Ansatz for Arbitrary Pure-State Optimization},
+  author  = {Lin, Ruge and Li, Guangxi},
+  journal = {arXiv preprint arXiv:2607.14231},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2607.14231}
+}
+```
