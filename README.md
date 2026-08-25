@@ -230,3 +230,7 @@ Ansatz for Arbitrary Pure-State Optimization,” arXiv:2607.14231 (2026).**
   url     = {https://arxiv.org/abs/2607.14231}
 }
 ```
+
+## License
+
+This software is released under the [MIT License](LICENSE).
