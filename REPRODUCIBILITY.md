@@ -1,6 +1,7 @@
-# Reproducibility checklist
+# Reproducibility
 
-This repository intentionally does not track the full generated CSV datasets. They are large derived artifacts and can be regenerated from deterministic scripts in this repository.
+The deterministic scripts below regenerate the CSV datasets, diagnostics, and
+figures from the repository sources.
 
 The commands below assume they are run from the repository root.
 
@@ -55,10 +56,9 @@ python finite_shot_sanity_check.py \
 
 The `VQE_qibo.py --sampler statevector` path is the dependency-light fallback. Use `--sampler qibo-explicit` after installing Qibo to force the explicit Qibo circuit path.
 
-The numerical implementation uses chart tolerances of `1e-6` for non-final
-magnitude angles and `1e-9` at final-layer trigonometric zeros in
-`clip_theta_hopf_real`, together with a default diagonal-metric division floor
-of `1e-12` set by `--metric-eps`.
+The [engineering guide](docs/ENGINEERING_GUIDE.md#numerical-clipping-for-optimizer-traces)
+specifies the chart-clipping tolerances. The default diagonal-metric division
+floor is `1e-12`, set by `--metric-eps`.
 
 ## Generate the full synthetic CSV data
 
@@ -71,7 +71,7 @@ for n in 6 7 8 9 10; do
 done
 ```
 
-For a smaller development run, reduce `--num-seeds`, reduce `--steps`, or use `--quick`. Pass the same `--steps` and `--num-seeds` values to the diagnostic scripts.
+For a smaller run, reduce `--num-seeds`, reduce `--steps`, or use `--quick`. Pass the same `--steps` and `--num-seeds` values to the diagnostic scripts.
 
 ## Diagnostics
 
@@ -109,7 +109,7 @@ python plot_hopf.py \
     --formats pdf png
 ```
 
-## Standalone safeguards and extensions
+## Standalone experiments and safeguards
 
 ```bash
 python hopf_gate_count.py

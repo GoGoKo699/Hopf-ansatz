@@ -1,16 +1,9 @@
 # Engineering guide
 
-This guide specifies the implementable Hopf-ansatz interface without reproducing
-the paper's proofs, four-qubit walkthrough, or extended motivation.
-
-It is organized around the questions an engineer needs to answer:
-
-1. How are coordinates ordered and constrained?
-2. How are state vectors mapped to and from coordinates?
-3. How is the native gate schedule generated?
-4. How are Jacobians, metrics, and normalized tangents obtained?
-5. How are coordinate gradients lifted to the state sphere?
-6. Which substitutions and numerical safeguards are valid?
+This guide specifies the Hopf coordinate maps, native gate schedules, geometry,
+gradient interfaces, and numerical safeguards. For experiment settings and
+commands, see [Experiments](EXPERIMENTS.md) and
+[Reproducibility](../REPRODUCIBILITY.md).
 
 ## 1. Input and output contracts
 
@@ -573,8 +566,9 @@ one branch setting per layer. They do not specify the number of measurement
 repetitions needed for a target accuracy.
 
 `VQE_qibo.py` provides a transparent `n = 4` implementation with explicit
-index-controlled preparation. For a more developed exact-logical reverse
-implementation, use the companion Hopf-QBP repository.
+index-controlled preparation. For exact-logical reverse-gradient constructions,
+see the companion
+[Hopf-QBP repository](https://github.com/GoGoKo699/Hopf-QBP).
 
 ## 14. Geometry-native optimizer pipeline
 
@@ -788,24 +782,7 @@ State explicitly whether `S` means:
 The existing scripts use different, deliberately local conventions for their
 specific safeguards.
 
-## 18. Common failure modes
-
-| Failure | Consequence |
-|---|---|
-| Inferring the chart solely from parameter-vector length | Confuses complex `n` qubits with real `n + 1` qubits. |
-| Clipping the real final layer to `[0, pi/2]` | Removes arbitrary real signs. |
-| Using `RY(theta)` in Qibo | Introduces a factor-of-two error in every amplitude. |
-| Reversing bit significance | Corrupts target masks, controls, and leaf labels. |
-| Ignoring negative controls | Applies rotations to unintended basis sectors. |
-| Treating controlled `-I` as an identity | Removes a conditional phase. |
-| Comparing inverse coordinates at a zero subtree | Flags harmless coordinate nonuniqueness as an error. |
-| Dividing by a zero metric entry | Creates an artificial singular normalized tangent. |
-| Treating a tangent state's global phase as irrelevant inside a branch interferometer | Flips or rotates the inferred transition moment. |
-| Calling assigned CNOT counts hardware counts | Misstates the resource model. |
-| Treating the `n = 4` Qibo toy as the general optimized compiler | Overstates the implementation scope. |
-| Interpreting line-search work counters as circuit shots | Mixes classical optimizer work with measurement cost. |
-
-## 19. Validation workflow for an engineering change
+## 18. Validation workflow for an engineering change
 
 1. Run `python hopf_utils.py`.
 2. Test real and complex forward-after-inverse round trips on interior and
@@ -819,5 +796,3 @@ specific safeguards.
    changed.
 8. Run `hopf_complex.py --quick` if complex geometry changed.
 9. Regenerate diagnostic data before changing any reported optimization result.
-10. Record whether the change affects exact identities, numerical safeguards,
-    assigned resources, or only documentation.

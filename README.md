@@ -15,9 +15,6 @@ provides an explicit inverse map, a diagonal pullback metric, exactly preparable
 normalized coordinate tangents, structured gradient access, and
 geometry-aware optimization on the state sphere.
 
-This repository is a research reference implementation. It is not a production
-SDK and not a hardware benchmark.
-
 ## Choose a route
 
 | Goal | Start here |
@@ -25,74 +22,27 @@ SDK and not a hardware benchmark.
 | Check whether the repository supports a paper claim | [Claim support and evidence map](docs/CLAIM_SUPPORT.md) |
 | Implement the chart, inverse map, metric, tangents, or gate schedule | [Engineering guide](docs/ENGINEERING_GUIDE.md) |
 | Understand the numerical studies and safeguards | [Experiments and evidence](docs/EXPERIMENTS.md) |
-| Reproduce the scripts and generated data | [Reproducibility checklist](REPRODUCIBILITY.md) |
-| Inspect the second-paper reverse-gradient constructions | [Hopf-QBP repository](https://github.com/GoGoKo699/Hopf-QBP) |
+| Reproduce the scripts and generated data | [Reproducibility](REPRODUCIBILITY.md) |
+| Inspect the companion reverse-gradient constructions | [Hopf-QBP repository](https://github.com/GoGoKo699/Hopf-QBP) |
 
-## What is implemented
+## Implementation
 
-For `n` qubits and `N = 2**n`, the repository implements:
+For `n` qubits and `N = 2**n`, the real chart uses `N - 1` angles; the
+complex chart adds `N` leaf phases. The core API in `hopf_utils.py` provides
+forward and inverse maps, exact Jacobians, diagonal metrics, normalized tangent
+assignments, and deterministic real/complex gate schedules with optional Qibo
+circuit checks.
 
-- real Hopf coordinates with `N - 1` parameters;
-- complex Hopf coordinates with `N - 1` magnitude angles and `N` leaf phases;
-- forward maps from Hopf coordinates to normalized state vectors;
-- explicit inverse maps from normalized state vectors to Hopf coordinates;
-- exact Jacobians and analytic diagonal metrics;
-- parameter assignments that prepare normalized coordinate tangents on the
-  same circuit skeleton;
-- deterministic `HopfReal` and `HopfComplex` gate schedules;
-- optional Qibo circuit construction and statevector parity checks;
-- boundary-safe real and complex coordinate-gradient routines;
-- geometry-native state-sphere optimizers;
-- assigned no-clean-ancilla CNOT ledgers;
-- real and complex optimization stress tests;
-- a fixed-state finite-shot gradient safeguard; and
-- a local real/complex Qibo layerwise-gradient safeguard.
+The optimization scripts combine boundary-safe coordinate gradients with
+state-sphere geometry. The experiments cover real and complex synthetic tasks,
+a fixed-state finite-shot estimator, and a local `n = 4` layerwise circuit
+check. The resource ledger assigns logical CNOT costs under a declared
+no-clean-ancilla model.
 
-The repository keeps proofs, the four-qubit pedagogical walkthrough, and the
-paper's extended motivation in the paper. The documentation here is organized
-around verifiable claims and implementable interfaces.
-
-## Coordinate summary
-
-The complete binary tree has `N` computational-basis leaves and `N - 1`
-internal nodes. Internal nodes are indexed breadth first, starting at `1`.
-Basis states are ordered as
-
-```math
-\lvert q_n\cdots q_1\rangle,
-```
-
-with the path read from most-significant bit to least-significant bit.
-
-| Chart | Coordinate order | Canonical ranges |
-|---|---|---|
-| Real | `theta_1, ..., theta_(N-1)` | non-final magnitude angles in `[0, pi/2]`; final internal layer in `[0, 2*pi)` to encode real signs |
-| Complex | `theta_1, ..., theta_(N-1), theta_N, ..., theta_(2N-1)` | all magnitude angles in `[0, pi/2]`; one leaf phase in `[0, 2*pi)` per basis state |
-
-The maps parameterize normalized state-vector spheres. As with ordinary
-spherical coordinates, zero-weight subtrees and zero-amplitude leaves admit
-nonunique coordinate representatives. The implementation fixes explicit
-inverse-map conventions for those cases.
-
-## Structure at a glance
-
-```mermaid
-flowchart LR
-    A[Hopf coordinates] --> B[Forward state map]
-    B --> C[Normalized state]
-    C --> D[Inverse Hopf map]
-    D --> A
-    A --> E[Jacobian and diagonal metric]
-    E --> F[Normalized tangent states]
-    F --> G[Gradient-access configurations]
-    G --> H[Coordinate gradient]
-    H --> I[State-sphere metric lift]
-    I --> J[Geodesic optimizer]
-    J --> C
-```
-
-The core API is in `hopf_utils.py`. The other scripts either exercise that API,
-construct optimization studies, or validate a specific implementation claim.
+Coordinate conventions, singular-boundary handling, and implementation examples
+are in the [engineering guide](docs/ENGINEERING_GUIDE.md). The
+[claim map](docs/CLAIM_SUPPORT.md) connects each result to its checks and scope;
+the paper supplies the formal proofs.
 
 ## Quick start
 
@@ -117,37 +67,13 @@ Run the core map, inverse, metric, tangent, and optional Qibo checks:
 python hopf_utils.py
 ```
 
-Run the assigned CNOT-count safeguard:
-
-```bash
-python hopf_gate_count.py --nmin 2 --nmax 10 --out hopf_gate_count.pdf
-```
-
-Run the small layerwise-gradient safeguard:
-
-```bash
-MPLBACKEND=Agg python VQE_qibo.py
-```
-
-Run the fixed-state finite-shot safeguard:
-
-```bash
-python finite_shot_sanity_check.py
-```
-
-Run the focused complex-Hopf stress test:
-
-```bash
-python hopf_complex.py
-```
-
-For the full multi-size real-Hopf study and all diagnostic commands, use
+For the small checks, full experiments, diagnostics, and figure generation, use
 [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
 
 ## Evidence snapshots
 
-The committed figures summarize three different checks. They should not be
-interpreted as one combined benchmark.
+The committed figures summarize the complex optimization study, fixed-state
+finite-shot estimator, and local layerwise circuit check.
 
 <p align="center">
   <img src="hopf_complex.png" width="31%" alt="Complex Hopf optimization stress-test summary">
@@ -176,42 +102,17 @@ The exact meaning, settings, and limitations of each panel are documented in
 | `hopf_complex.py` | Focused complex-Hopf stress test, diagnostics, and committed summary figure. |
 | `finite_shot_sanity_check.py` | Fixed-state signed-branch estimator check and committed statistical figure. |
 | `VQE_qibo.py` | Local real/complex layerwise-gradient circuit safeguard and committed VQE figure. |
-| `docs/CLAIM_SUPPORT.md` | Reviewer-facing claim-to-code and claim-to-evidence map. |
+| `docs/CLAIM_SUPPORT.md` | Claim-to-code and claim-to-evidence map. |
 | `docs/ENGINEERING_GUIDE.md` | Self-contained implementation and adaptation guide. |
 | `docs/EXPERIMENTS.md` | Experimental designs, outputs, reported results, and interpretation limits. |
 | `REPRODUCIBILITY.md` | Clean-environment commands and complete data-regeneration workflow. |
 
-## Validation boundaries
+## Related work
 
-This repository directly checks finite-dimensional identities, generated gate
-schedules, exact statevectors, estimator behavior, and deterministic numerical
-studies. It does not numerically prove mathematical statements that hold for
-arbitrary `n`.
-
-It also does not claim:
-
-- hardware-noise robustness;
-- device routing or approximate synthesis costs;
-- a complete physical shot budget for arbitrary Hamiltonians;
-- superiority of one optimizer on all objectives;
-- a complex Möttönen baseline;
-- a production automatic-differentiation framework; or
-- that the local `n = 4` Qibo demonstration is an asymptotic scaling implementation.
-
-The assigned CNOT counts exclude observable measurement, routing, synthesis,
-and hardware-specific overhead unless explicitly stated.
-
-## Relation to Hopf-QBP
-
-This repository accompanies the first paper and provides the chart, inverse
-map, geometry, native schedules, optimization studies, and the original
-layerwise-gradient safeguards.
-
-The separate [Hopf-QBP repository](https://github.com/GoGoKo699/Hopf-QBP)
-accompanies the second paper. It provides exact-logical global-frame,
-direct-phase, and checkpointed reverse-gradient constructions, together with a
-reviewer claim map and a dedicated engineering guide. The two repositories are
-complementary and have no runtime dependency on one another.
+The companion [Hopf-QBP repository](https://github.com/GoGoKo699/Hopf-QBP)
+provides exact-logical global-frame, direct-phase, and checkpointed
+reverse-gradient constructions. The two repositories have no runtime dependency
+on one another.
 
 ## Citation
 
