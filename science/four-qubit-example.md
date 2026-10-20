@@ -94,7 +94,7 @@ The tree in Fig. [3](four-qubit-example.md#A2.F3) determines both the amplitude 
 
 <a id="A2.F4"></a>
 
-![Figure 4: Four-qubit Hopf ansatz circuit derived from the tree in Fig. 3. The green gates are the ma](../figures/paper/ansatz_circuit.png)
+![Figure 4: Four-qubit Hopf ansatz circuit derived from the binary tree.](../figures/paper/ansatz_circuit.png)
 
 Figure 4: <a id="A2.F4.4"></a>
 
@@ -279,12 +279,12 @@ For depth $`d=2`$, the magnitude layer is $`\mathcal{L}_{2}=\{4,5,6,7\}`$. A two
 
 <a id="A2.F5"></a>
 
-![Figure 5: Indexed derivative preparation for the d=2d=2 magnitude layer of the four-qubit real Hopf ](../figures/paper/layerwise_circuit.png)
+![Figure 5: Indexed tangent-state preparation for the depth-2 magnitude layer.](../figures/paper/layerwise_circuit.png)
 
 Figure 5: Indexed derivative preparation for the $`d=2`$ magnitude layer of the four-qubit real Hopf ansatz. The index register $`I_{1}I_{2}`$ selects one of the tangent-state assignments $`\boldsymbol{\theta}^{(j)}`$ with $`j\in\{4,5,6,7\}`$ according to Eq. ([B13](four-qubit-example.md#A2.E60)). Conditioned on the observed index, the system register is in the corresponding normalized coordinate tangent.
 
 <a id="A2.F6"></a>
 
-![Figure 6: Indexed signed-branch preparation for the same d=2d=2 magnitude layer. The branch a=0a=0 p](../figures/paper/branch_circuit.png)
+![Figure 6: Indexed signed-branch preparation combining the baseline and selected tangent states.](../figures/paper/branch_circuit.png)
 
 Figure 6: Indexed signed-branch preparation for the same $`d=2`$ magnitude layer. The branch $`a=0`$ prepares the baseline state $`\mathrm{HopfReal}(\boldsymbol{\theta})\lvert 0\rangle ^{\otimes 4}`$, while the branch $`a=1`$ prepares the index-selected tangent state $`\mathrm{HopfReal}(\boldsymbol{\theta}^{(j)})\lvert 0\rangle ^{\otimes 4}`$. Measuring $`a`$ in the $`X`$ basis, equivalently by adding a Hadamard before $`Z`$-basis readout, yields the signed branch states used in the estimator.

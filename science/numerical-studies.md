@@ -44,13 +44,13 @@ VQE panels show energy gaps; metrology panels show Fisher or normalized-QFI opti
 
 <a id="S4.F1"></a>
 
-![Figure 1: Aggregate final precision and threshold hitting over all stress tests and system sizes n=6](../figures/paper/hopf_geometric_summary_clean.svg)
+![Figure 1: Final optimality gaps and threshold crossing updates across six to ten qubits.](../figures/paper/hopf_geometric_summary_clean.svg)
 
 Figure 1:  Aggregate final precision and threshold hitting over all stress tests and system sizes $`n=6,\ldots,10`$. The top row shows final optimality gaps after $`200`$ accepted updates; the gray dashed line marks the $`10^{-8}`$ reference threshold. The bottom row shows the first accepted update at which each crossing trace reaches that threshold; the parenthetical labels report the number crossing within $`200`$ updates out of the total number of traces. In every box plot, the box spans the interquartile range, the horizontal line marks the median, and the whiskers extend to the most extreme values within $`1.5`$ interquartile ranges. Colored circles are the individual task-size-seed traces. Optimizer colors are used consistently in this figure and Fig. [2](numerical-studies.md#S4.F2): orange for Hopf-Adam, red for Möttönen-ideal-PS-Adam, dark blue for EGT-CG, indigo for R-BB, and teal for R-LBFGS. Lower values are better. The metric-aware Hopf methods concentrate near the numerical floor in VQE and have numerical-precision medians in the metrology-inspired aggregate; their main distinction is the size of the slow-convergence tail.
 
 <a id="S4.F2"></a>
 
-![Figure 2: Per-task convergence at n=10n=10, with ten deterministic pseudo-random initial-state seeds](../figures/paper/hopf_geometric_n10_convergence_clean.svg)
+![Figure 2: Optimizer convergence across six ten-qubit tasks and ten initial-state seeds.](../figures/paper/hopf_geometric_n10_convergence_clean.svg)
 
 Figure 2:  Per-task convergence at $`n=10`$, with ten deterministic pseudo-random initial-state seeds per task. The top row shows the parent-Hamiltonian, scrambled-Hamming-spectrum, and small-gap-spectrum VQE tasks. The bottom row shows the single-target Fisher, QFI extremal-superposition, and balanced two-target Fisher tasks. Each curve is the mean optimality gap across the ten seeds, and each translucent band is the corresponding standard error of the mean. Optimizer colors match Fig. [1](numerical-studies.md#S4.F1), and the legend’s line styles are used consistently in all six panels. The gray dashed line marks the $`10^{-8}`$ reference threshold. The vertical scale is logarithmic and lower values are better. Because several metric-aware traces reach the plotting floor, these panels are primarily per-task convergence diagnostics; the final-gap and threshold-hit distributions are summarized in Fig. [1](numerical-studies.md#S4.F1).
 
