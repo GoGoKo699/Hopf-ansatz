@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: >-
   If you use this software, please cite the accompanying Hopf-ansatz paper.
-title: Hopf Ansatz Reference Implementation and Reproducibility Package
+title: The Hopf Ansatz — Scientific Account and Reference Implementation
 type: software
 authors:
   - family-names: Lin

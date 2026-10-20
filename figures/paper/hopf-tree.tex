@@ -1,0 +1,120 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz}
+\usepackage{mathpazo}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta,calc,fit,decorations.pathreplacing,trees}
+\begin{document}
+\resizebox{15cm}{!}{%
+\begin{tikzpicture}[
+  level distance=3.2cm,
+  level 1/.style = {sibling distance=5cm},
+  level 2/.style = {sibling distance=8cm},
+  level 3/.style = {sibling distance=2cm},
+  level 4/.style = {sibling distance=1cm},
+  every node/.style = {draw=none, fill=OliveGreen!20, circle, minimum size=1cm, font=\bfseries},
+  edge from parent/.style = {draw, ->, thick},
+  label1/.style = {below=1.2cm, font=\normalsize, draw=none,fill=none},
+  label2/.style = {below=1.4cm,circle,inner sep=0.6pt,minimum size=0.6pt, font=\normalsize, draw,fill=none},
+  label3/.style = {below=1.4cm,circle,inner sep=0.6pt,minimum size=0.6pt, font=\scriptsize, draw,fill=none},
+  label4/.style = {below=1.4cm,circle,inner sep=0.6pt,minimum size=0.6pt, line width=0.8pt,font=\normalsize, draw,fill=none},
+  label5/.style = {below=0.6cm, font=\normalsize, draw=none,fill=none, color=NavyBlue}
+]
+
+\node (root) {0000}
+  child {node (node0) {0000}
+    child  [shift={(0.375cm,0)}] {node (node00) {0000}
+      child [shift={(-1cm,0)}] {node (node000) {0000}
+        child [shift={(-0.75cm,0)}] {node (node0000) {0000} }
+        child [shift={(-0.5cm,0)}] {node (node0001) {0001} }
+        [shift={(-0.375cm,0)}]  node[label1] {$\theta_{8}$}
+        node[label2, below=0.6cm] {4}
+      }
+      child [shift={(-1cm,0)}] {node (node001) {0010}
+        child [shift={(-0.25cm,0)}] {node (node0010) {0010} }
+        child {node (node0011) {0011} }
+        node[label1] {$\theta_{9}$}
+        node[label2, below=0.6cm] {5}
+      }
+      [shift={(-0.5cm,0)}] node[label1] {$\theta_{4}$}
+      node[label2, below=0.6cm] {3}
+    }
+    child  [shift={(-4cm,0)}] {node (node01) {0100}
+      child [shift={(0.375cm,0)}] {node (node010) {0100}
+        child [shift={(-0.75cm,0)}] {node (node0100) {0100} }
+        child [shift={(-0.5cm,0)}] {node (node0101) {0101} }
+        [shift={(-0.375cm,0)}] node[label1] {$\theta_{10}$}
+        node[label2, below=0.6cm] {7}
+      }
+      child [shift={(-0.375cm,0)}] {node (node011) {0110}
+        child [shift={(0.5cm,0)}] {node (node0110) {0110}}
+        child [shift={(0.75cm,0)}] {node (node0111) {0111}}
+        [shift={(0.375cm,0)}] node[label1] {$\theta_{11}$}
+        node[label3, below=0.6cm] {11}
+      }
+      node[label1] {$\theta_{5}$}
+      node[label2, below=0.6cm] {6}
+    }
+    [shift={(-1cm,0)}] node[label1] {$\theta_{2}$}
+    node[label2, below=0.6cm] {2}
+  }
+  child  {node (node1) {1000}
+    child [shift={(4cm,0)}]  {node (node10) {1000}
+      child [shift={(0.375cm,0)}]{node (node100) {1000}
+        child [shift={(-0.75cm,0)}] {node (node1000) {1000}}
+        child [shift={(-0.5cm,0)}]{node (node1001) {1001}}
+        [shift={(-0.375cm,0)}] node[label1] {$\theta_{12}$}
+        node[label3, below=0.6cm] {10}
+      }
+      child [shift={(-0.375cm,0)}] {node (node101) {1010}
+        child [shift={(0.5cm,0)}]{node (node1010) {1010}}
+        child [shift={(0.75cm,0)}] {node (node1011) {1011}}
+        [shift={(0.375cm,0)}] node[label1] {$\theta_{13}$}
+        node[label3, below=0.6cm] {12}
+      }
+      node[label1] {$\theta_{6}$}
+      node[label2, below=0.6cm] {9}
+    }
+    child [shift={(-0.375cm,0)}] {node (node11) {1100}
+      child [shift={(1cm,0)}] {node (node110) {1100}
+        child {node (node1100) {1100}}
+        child [shift={(0.25cm,0)}] {node (node1101) {1101}}
+        [shift={(0.125cm,0)}] node[label1] {$\theta_{14}$}
+        node[label3, below=0.6cm] {14}
+      }
+      child [shift={(1cm,0)}]{node (node111) {1110}
+        child [shift={(0.5cm,0)}] {node (node1110) {1110}}
+        child [shift={(0.75cm,0)}] {node (node1111) {1111}}
+        [shift={(0.375cm,0)}] node[label1] {$\theta_{15}$}
+        node[label3, below=0.6cm] {15}
+      }
+      [shift={(0.5cm,0)}] node[label1] {$\theta_{7}$}
+      node[label3, below=0.6cm] {13}
+    }
+    [shift={(1cm,0)}] node[label1] {$\theta_{3}$}
+    node[label2, below=0.6cm] {8}
+  }  node[label1] {$\theta_{1}$}
+  node[label4, below=0.6cm] {1};
+
+\path (node0000) node[label5] {$\theta_{16}$};
+\path (node0001) node[label5] {$\theta_{17}$};
+\path (node0010) node[label5] {$\theta_{18}$};
+\path (node0011) node[label5] {$\theta_{19}$};
+\path (node0100) node[label5] {$\theta_{20}$};
+\path (node0101) node[label5] {$\theta_{21}$};
+\path (node0110) node[label5] {$\theta_{22}$};
+\path (node0111) node[label5] {$\theta_{23}$};
+\path (node1000) node[label5] {$\theta_{24}$};
+\path (node1001) node[label5] {$\theta_{25}$};
+\path (node1010) node[label5] {$\theta_{26}$};
+\path (node1011) node[label5] {$\theta_{27}$};
+\path (node1100) node[label5] {$\theta_{28}$};
+\path (node1101) node[label5] {$\theta_{29}$};
+\path (node1110) node[label5] {$\theta_{30}$};
+\path (node1111) node[label5] {$\theta_{31}$};
+
+\end{tikzpicture}
+}
+\end{document}
