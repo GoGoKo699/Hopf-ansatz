@@ -83,9 +83,7 @@ These supplementary implementation figures are described in [Experiments and evi
 
 Machine-readable citation metadata is available in [CITATION.cff](CITATION.cff).
 
-## Purpose and contact
-
-This repository serves as a record of the work and a guide for the author’s self-directed learning. For discussion or potential collaboration, please contact Ruge Lin at [gogoko699@gmail.com](mailto:gogoko699@gmail.com).
+For questions about the article, feel free to contact Ruge Lin at [gogoko699@gmail.com](mailto:gogoko699@gmail.com).
 
 ## License
 
