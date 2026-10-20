@@ -67,7 +67,7 @@ and the associated chain-rule observable
 <a id="A4.E102"></a>
 
 ```math
-O_{\mathcal{C}}(\boldsymbol{\theta}):=\sum_{\alpha=1}^{K}a_{\alpha}(\boldsymbol{\theta})\,O_{\alpha}.\tag{D1}
+{O_{\mathcal{C}}(\boldsymbol{\theta}):=\sum_{\alpha=1}^{K}a_{\alpha}(\boldsymbol{\theta})\,O_{\alpha}.}\tag{D1}
 ```
 
 Then
@@ -75,7 +75,7 @@ Then
 <a id="A4.E103"></a>
 
 ```math
-\partial_{\theta_{i}}\mathcal{C}(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\,\operatorname{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O_{\mathcal{C}}(\boldsymbol{\theta})\lvert \psi(\boldsymbol{\theta})\rangle \right].\tag{D2}
+{\partial_{\theta_{i}}\mathcal{C}(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\,\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O_{\mathcal{C}}(\boldsymbol{\theta})\lvert \psi(\boldsymbol{\theta})\rangle \right].}\tag{D2}
 ```
 
 Thus the VQE formula ([13](gradient-access.md#S3.E13)) is recovered by taking $`K=1`$, $`O_{1}=H`$, and $`f(m_{1})=m_{1}`$.
@@ -101,7 +101,7 @@ Then
 <a id="A4.E104"></a>
 
 ```math
-\operatorname{Re}\!\left[\langle e_{i}\rvert O\lvert \psi\rangle \right]=s\left(B_{\varphi_{i}^{(s)}}[O]-\frac{1}{2}\left(B_{\psi}[O]+B_{e_{i}}[O]\right)\right),\tag{D3}
+{\mathrm{Re}\!\left[\langle e_{i}\rvert O\lvert \psi\rangle \right]=s\left(B_{\varphi_{i}^{(s)}}[O]-\frac{1}{2}\left(B_{\psi}[O]+B_{e_{i}}[O]\right)\right),}\tag{D3}
 ```
 
 where
@@ -117,7 +117,7 @@ Applying ([D3](metrological-objectives.md#A4.E104)) to $`O=O_{\mathcal{C}}(\bold
 <a id="A4.E105"></a>
 
 ```math
-\partial_{\theta_{i}}\mathcal{C}(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\,s\left(B_{\varphi_{i}^{(s)}}[O_{\mathcal{C}}]-\frac{1}{2}\left(B_{\psi}[O_{\mathcal{C}}]+B_{e_{i}}[O_{\mathcal{C}}]\right)\right).\tag{D4}
+{\partial_{\theta_{i}}\mathcal{C}(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\,s\left(B_{\varphi_{i}^{(s)}}[O_{\mathcal{C}}]-\frac{1}{2}\left(B_{\psi}[O_{\mathcal{C}}]+B_{e_{i}}[O_{\mathcal{C}}]\right)\right).}\tag{D4}
 ```
 
 In using this identity, $`O_{\mathcal{C}}(\boldsymbol{\theta})`$ is built from chain-rule coefficients evaluated at the current probe state and then held fixed while branch-state transition elements are estimated. Thus $`B_{\varphi_{i}^{(s)}}[O_{\mathcal{C}}]`$ is a transition-moment quantity, not the nonlinear cost $`\mathcal{C}(\varphi_{i}^{(s)})`$. If the coefficients are estimated from empirical data, the resulting gradient is generally a stochastic approximation to $`\nabla\mathcal{C}`$; nonlinear functions of noisy estimates can introduce bias without debiasing. This matters especially for inverse-Fisher objectives, whose prefactors can be sensitive to small probabilities or slopes.
@@ -139,7 +139,7 @@ with Hermitian generator $`G`$. For a pure probe state, the quantum Fisher infor
 <a id="A4.E106"></a>
 
 ```math
-F_{Q}(\boldsymbol{\theta})=4\operatorname{Var}_{\boldsymbol{\theta}}(G)=4\left(\langle G^{2}\rangle_{\boldsymbol{\theta}}-\langle G\rangle_{\boldsymbol{\theta}}^{2}\right).\tag{D5}
+{F_{Q}(\boldsymbol{\theta})=4\mathrm{Var}_{\boldsymbol{\theta}}(G)=4\left(\langle G^{2}\rangle_{\boldsymbol{\theta}}-\langle G\rangle_{\boldsymbol{\theta}}^{2}\right).}\tag{D5}
 ```
 
 Here and below
@@ -155,7 +155,7 @@ A natural minimized metrology cost is the regularized quantum Cramér–Rao prox
 <a id="A4.E107"></a>
 
 ```math
-\mathcal{C}_{Q}(\boldsymbol{\theta})=\frac{1}{F_{Q}(\boldsymbol{\theta})+\eta},\qquad\eta>0.\tag{D6}
+{\mathcal{C}_{Q}(\boldsymbol{\theta})=\frac{1}{F_{Q}(\boldsymbol{\theta})+\eta},\qquad\eta>0.}\tag{D6}
 ```
 
 This cost defines a local probe-state benchmark associated with the optimal-measurement QFI. A fixed experimental readout realizes this benchmark only when it saturates the QFI at the operating point. By contrast, the fixed-readout Ramsey objective below is a classical Fisher-information objective for a specified parity measurement. Let
@@ -179,7 +179,7 @@ Therefore
 <a id="A4.E108"></a>
 
 ```math
-\partial_{\theta_{i}}F_{Q}=8\sqrt{g_{i,i}(\boldsymbol{\theta})}\left(T_{i}[G^{2}]-2\mu\,T_{i}[G]\right),\tag{D7}
+{\partial_{\theta_{i}}F_{Q}=8\sqrt{g_{i,i}(\boldsymbol{\theta})}\left(T_{i}[G^{2}]-2\mu\,T_{i}[G]\right),}\tag{D7}
 ```
 
 where
@@ -187,7 +187,7 @@ where
 <a id="A4.Ex80"></a>
 
 ```math
-T_{i}[O]:=\operatorname{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O\lvert \psi(\boldsymbol{\theta})\rangle \right].
+T_{i}[O]:=\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O\lvert \psi(\boldsymbol{\theta})\rangle \right].
 ```
 
 The minimized-cost gradient is then
@@ -195,7 +195,7 @@ The minimized-cost gradient is then
 <a id="A4.E109"></a>
 
 ```math
-\partial_{\theta_{i}}\mathcal{C}_{Q}=-\frac{\partial_{\theta_{i}}F_{Q}}{\left(F_{Q}+\eta\right)^{2}}.\tag{D8}
+{\partial_{\theta_{i}}\mathcal{C}_{Q}=-\frac{\partial_{\theta_{i}}F_{Q}}{\left(F_{Q}+\eta\right)^{2}}.}\tag{D8}
 ```
 
 Equivalently, this is the general chain-rule formula ([D2](metrological-objectives.md#A4.E103)) with the chain-rule observable
@@ -203,7 +203,7 @@ Equivalently, this is the general chain-rule formula ([D2](metrological-objectiv
 <a id="A4.E110"></a>
 
 ```math
-O_{\mathcal{C}_{Q}}=-\frac{4G^{2}-8\mu G}{\left(F_{Q}+\eta\right)^{2}}.\tag{D9}
+{O_{\mathcal{C}_{Q}}=-\frac{4G^{2}-8\mu G}{\left(F_{Q}+\eta\right)^{2}}.}\tag{D9}
 ```
 
 Thus the QFI objective requires the same Hopf tangent-state machinery as VQE, with the Hamiltonian $`H`$ replaced by the observables $`G`$ and $`G^{2}`$, or by their linear combination ([D9](metrological-objectives.md#A4.E110)).
@@ -257,7 +257,7 @@ where the derivative observable is
 <a id="A4.E111"></a>
 
 ```math
-D_{\mathrm{e}}(\phi_{0}):=\left.\frac{\partial M_{\mathrm{e}}(\phi)}{\partial\phi}\right\vert _{\phi=\phi_{0}}=\mathrm{i}U_{\phi_{0}}^{\dagger}\left[G,A_{\mathrm{e}}\right]U_{\phi_{0}}.\tag{D10}
+{D_{\mathrm{e}}(\phi_{0}):=\left.\frac{\partial M_{\mathrm{e}}(\phi)}{\partial\phi}\right\vert _{\phi=\phi_{0}}=\mathrm{i}U_{\phi_{0}}^{\dagger}\left[G,A_{\mathrm{e}}\right]U_{\phi_{0}}.}\tag{D10}
 ```
 
 At an interior operating point satisfying
@@ -297,7 +297,7 @@ For $`0<p(\boldsymbol{\theta})<1`$, the chain-rule coefficients with respect to 
 <a id="A4.E112"></a>
 
 ```math
-\begin{aligned}a_{q}(\boldsymbol{\theta}) & :=\frac{\partial\mathcal{C}_{\mathrm{Ram}}}{\partial q}=-\frac{2q(\boldsymbol{\theta})}{[F_{C}(\boldsymbol{\theta})+\eta]^{2}p(\boldsymbol{\theta})[1-p(\boldsymbol{\theta})]}.\end{aligned}\tag{D11}
+{\begin{aligned}a_{q}(\boldsymbol{\theta}) & :=\frac{\partial\mathcal{C}_{\mathrm{Ram}}}{\partial q}=-\frac{2q(\boldsymbol{\theta})}{[F_{C}(\boldsymbol{\theta})+\eta]^{2}p(\boldsymbol{\theta})[1-p(\boldsymbol{\theta})]}.\end{aligned}}\tag{D11}
 ```
 
 Thus the exact fixed-readout Ramsey chain-rule observable is
@@ -305,7 +305,7 @@ Thus the exact fixed-readout Ramsey chain-rule observable is
 <a id="A4.E113"></a>
 
 ```math
-O_{\mathcal{C}_{\mathrm{Ram}}}(\boldsymbol{\theta})=a_{p}(\boldsymbol{\theta})M_{\mathrm{e}}(\phi_{0})+a_{q}(\boldsymbol{\theta})D_{\mathrm{e}}(\phi_{0}),\tag{D12}
+{O_{\mathcal{C}_{\mathrm{Ram}}}(\boldsymbol{\theta})=a_{p}(\boldsymbol{\theta})M_{\mathrm{e}}(\phi_{0})+a_{q}(\boldsymbol{\theta})D_{\mathrm{e}}(\phi_{0}),}\tag{D12}
 ```
 
 and the Hopf gradient is
@@ -313,7 +313,7 @@ and the Hopf gradient is
 <a id="A4.Ex90"></a>
 
 ```math
-\partial_{\theta_{i}}\mathcal{C}_{\mathrm{Ram}}=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\,\operatorname{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O_{\mathcal{C}_{\mathrm{Ram}}}(\boldsymbol{\theta})\lvert \psi(\boldsymbol{\theta})\rangle \right].
+\partial_{\theta_{i}}\mathcal{C}_{\mathrm{Ram}}=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\,\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O_{\mathcal{C}_{\mathrm{Ram}}}(\boldsymbol{\theta})\lvert \psi(\boldsymbol{\theta})\rangle \right].
 ```
 
 In a centered finite-difference implementation, the derivative observable $`D_{\mathrm{e}}(\phi_{0})`$ is replaced by
@@ -321,7 +321,7 @@ In a centered finite-difference implementation, the derivative observable $`D_{\
 <a id="A4.E114"></a>
 
 ```math
-D_{\mathrm{e},\delta}=\frac{M_{\mathrm{e}}(\phi_{0}+\delta)-M_{\mathrm{e}}(\phi_{0}-\delta)}{2\delta}.\tag{D13}
+{D_{\mathrm{e},\delta}=\frac{M_{\mathrm{e}}(\phi_{0}+\delta)-M_{\mathrm{e}}(\phi_{0}-\delta)}{2\delta}.}\tag{D13}
 ```
 
 The corresponding finite-difference chain-rule observable is
@@ -375,7 +375,7 @@ Equivalently, if $`C_{\mathrm{cfg}}^{\mathrm{read}}`$ denotes the compiled execu
 <a id="A4.E115"></a>
 
 ```math
-\boxed{C_{\mathrm{cfg}}(\nabla\mathcal{C}_{\mathrm{met}})=O\!\left(K_{\mathrm{read}}n\right)C_{\mathrm{cfg}}^{\mathrm{read}}=O\!\left(K_{\mathrm{read}}\log N\right)C_{\mathrm{cfg}}^{\mathrm{read}}.}\tag{D14}
+{\boxed{C_{\mathrm{cfg}}(\nabla\mathcal{C}_{\mathrm{met}})=O\!\left(K_{\mathrm{read}}n\right)C_{\mathrm{cfg}}^{\mathrm{read}}=O\!\left(K_{\mathrm{read}}\log N\right)C_{\mathrm{cfg}}^{\mathrm{read}}.}}\tag{D14}
 ```
 
 When $`K_{\mathrm{read}}`$ is independent of $`N`$, this preserves the $`O(\log N)`$ compiled-setting scaling of the VQE case. If the chosen metrological observable or readout scheme requires a number of logical settings that grows with problem size, that cost enters multiplicatively.

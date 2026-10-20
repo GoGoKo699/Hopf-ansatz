@@ -15,7 +15,7 @@ Let $`g_{i\ell}(\boldsymbol{\theta})`$ be the parameter-space metric of Definiti
 <a id="S3.E12"></a>
 
 ```math
-\lvert e_{i}(\boldsymbol{\theta})\rangle :=\frac{\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle }{\sqrt{g_{i,i}(\boldsymbol{\theta})}}.\tag{12}
+{\lvert e_{i}(\boldsymbol{\theta})\rangle :=\frac{\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle }{\sqrt{g_{i,i}(\boldsymbol{\theta})}}.}\tag{12}
 ```
 
 Thus $`\lvert \dot{\psi}_{i}\rangle`$ denotes the raw coordinate tangent, whereas $`\lvert e_{i}\rangle`$ denotes its normalized tangent state, with $`\|\lvert e_{i}(\boldsymbol{\theta})\rangle \|=1`$.
@@ -41,7 +41,7 @@ for a Hermitian Hamiltonian $`H`$. For each parameter $`\theta_{i}`$,
 <a id="S3.E13"></a>
 
 ```math
-\partial_{\theta_{i}}E(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\;\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert \,H\,\lvert \psi(\boldsymbol{\theta})\rangle \right].\tag{13}
+{\partial_{\theta_{i}}E(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\;\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert \,H\,\lvert \psi(\boldsymbol{\theta})\rangle \right].}\tag{13}
 ```
 
 Here $`\lvert e_{i}(\boldsymbol{\theta})\rangle`$ denotes the normalized coordinate tangent of Definition [5](gradient-access.md#Thmdefinition5). The formula ([13](gradient-access.md#S3.E13)) holds for both the real-state and complex-state versions of the Hopf ansatz, with the metric $`g_{i,i}`$ chosen according to Definition [4](chart-and-geometry.md#Thmdefinition4).
@@ -66,8 +66,8 @@ with parameters arranged on the Hopf binary tree as in Definitions [2](chart-and
 <a id="S3.E14"></a>
 
 ```math
-\lvert e_{i}(\boldsymbol{\theta})\rangle =\begin{cases}\mathrm{HopfReal}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n},\\
-\mathrm{HopfComplex}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n},\end{cases}.\tag{14}
+{\lvert e_{i}(\boldsymbol{\theta})\rangle =\begin{cases}\mathrm{HopfReal}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n},\\
+\mathrm{HopfComplex}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n},\end{cases}.}\tag{14}
 ```
 
 Here $`\mathrm{HopfReal}`$ and $`\mathrm{HopfComplex}`$ are understood according to the off-chart gate-assignment convention stated above.
@@ -91,31 +91,31 @@ Define $`\boldsymbol{\theta}^{(i)}`$ by
 <a id="S3.E15"></a>
 
 ```math
-\begin{aligned}\theta^{(i)}_{i} & =\theta_{i}+\tfrac{\pi}{2},\end{aligned}\tag{15}
+{\begin{aligned}\theta^{(i)}_{i} & =\theta_{i}+\tfrac{\pi}{2},\end{aligned}}\tag{15}
 ```
 
 <a id="S3.E16"></a>
 
 ```math
-\begin{aligned}\theta^{(i)}_{a} & =0,\qquad a\in A_{L}^{(i)},\end{aligned}\tag{16}
+{\begin{aligned}\theta^{(i)}_{a} & =0,\qquad a\in A_{L}^{(i)},\end{aligned}}\tag{16}
 ```
 
 <a id="S3.E17"></a>
 
 ```math
-\begin{aligned}\theta^{(i)}_{a} & =\tfrac{\pi}{2},\qquad a\in A_{R}^{(i)},\end{aligned}\tag{17}
+{\begin{aligned}\theta^{(i)}_{a} & =\tfrac{\pi}{2},\qquad a\in A_{R}^{(i)},\end{aligned}}\tag{17}
 ```
 
 <a id="S3.E18"></a>
 
 ```math
-\begin{aligned}\theta^{(i)}_{d} & =\theta_{d},\qquad d\in D^{(i)},\end{aligned}\tag{18}
+{\begin{aligned}\theta^{(i)}_{d} & =\theta_{d},\qquad d\in D^{(i)},\end{aligned}}\tag{18}
 ```
 
 <a id="S3.E19"></a>
 
 ```math
-\begin{aligned}\theta^{(i)}_{j} & =0,\qquad\text{otherwise},\qquad 1\leq j\leq N-1.\end{aligned}\tag{19}
+{\begin{aligned}\theta^{(i)}_{j} & =0,\qquad\text{otherwise},\qquad 1\leq j\leq N-1.\end{aligned}}\tag{19}
 ```
 
 In the complex case, the phase block is further set to
@@ -123,8 +123,8 @@ In the complex case, the phase block is further set to
 <a id="S3.E20"></a>
 
 ```math
-\theta^{(i)}_{N+\ell}=\begin{cases}\theta_{N+\ell},&\ell\in\mathcal{L}(i),\\
-0,&\text{otherwise}.\end{cases}\tag{20}
+{\theta^{(i)}_{N+\ell}=\begin{cases}\theta_{N+\ell},&\ell\in\mathcal{L}(i),\\
+0,&\text{otherwise}.\end{cases}}\tag{20}
 ```
 
 Then
@@ -136,8 +136,8 @@ Then
 <a id="S3.E21Xa"></a>
 
 ```math
-\begin{aligned}\mathrm{HopfReal}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n} & =\lvert e_{i}(\boldsymbol{\theta})\rangle , \\
-\mathrm{HopfComplex}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n} & =\lvert e_{i}(\boldsymbol{\theta})\rangle .\end{aligned}\tag{21}
+{\begin{aligned}\mathrm{HopfReal}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n} & =\lvert e_{i}(\boldsymbol{\theta})\rangle , \\
+\mathrm{HopfComplex}\!\big(\boldsymbol{\theta}^{(i)}\big)\lvert 0\rangle ^{\otimes n} & =\lvert e_{i}(\boldsymbol{\theta})\rangle .\end{aligned}}\tag{21}
 ```
 
 If node $`i`$ lies at depth $`d`$ (root at depth $`0`$), the resulting state is supported only on the $`N/2^{d}`$ computational basis states corresponding to the leaves of the subtree rooted at $`i`$. Hence its support size is at most $`N/2^{d}`$, with equality whenever its amplitude on every leaf of that subtree is nonzero.
@@ -161,9 +161,9 @@ Define $`\boldsymbol{\theta}^{(i)}`$ by clamping the magnitude block so that $`\
 <a id="S3.E22Xa"></a>
 
 ```math
-\begin{aligned}\theta^{(i)}_{t_{m}} & =\begin{cases}0,&b_{m}=0,\\
+{\begin{aligned}\theta^{(i)}_{t_{m}} & =\begin{cases}0,&b_{m}=0,\\
 \tfrac{\pi}{2},&b_{m}=1,\end{cases} \\
-\theta^{(i)}_{j} & =0,\qquad j\notin\{t_{1},\ldots,t_{n}\},\quad 1\leq j\leq N-1,\end{aligned}\tag{22}
+\theta^{(i)}_{j} & =0,\qquad j\notin\{t_{1},\ldots,t_{n}\},\quad 1\leq j\leq N-1,\end{aligned}}\tag{22}
 ```
 
 and in the phase block set
@@ -171,7 +171,7 @@ and in the phase block set
 <a id="S3.E23"></a>
 
 ```math
-\theta^{(i)}_{N+\ell}=\theta_{N+\ell}+\tfrac{\pi}{2},\qquad\theta^{(i)}_{N+m}=0\quad\text{for }m\neq\ell.\tag{23}
+{\theta^{(i)}_{N+\ell}=\theta_{N+\ell}+\tfrac{\pi}{2},\qquad\theta^{(i)}_{N+m}=0\quad\text{for }m\neq\ell.}\tag{23}
 ```
 
 Then
@@ -197,7 +197,7 @@ With the normalized tangent states available, each gradient component reduces to
 <a id="S3.E24"></a>
 
 ```math
-\lvert \varphi_{i}^{(s)}(\boldsymbol{\theta})\rangle :=\frac{1}{\sqrt{2}}\left(\lvert \psi(\boldsymbol{\theta})\rangle +s\,\lvert e_{i}(\boldsymbol{\theta})\rangle \right),\;\;s\in\{+1,-1\},\tag{24}
+{\lvert \varphi_{i}^{(s)}(\boldsymbol{\theta})\rangle :=\frac{1}{\sqrt{2}}\left(\lvert \psi(\boldsymbol{\theta})\rangle +s\,\lvert e_{i}(\boldsymbol{\theta})\rangle \right),\;\;s\in\{+1,-1\},}\tag{24}
 ```
 
 together with the energies
@@ -211,9 +211,9 @@ together with the energies
 <a id="S3.E25Xb"></a>
 
 ```math
-\begin{aligned}E_{\psi}:=\langle \psi(\boldsymbol{\theta})\rvert & H\lvert \psi(\boldsymbol{\theta})\rangle , \\
+{\begin{aligned}E_{\psi}:=\langle \psi(\boldsymbol{\theta})\rvert & H\lvert \psi(\boldsymbol{\theta})\rangle , \\
 E_{i}^{\mathrm{tan}}:=\langle e_{i}(\boldsymbol{\theta})\rvert & H\lvert e_{i}(\boldsymbol{\theta})\rangle , \\
-E_{\varphi_{i}^{(s)}}:=\langle \varphi_{i}^{(s)}(\boldsymbol{\theta})\rvert & H\lvert \varphi_{i}^{(s)}(\boldsymbol{\theta})\rangle .\end{aligned}\tag{25}
+E_{\varphi_{i}^{(s)}}:=\langle \varphi_{i}^{(s)}(\boldsymbol{\theta})\rvert & H\lvert \varphi_{i}^{(s)}(\boldsymbol{\theta})\rangle .\end{aligned}}\tag{25}
 ```
 
 A direct expansion yields
@@ -221,7 +221,7 @@ A direct expansion yields
 <a id="S3.E26"></a>
 
 ```math
-E_{\varphi_{i}^{(s)}}=\frac{1}{2}\big(E_{\psi}+E_{i}^{\mathrm{tan}}\big)+s\,\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \right].\tag{26}
+{E_{\varphi_{i}^{(s)}}=\frac{1}{2}\big(E_{\psi}+E_{i}^{\mathrm{tan}}\big)+s\,\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \right].}\tag{26}
 ```
 
 Rearranging gives, for either sign $`s=\pm 1`$,
@@ -229,7 +229,7 @@ Rearranging gives, for either sign $`s=\pm 1`$,
 <a id="S3.E27"></a>
 
 ```math
-\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \right]=s\!\left(E_{\varphi_{i}^{(s)}}-\tfrac{1}{2}\big(E_{\psi}+E_{i}^{\mathrm{tan}}\big)\right).\tag{27}
+{\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \right]=s\!\left(E_{\varphi_{i}^{(s)}}-\tfrac{1}{2}\big(E_{\psi}+E_{i}^{\mathrm{tan}}\big)\right).}\tag{27}
 ```
 
 The single-branch identity is useful when $`E_{\psi}`$ and $`E_{i}^{\mathrm{tan}}`$ are estimated separately: either sign-conditioned branch average then recovers the desired matrix element, with the observed sign $`s`$ entering as a known prefactor. No postselection is required.
@@ -239,7 +239,7 @@ If both branches are combined, one obtains the equivalent symmetric identity
 <a id="S3.E28"></a>
 
 ```math
-\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \right]=\frac{1}{2}\Big(E_{\varphi_{i}^{(+)}}-E_{\varphi_{i}^{(-)}}\Big).\tag{28}
+{\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \right]=\frac{1}{2}\Big(E_{\varphi_{i}^{(+)}}-E_{\varphi_{i}^{(-)}}\Big).}\tag{28}
 ```
 
 Substituting ([27](gradient-access.md#S3.E27)) into the general gradient formula ([13](gradient-access.md#S3.E13)) gives the single-branch estimator
@@ -247,7 +247,7 @@ Substituting ([27](gradient-access.md#S3.E27)) into the general gradient formula
 <a id="S3.E29"></a>
 
 ```math
-\partial_{\theta_{i}}E(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\;s\!\left(E_{\varphi_{i}^{(s)}}-\tfrac{1}{2}\big(E_{\psi}+E_{i}^{\mathrm{tan}}\big)\right),\tag{29}
+{\partial_{\theta_{i}}E(\boldsymbol{\theta})=2\sqrt{g_{i,i}(\boldsymbol{\theta})}\;s\!\left(E_{\varphi_{i}^{(s)}}-\tfrac{1}{2}\big(E_{\psi}+E_{i}^{\mathrm{tan}}\big)\right),}\tag{29}
 ```
 
 valid for either $`s=+1`$ or $`s=-1`$. Equivalently, if both branch energies are estimated, one may write
@@ -255,7 +255,7 @@ valid for either $`s=+1`$ or $`s=-1`$. Equivalently, if both branch energies are
 <a id="S3.E30"></a>
 
 ```math
-\partial_{\theta_{i}}E(\boldsymbol{\theta})=\sqrt{g_{i,i}(\boldsymbol{\theta})}\;\Big(E_{\varphi_{i}^{(+)}}-E_{\varphi_{i}^{(-)}}\Big).\tag{30}
+{\partial_{\theta_{i}}E(\boldsymbol{\theta})=\sqrt{g_{i,i}(\boldsymbol{\theta})}\;\Big(E_{\varphi_{i}^{(+)}}-E_{\varphi_{i}^{(-)}}\Big).}\tag{30}
 ```
 
 Since $`g_{i,i}(\boldsymbol{\theta})`$ is known analytically from Theorem [1](chart-and-geometry.md#Thmtheorem1), this gives a derivative-plus-branch estimator: estimate one baseline energy $`E_{\psi}`$, and for each $`i`$, estimate $`E_{i}^{\mathrm{tan}}`$ together with one sign-conditioned branch energy. Equivalently, the symmetric identity ([30](gradient-access.md#S3.E30)) trades the separate tangent energy for the two branch signs. Both forms use the same tangent-state and branch-state constructions, and the compiled-setting organization below is unchanged at the level of asymptotic scaling.
@@ -275,8 +275,8 @@ For each depth $`d\in\{0,1,\ldots,n-1\}`$, define the internal-node layer
 <a id="S3.E31Xa"></a>
 
 ```math
-\begin{aligned}\mathcal{L}_{d}: & =\{\,i\in\{1,\ldots,N-1\}:\lfloor\log_{2}i\rfloor=d\,\} \\
-=\{2^{d},2^{d}+1,\ldots,2^{d+1}-1\}.\end{aligned}\tag{31}
+{\begin{aligned}\mathcal{L}_{d}: & =\{\,i\in\{1,\ldots,N-1\}:\lfloor\log_{2}i\rfloor=d\,\} \\
+=\{2^{d},2^{d}+1,\ldots,2^{d+1}-1\}.\end{aligned}}\tag{31}
 ```
 
 Introduce a reduced index register $`I`$ of $`d`$ qubits storing the layer offset
@@ -284,7 +284,7 @@ Introduce a reduced index register $`I`$ of $`d`$ qubits storing the layer offse
 <a id="S3.E32"></a>
 
 ```math
-r:=i-2^{d}\in\{0,\ldots,2^{d}-1\},\;\;i=2^{d}+r\in\mathcal{L}_{d}.\tag{32}
+{r:=i-2^{d}\in\{0,\ldots,2^{d}-1\},\;\;i=2^{d}+r\in\mathcal{L}_{d}.}\tag{32}
 ```
 
 Thus $`\lvert r\rangle _{I}`$ labels internal node $`i=2^{d}+r`$.
@@ -294,7 +294,7 @@ Prepare the uniform superposition over $`\mathcal{L}_{d}`$,
 <a id="S3.E33"></a>
 
 ```math
-\lvert \mathrm{unif}(\mathcal{L}_{d})\rangle _{I}:=\frac{1}{\sqrt{\vert \mathcal{L}_{d}\vert }}\sum_{r=0}^{2^{d}-1}\lvert r\rangle _{I},\;\;\vert \mathcal{L}_{d}\vert =2^{d}.\tag{33}
+{\lvert \mathrm{unif}(\mathcal{L}_{d})\rangle _{I}:=\frac{1}{\sqrt{\vert \mathcal{L}_{d}\vert }}\sum_{r=0}^{2^{d}-1}\lvert r\rangle _{I},\;\;\vert \mathcal{L}_{d}\vert =2^{d}.}\tag{33}
 ```
 
 For $`d\geq 1`$, this is $`\lvert +\rangle ^{\otimes d}`$; for $`d=0`$, the index register is empty and the layer consists only of the root node.
@@ -314,7 +314,7 @@ Acting on ([33](gradient-access.md#S3.E33)), this preparation yields the indexed
 <a id="S3.E34"></a>
 
 ```math
-\lvert \Phi_{d}(\boldsymbol{\theta})\rangle :=\frac{1}{\sqrt{\vert \mathcal{L}_{d}\vert }}\sum_{r=0}^{2^{d}-1}\lvert r\rangle _{I}\lvert e_{2^{d}+r}(\boldsymbol{\theta})\rangle .\tag{34}
+{\lvert \Phi_{d}(\boldsymbol{\theta})\rangle :=\frac{1}{\sqrt{\vert \mathcal{L}_{d}\vert }}\sum_{r=0}^{2^{d}-1}\lvert r\rangle _{I}\lvert e_{2^{d}+r}(\boldsymbol{\theta})\rangle .}\tag{34}
 ```
 
 Measuring $`I`$ in the computational basis and the system register using standard Pauli measurement schemes yields label-conditioned samples of
@@ -336,8 +336,8 @@ To estimate the branch energies simultaneously for all $`i\in\mathcal{L}_{d}`$, 
 <a id="S3.E35Xa"></a>
 
 ```math
-\begin{aligned}\lvert \Omega_{d}(\boldsymbol{\theta})\rangle \\
-:= & \frac{1}{\sqrt{\vert \mathcal{L}_{d}\vert }}\sum_{r=0}^{2^{d}-1}\lvert r\rangle _{I}\left(\frac{\lvert 0\rangle _{a}\lvert \psi(\boldsymbol{\theta})\rangle +\lvert 1\rangle _{a}\lvert e_{2^{d}+r}(\boldsymbol{\theta})\rangle }{\sqrt{2}}\right).\end{aligned}\tag{35}
+{\begin{aligned}\lvert \Omega_{d}(\boldsymbol{\theta})\rangle \\
+:= & \frac{1}{\sqrt{\vert \mathcal{L}_{d}\vert }}\sum_{r=0}^{2^{d}-1}\lvert r\rangle _{I}\left(\frac{\lvert 0\rangle _{a}\lvert \psi(\boldsymbol{\theta})\rangle +\lvert 1\rangle _{a}\lvert e_{2^{d}+r}(\boldsymbol{\theta})\rangle }{\sqrt{2}}\right).\end{aligned}}\tag{35}
 ```
 
 Measuring $`a`$ in the $`X`$ basis yields an outcome $`s\in\{+1,-1\}`$, and conditioned on the observed index $`r`$, prepares the corresponding state $`\lvert \varphi_{i}^{(s)}(\boldsymbol{\theta})\rangle`$ with $`i=2^{d}+r`$. Because $`\lvert e_{i}(\boldsymbol{\theta})\rangle`$ is normalized and $`\mathrm{Re}\langle \psi(\boldsymbol{\theta})\vert e_{i}(\boldsymbol{\theta})\rangle =0`$, the state $`\lvert \varphi_{i}^{(s)}(\boldsymbol{\theta})\rangle`$ is normalized for both $`s=\pm 1`$.
@@ -363,7 +363,7 @@ Introduce an $`n`$-qubit phase-index register $`P`$, with the data register’s 
 <a id="S3.E36"></a>
 
 ```math
-\lvert \mathrm{unif}_{\mathrm{ph}}\rangle _{P}:=\frac{1}{\sqrt{N}}\sum_{\ell=0}^{N-1}\lvert \ell\rangle _{P}.\tag{36}
+{\lvert \mathrm{unif}_{\mathrm{ph}}\rangle _{P}:=\frac{1}{\sqrt{N}}\sum_{\ell=0}^{N-1}\lvert \ell\rangle _{P}.}\tag{36}
 ```
 
 Using the explicit synthesis map $`\ell\mapsto\boldsymbol{\theta}^{(N+\ell)}`$ from Theorem [3](gradient-access.md#Thmtheorem3)(B), we implement a coherent index-controlled preparation on $`P\otimes\mathcal{H}`$ such that
@@ -379,7 +379,7 @@ This yields the indexed phase-derivative state
 <a id="S3.E37"></a>
 
 ```math
-\lvert \Phi_{\mathrm{ph}}(\boldsymbol{\theta})\rangle :=\frac{1}{\sqrt{N}}\sum_{\ell=0}^{N-1}\lvert \ell\rangle _{P}\lvert e_{N+\ell}(\boldsymbol{\theta})\rangle .\tag{37}
+{\lvert \Phi_{\mathrm{ph}}(\boldsymbol{\theta})\rangle :=\frac{1}{\sqrt{N}}\sum_{\ell=0}^{N-1}\lvert \ell\rangle _{P}\lvert e_{N+\ell}(\boldsymbol{\theta})\rangle .}\tag{37}
 ```
 
 Measuring $`P`$ in the computational basis and the system register with standard Pauli measurement schemes yields label-conditioned samples of
@@ -401,8 +401,8 @@ To estimate the phase-block branch energies simultaneously, introduce one ancill
 <a id="S3.E38Xa"></a>
 
 ```math
-\begin{aligned}\lvert \Omega_{\mathrm{ph}}(\boldsymbol{\theta})\rangle \\
-:= & \frac{1}{\sqrt{N}}\sum_{\ell=0}^{N-1}\lvert \ell\rangle _{P}\left(\frac{\lvert 0\rangle _{a}\lvert \psi(\boldsymbol{\theta})\rangle +\lvert 1\rangle _{a}\lvert e_{N+\ell}(\boldsymbol{\theta})\rangle }{\sqrt{2}}\right).\end{aligned}\tag{38}
+{\begin{aligned}\lvert \Omega_{\mathrm{ph}}(\boldsymbol{\theta})\rangle \\
+:= & \frac{1}{\sqrt{N}}\sum_{\ell=0}^{N-1}\lvert \ell\rangle _{P}\left(\frac{\lvert 0\rangle _{a}\lvert \psi(\boldsymbol{\theta})\rangle +\lvert 1\rangle _{a}\lvert e_{N+\ell}(\boldsymbol{\theta})\rangle }{\sqrt{2}}\right).\end{aligned}}\tag{38}
 ```
 
 Measuring $`a`$ in the $`X`$ basis and $`P`$ in the computational basis yields, for the observed label $`\ell`$ and sign $`s\in\{+1,-1\}`$, label- and sign-conditioned samples of
@@ -444,7 +444,7 @@ Since $`N=2^{n}`$, the magnitude tree has exactly $`n=\log_{2}N`$ layers. The re
 <a id="S3.E39"></a>
 
 ```math
-\boxed{N_{\mathrm{set}}^{\mathbb{R}}=1+2n=O(\log N).}\tag{39}
+{\boxed{N_{\mathrm{set}}^{\mathbb{R}}=1+2n=O(\log N).}}\tag{39}
 ```
 
 Here a setting means a fixed compiled gate pattern and indexed preparation choice; the angles $`\theta_{j}`$ are streamed as physical rotation parameters within that setting.
@@ -464,7 +464,7 @@ In the hardware-faithful model of Lemma [2](algorithms.md#Thmlemma2), let $`C_{\
 <a id="S3.E40"></a>
 
 ```math
-\boxed{C_{\mathrm{cfg}}(E)=O(nN)=O(N\log N).}\tag{40}
+{\boxed{C_{\mathrm{cfg}}(E)=O(nN)=O(N\log N).}}\tag{40}
 ```
 
 The indexed magnitude and phase preparations reuse the forward Hopf structure through subtree-local tangent synthesis. By Theorem [4](gradient-access.md#Thmtheorem4), each gradient-access setting has the same asymptotic compiled cost as a forward setting. Let $`C_{\mathrm{grad}}(\nabla E)`$ denote the total compiled cost of the gradient-access settings needed for one full gradient, excluding repeated measurements. Then
@@ -472,7 +472,7 @@ The indexed magnitude and phase preparations reuse the forward Hopf structure th
 <a id="S3.E41"></a>
 
 ```math
-\boxed{C_{\mathrm{grad}}(\nabla E)=O(n)\,C_{\mathrm{cfg}}(E)=O(\log N)\,C_{\mathrm{cfg}}(E).}\tag{41}
+{\boxed{C_{\mathrm{grad}}(\nabla E)=O(n)\,C_{\mathrm{cfg}}(E)=O(\log N)\,C_{\mathrm{cfg}}(E).}}\tag{41}
 ```
 
 The indexed preparations organize gradient access into $`O(\log N)`$ compiled circuit families, with the measured index specifying which gradient component each repetition informs. Accordingly, the total number of measurement repetitions required for one full gradient at a prescribed accuracy depends on the observable decomposition, label–sign sampling probabilities, estimator variances, and chosen error criterion, and is not determined by the compiled-setting count alone.
@@ -486,7 +486,7 @@ Although stated for the VQE objective $`E(\boldsymbol{\theta})=\langle H\rangle_
 <a id="S3.E42"></a>
 
 ```math
-\operatorname{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O\lvert \psi(\boldsymbol{\theta})\rangle \right].\tag{42}
+{\mathrm{Re}\!\left[\langle e_{i}(\boldsymbol{\theta})\rvert O\lvert \psi(\boldsymbol{\theta})\rangle \right].}\tag{42}
 ```
 
 <a id="S3.SSx4.p7.2"></a>

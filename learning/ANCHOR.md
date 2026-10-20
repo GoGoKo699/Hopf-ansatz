@@ -42,7 +42,7 @@ Their source pointers are given below rather than attributed to the textbook.
 | $\theta_j$ | Angle splitting the amplitude entering node $j$. |
 | $\phi_\ell=\theta_{N+\ell}$ | Phase of complex leaf $\ell$, for $0\leq\ell<N$. |
 | $J_j=\partial_{\theta_j}\psi$ | Raw coordinate differential, a vector in the state space. |
-| $g_{ij}=\operatorname{Re}\langle J_i\mid J_j\rangle$ | Pullback of the round metric on normalized state vectors. |
+| $g_{ij}=\mathrm{Re}\langle J_i\mid J_j\rangle$ | Pullback of the round metric on normalized state vectors. |
 | $w_j=\sqrt{g_{jj}}$ | Nonnegative incoming magnitude on the canonical chart. |
 | $e_j=J_j/w_j$ | Normalized coordinate tangent when $w_j>0$. |
 | $R_y(\theta)=e^{-i\theta Y}$ | Paper convention; a software gate using $e^{-i\varphi Y/2}$ receives $\varphi=2\theta$. |
@@ -106,9 +106,9 @@ r_L=\sqrt{x_0^2+x_1^2},\qquad
 r_R=\sqrt{x_2^2+x_3^2}.
 ```
 
-Then $a=\operatorname{atan2}(r_R,r_L)$,
-$b=\operatorname{atan2}(x_1,x_0)$ and
-$c=\operatorname{atan2}(x_3,x_2)$, with final angles wrapped into
+Then $a=\mathrm{atan2}(r_R,r_L)$,
+$b=\mathrm{atan2}(x_1,x_0)$ and
+$c=\mathrm{atan2}(x_3,x_2)$, with final angles wrapped into
 $[0,2\pi)$. These recover the preceding example. For complex vectors, use
 absolute values to recover magnitude splits and use
 $\phi_\ell=\arg x_\ell$ on nonzero leaves.
@@ -131,7 +131,7 @@ order by $d\psi=J\,d\theta$. Its squared round-sphere length is
 \lVert d\psi\rVert^2
 =\sum_{i,j}g_{ij}\,d\theta_i\,d\theta_j,
 \qquad
- g_{ij}=\operatorname{Re}\langle\partial_i\psi\mid\partial_j\psi\rangle.
+ g_{ij}=\mathrm{Re}\langle\partial_i\psi\mid\partial_j\psi\rangle.
 ```
 
 Different branch supports are orthogonal. Within a branch, its normalized
@@ -139,7 +139,7 @@ state is orthogonal to its real magnitude derivative. Recursing through these
 two facts makes the Hopf metric diagonal. In the two-qubit example,
 
 ```math
-g=\operatorname{diag}(1,\cos^2 a,\sin^2 a).
+g=\mathrm{diag}(1,\cos^2 a,\sin^2 a).
 ```
 
 At $a=\pi/4$, a unit change of $b$ or $c$ has squared state-space speed
@@ -171,7 +171,7 @@ A uniform phase displacement $d\phi_0=d\phi_1=d\alpha$ produces
 $d\psi=i\psi\,d\alpha$ and has squared length $d\alpha^2$.
 It changes the state vector even though it does not change expectation values.
 For general leaf probabilities $p_\ell=|x_\ell|^2$, the adopted phase block is
-$\operatorname{diag}(p)$.
+$\mathrm{diag}(p)$.
 
 If the common phase is instead quotiented out, the Fubini–Study convention
 (without an extra overall factor) subtracts
@@ -179,7 +179,7 @@ $|\langle\psi\mid d\psi\rangle|^2$. Its phase block is
 
 ```math
 G_{\mathrm{ph}}^{\mathrm{FS}}
-=\operatorname{diag}(p)-pp^{\mathsf T}.
+=\mathrm{diag}(p)-pp^{\mathsf T}.
 ```
 
 This block annihilates the all-ones direction. It is a different geometric
@@ -198,8 +198,8 @@ For an active coordinate with $J_j=w_j e_j$,
 
 ```math
 \partial_j E
-=2\operatorname{Re}\langle J_j\mid H\mid\psi\rangle
-=2w_j\operatorname{Re}\langle e_j\mid H\mid\psi\rangle.
+=2\mathrm{Re}\langle J_j\mid H\mid\psi\rangle
+=2w_j\mathrm{Re}\langle e_j\mid H\mid\psi\rangle.
 ```
 
 The normalized tangent can be prepared by a shifted split and clamped
@@ -207,7 +207,7 @@ ancestor path. For complex phase coordinate $\phi_\ell$, its raw differential
 is $i x_\ell\lvert\ell\rangle$, so the normalized tangent is leaf-local when
 $x_\ell\ne0$.
 
-Because $\operatorname{Re}\langle\psi\mid e_j\rangle=0$, both signed
+Because $\mathrm{Re}\langle\psi\mid e_j\rangle=0$, both signed
 branches $\varphi_j^\pm=(\psi\pm e_j)/\sqrt2$ are normalized. Expanding
 their expectation values gives
 
@@ -262,7 +262,7 @@ G=\sum_j\frac{c_j}{g_{jj}}J_j.
 
 This expression converts coordinate changes into the actual motion of the
 state. For a unit vector $\psi$ and a real-sphere tangent direction $v$ with
-$\operatorname{Re}\langle\psi\mid v\rangle=0$, the great-circle update is
+$\mathrm{Re}\langle\psi\mid v\rangle=0$, the great-circle update is
 
 ```math
 \psi(t)=\cos(t\lVert v\rVert)\psi

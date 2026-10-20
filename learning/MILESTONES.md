@@ -33,7 +33,7 @@ milestones explain the project without replacing its complete proofs.
 
 **Understanding target.** Interpret a normalized vector in $\mathbb R^N$ or
 $\mathbb C^N$ as the amplitude representation, with $N=2^n$. For complex
-vectors, use $\operatorname{Re}\langle u\mid v\rangle$ when treating the
+vectors, use $\mathrm{Re}\langle u\mid v\rangle$ when treating the
 sphere as a real manifold.
 
 **Prior dependencies.** None within this map.
@@ -114,7 +114,7 @@ branch-phase conventions later determine the sign of a transition moment.
 
 **Understanding target.** Differentiate
 $E=\langle\psi\mid H\mid\psi\rangle$ for Hermitian $H$ to obtain
-$\partial_jE=2\operatorname{Re}\langle\partial_j\psi\mid H\mid\psi\rangle$.
+$\partial_jE=2\mathrm{Re}\langle\partial_j\psi\mid H\mid\psi\rangle$.
 
 **Prior dependencies.** M01, M03.
 
@@ -161,7 +161,7 @@ the diagonal metric and the normalization factor of each derivative direction.
 **Central question.** How does coordinate distance become state-space distance?
 
 **Understanding target.** Define $J_j=\partial_j\psi$ and
-$g_{ij}=\operatorname{Re}\langle J_i\mid J_j\rangle$; interpret
+$g_{ij}=\mathrm{Re}\langle J_i\mid J_j\rangle$; interpret
 $d\theta^{\mathsf T}g\,d\theta$ as squared first-order state displacement.
 
 **Prior dependencies.** M01, M06, M08.
@@ -178,8 +178,8 @@ the metric describes the amount of state motion caused by an update.
 **Central question.** Can an objective-invariant direction still have nonzero metric length?
 
 **Understanding target.** Derive the common-phase tangent $i\psi$ and
-contrast the phase blocks $\operatorname{diag}(p)$ and
-$\operatorname{diag}(p)-pp^{\mathsf T}$. Identify the first as the paper's convention.
+contrast the phase blocks $\mathrm{diag}(p)$ and
+$\mathrm{diag}(p)-pp^{\mathsf T}$. Identify the first as the paper's convention.
 
 **Prior dependencies.** M03, M09.
 
@@ -293,7 +293,7 @@ to transition-moment measurements.
 **Central question.** Which metric factor converts a tangent response into the raw derivative?
 
 **Understanding target.** Derive
-$\partial_jE=2\sqrt{g_{jj}}\operatorname{Re}\langle e_j\mid H\mid\psi\rangle$
+$\partial_jE=2\sqrt{g_{jj}}\mathrm{Re}\langle e_j\mid H\mid\psi\rangle$
 and verify it for the two-qubit $Z\otimes I$ example.
 
 **Prior dependencies.** M06, M15–M16.

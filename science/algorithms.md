@@ -27,7 +27,7 @@ and the associated subtree norms
 <a id="A1.E43"></a>
 
 ```math
-{S_{L}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{L}(j)}x_{\ell}^{2}},\qquad S_{R}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{R}(j)}x_{\ell}^{2}},\qquad S(j):=\sqrt{S_{L}(j)^{2}+S_{R}(j)^{2}}.}\tag{A1}
+{{S_{L}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{L}(j)}x_{\ell}^{2}},\qquad S_{R}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{R}(j)}x_{\ell}^{2}},\qquad S(j):=\sqrt{S_{L}(j)^{2}+S_{R}(j)^{2}}.}}\tag{A1}
 ```
 
 For the non-final internal nodes, namely $`1\leq j\leq N/2-1`$, set
@@ -35,8 +35,8 @@ For the non-final internal nodes, namely $`1\leq j\leq N/2-1`$, set
 <a id="A1.E44"></a>
 
 ```math
-\theta_{j}:=\begin{cases}\operatorname{atan2}\!\big(S_{R}(j),S_{L}(j)\big),&S(j)>0,\\[2.0pt]
-0,&S(j)=0,\end{cases}\qquad\theta_{j}\in[0,\pi/2].\tag{A2}
+{\theta_{j}:=\begin{cases}\mathrm{atan2}\!\big(S_{R}(j),S_{L}(j)\big),&S(j)>0,\\[2.0pt]
+0,&S(j)=0,\end{cases}\qquad\theta_{j}\in[0,\pi/2].}\tag{A2}
 ```
 
 For the final-layer internal nodes, write $`j=N/2+k`$ with $`k=0,\ldots,N/2-1`$. These nodes split the sibling leaf pair $`(2k,2k+1)`$, and their angles are chosen with the signed quadrant convention
@@ -44,8 +44,8 @@ For the final-layer internal nodes, write $`j=N/2+k`$ with $`k=0,\ldots,N/2-1`$.
 <a id="A1.E45"></a>
 
 ```math
-\theta_{N/2+k}:=\begin{cases}\operatorname{atan2}\!\big(x_{2k+1},x_{2k}\big)\pmod{2\pi},&x_{2k}^{2}+x_{2k+1}^{2}>0,\\[2.0pt]
-0,&x_{2k}=x_{2k+1}=0.\end{cases}\tag{A3}
+{\theta_{N/2+k}:=\begin{cases}\mathrm{atan2}\!\big(x_{2k+1},x_{2k}\big)\pmod{2\pi},&x_{2k}^{2}+x_{2k+1}^{2}>0,\\[2.0pt]
+0,&x_{2k}=x_{2k+1}=0.\end{cases}}\tag{A3}
 ```
 
 With the ranges of Definition [2](chart-and-geometry.md#Thmdefinition2)(A), the forward Hopf recursion then reproduces the signed vector $`\mathbf{x}`$ exactly on the regular set. At zero-subtree and zero-leaf-pair points, the inverse is not unique; the choices above fix one convention.
@@ -79,8 +79,8 @@ Set
 <a id="A1.E46"></a>
 
 ```math
-\theta_{j}:=\begin{cases}\operatorname{atan2}\!\big(S_{R,r}(j),S_{L,r}(j)\big),&S_{r}(j)>0,\\[2.0pt]
-0,&S_{r}(j)=0,\end{cases}\qquad j=1,\ldots,N-1.\tag{A4}
+{\theta_{j}:=\begin{cases}\mathrm{atan2}\!\big(S_{R,r}(j),S_{L,r}(j)\big),&S_{r}(j)>0,\\[2.0pt]
+0,&S_{r}(j)=0,\end{cases}\qquad j=1,\ldots,N-1.}\tag{A4}
 ```
 
 The leaf phases are
@@ -88,7 +88,7 @@ The leaf phases are
 <a id="A1.E47"></a>
 
 ```math
-\theta_{N+\ell}:=\phi_{\ell}\in[0,2\pi),\qquad\ell=0,\ldots,N-1.\tag{A5}
+{\theta_{N+\ell}:=\phi_{\ell}\in[0,2\pi),\qquad\ell=0,\ldots,N-1.}\tag{A5}
 ```
 
 Then the complex Hopf recursion of Definition [2](chart-and-geometry.md#Thmdefinition2)(B) reproduces $`\mathbf{x}`$ up to the chosen phase convention at zero entries. The inverse is not unique whenever some magnitude subtree or leaf amplitude vanishes.
@@ -358,7 +358,7 @@ Consider a single-qubit gate acting on one target and conditioned on a set of co
 <a id="A1.Ex40"></a>
 
 ```math
-m=\operatorname{popcount}(\mathtt{Ctrl}\lor\mathtt{Anti}).
+m=\mathrm{popcount}(\mathtt{Ctrl}\lor\mathtt{Anti}).
 ```
 
 - **Sign-independence.** Negative controls are implemented by conjugating the corresponding control qubits by Pauli-$`X`$ (before and after the controlled operation). Since $`X`$ can be taken as a CNOT-free primitive in our accounting, the CNOT cost depends only on $`m`$ and not on how many controls are negative.

@@ -55,7 +55,7 @@ Its path amplitude is
 <a id="A2.E48"></a>
 
 ```math
-a_{\ell}=\prod_{t=1}^{4}f_{q_{5-t}}\!\left(\theta_{s_{t}(\ell)}\right),\qquad x_{\ell}^{\mathbb{R}}=a_{\ell},\qquad x_{\ell}^{\mathbb{C}}=a_{\ell}e^{\mathrm{i}\theta_{16+\ell}},\tag{B1}
+{a_{\ell}=\prod_{t=1}^{4}f_{q_{5-t}}\!\left(\theta_{s_{t}(\ell)}\right),\qquad x_{\ell}^{\mathbb{R}}=a_{\ell},\qquad x_{\ell}^{\mathbb{C}}=a_{\ell}e^{\mathrm{i}\theta_{16+\ell}},}\tag{B1}
 ```
 
 with the corresponding real or complex angle ranges.
@@ -71,7 +71,7 @@ For example, the first leaf follows the all-left path, the last leaf follows the
 <a id="A2.E49"></a>
 
 ```math
-\begin{aligned}x_{10}^{\mathbb{R}} & =\sin\theta_{1}\cos\theta_{3}\sin\theta_{6}\cos\theta_{13}, & x_{10}^{\mathbb{C}} & =x_{10}^{\mathbb{R}}e^{\mathrm{i}\theta_{26}},\end{aligned}\tag{B2}
+{\begin{aligned}x_{10}^{\mathbb{R}} & =\sin\theta_{1}\cos\theta_{3}\sin\theta_{6}\cos\theta_{13}, & x_{10}^{\mathbb{C}} & =x_{10}^{\mathbb{R}}e^{\mathrm{i}\theta_{26}},\end{aligned}}\tag{B2}
 ```
 
 ```math
@@ -133,7 +133,7 @@ As a representative path calculation, consider the leaf $`\ell=10=(1010)_{2}`$. 
 <a id="A2.E50"></a>
 
 ```math
-x_{10}=\sin\theta_{1}\cos\theta_{3}\sin\theta_{6}\cos\theta_{13}.\tag{B3}
+{x_{10}=\sin\theta_{1}\cos\theta_{3}\sin\theta_{6}\cos\theta_{13}.}\tag{B3}
 ```
 
 The corresponding nonzero real Jacobian entries in the row for $`x_{10}`$ are
@@ -141,7 +141,7 @@ The corresponding nonzero real Jacobian entries in the row for $`x_{10}`$ are
 <a id="A2.E51"></a>
 
 ```math
-\frac{\partial x_{10}}{\partial\theta_{1}}=\cot\theta_{1}\,x_{10},\quad\frac{\partial x_{10}}{\partial\theta_{3}}=-\tan\theta_{3}\,x_{10},\quad\frac{\partial x_{10}}{\partial\theta_{6}}=\cot\theta_{6}\,x_{10},\quad\frac{\partial x_{10}}{\partial\theta_{13}}=-\tan\theta_{13}\,x_{10}.\tag{B4}
+{\frac{\partial x_{10}}{\partial\theta_{1}}=\cot\theta_{1}\,x_{10},\quad\frac{\partial x_{10}}{\partial\theta_{3}}=-\tan\theta_{3}\,x_{10},\quad\frac{\partial x_{10}}{\partial\theta_{6}}=\cot\theta_{6}\,x_{10},\quad\frac{\partial x_{10}}{\partial\theta_{13}}=-\tan\theta_{13}\,x_{10}.}\tag{B4}
 ```
 
 In the complex ansatz,
@@ -149,7 +149,7 @@ In the complex ansatz,
 <a id="A2.E52"></a>
 
 ```math
-x_{10}^{\mathbb{C}}=x_{10}e^{\mathrm{i}\theta_{26}},\qquad\frac{\partial x_{10}^{\mathbb{C}}}{\partial\theta_{26}}=\mathrm{i}\,x_{10}^{\mathbb{C}}.\tag{B5}
+{x_{10}^{\mathbb{C}}=x_{10}e^{\mathrm{i}\theta_{26}},\qquad\frac{\partial x_{10}^{\mathbb{C}}}{\partial\theta_{26}}=\mathrm{i}\,x_{10}^{\mathbb{C}}.}\tag{B5}
 ```
 
 The same tree also gives the metric entries. For an internal node $`j`$, the real metric entry $`g^{\mathbb{R}}_{j,j}`$ is the squared amplitude weight accumulated along the path from the root to the parent of $`j`$. Let
@@ -196,7 +196,7 @@ For the real ansatz, after normalization by $`\sqrt{g^{\mathbb{R}}_{5,5}}=\sqrt{
 <a id="A2.E53"></a>
 
 ```math
-\lvert e^{\mathbb{R}}_{5}(\boldsymbol{\theta})\rangle =\sum_{\ell=4}^{7}v^{(5,\mathbb{R})}_{\ell}\lvert b_{\ell}\rangle ,\tag{B6}
+{\lvert e^{\mathbb{R}}_{5}(\boldsymbol{\theta})\rangle =\sum_{\ell=4}^{7}v^{(5,\mathbb{R})}_{\ell}\lvert b_{\ell}\rangle ,}\tag{B6}
 ```
 
 where
@@ -204,7 +204,7 @@ where
 <a id="A2.E54"></a>
 
 ```math
-(v^{(5,\mathbb{R})}_{4},v^{(5,\mathbb{R})}_{5},v^{(5,\mathbb{R})}_{6},v^{(5,\mathbb{R})}_{7})=(-\sin\theta_{5}\cos\theta_{10},-\sin\theta_{5}\sin\theta_{10},\cos\theta_{5}\cos\theta_{11},\cos\theta_{5}\sin\theta_{11}).\tag{B7}
+{(v^{(5,\mathbb{R})}_{4},v^{(5,\mathbb{R})}_{5},v^{(5,\mathbb{R})}_{6},v^{(5,\mathbb{R})}_{7})=(-\sin\theta_{5}\cos\theta_{10},-\sin\theta_{5}\sin\theta_{10},\cos\theta_{5}\cos\theta_{11},\cos\theta_{5}\sin\theta_{11}).}\tag{B7}
 ```
 
 For the complex ansatz, the magnitude factors are the same, but the inherited leaf phases on the subtree must be kept:
@@ -212,7 +212,7 @@ For the complex ansatz, the magnitude factors are the same, but the inherited le
 <a id="A2.E55"></a>
 
 ```math
-\lvert e^{\mathbb{C}}_{5}(\boldsymbol{\theta})\rangle =\sum_{\ell=4}^{7}v^{(5,\mathbb{C})}_{\ell}\lvert b_{\ell}\rangle ,\tag{B8}
+{\lvert e^{\mathbb{C}}_{5}(\boldsymbol{\theta})\rangle =\sum_{\ell=4}^{7}v^{(5,\mathbb{C})}_{\ell}\lvert b_{\ell}\rangle ,}\tag{B8}
 ```
 
 where
@@ -222,7 +222,7 @@ where
 <a id="A2.E56X"></a>
 
 ```math
-\begin{aligned}(v^{(5,\mathbb{C})}_{4},v^{(5,\mathbb{C})}_{5},v^{(5,\mathbb{C})}_{6},v^{(5,\mathbb{C})}_{7})=(-\sin\theta_{5}\cos\theta_{10}e^{\mathrm{i}\theta_{20}},-\sin\theta_{5}\sin\theta_{10}e^{\mathrm{i}\theta_{21}},\ \ \cos\theta_{5}\cos\theta_{11}e^{\mathrm{i}\theta_{22}},\ \cos\theta_{5}\sin\theta_{11}e^{\mathrm{i}\theta_{23}}).\end{aligned}\tag{B9}
+{\begin{aligned}(v^{(5,\mathbb{C})}_{4},v^{(5,\mathbb{C})}_{5},v^{(5,\mathbb{C})}_{6},v^{(5,\mathbb{C})}_{7})=(-\sin\theta_{5}\cos\theta_{10}e^{\mathrm{i}\theta_{20}},-\sin\theta_{5}\sin\theta_{10}e^{\mathrm{i}\theta_{21}},\ \ \cos\theta_{5}\cos\theta_{11}e^{\mathrm{i}\theta_{22}},\ \cos\theta_{5}\sin\theta_{11}e^{\mathrm{i}\theta_{23}}).\end{aligned}}\tag{B9}
 ```
 
 As a final-layer magnitude example, the parameter $`\theta_{13}`$ splits only the sibling leaves $`\ell=10`$ and $`\ell=11`$. For the real ansatz, after normalization by $`\sqrt{g^{\mathbb{R}}_{13,13}}=\sqrt{s_{1}c_{3}s_{6}}`$, the normalized tangent is
@@ -230,7 +230,7 @@ As a final-layer magnitude example, the parameter $`\theta_{13}`$ splits only th
 <a id="A2.E57"></a>
 
 ```math
-\lvert e^{\mathbb{R}}_{13}(\boldsymbol{\theta})\rangle =-\sin\theta_{13}\lvert b_{10}\rangle +\cos\theta_{13}\lvert b_{11}\rangle .\tag{B10}
+{\lvert e^{\mathbb{R}}_{13}(\boldsymbol{\theta})\rangle =-\sin\theta_{13}\lvert b_{10}\rangle +\cos\theta_{13}\lvert b_{11}\rangle .}\tag{B10}
 ```
 
 For the complex ansatz, the corresponding magnitude tangent keeps the two leaf phases:
@@ -238,7 +238,7 @@ For the complex ansatz, the corresponding magnitude tangent keeps the two leaf p
 <a id="A2.E58"></a>
 
 ```math
-\lvert e^{\mathbb{C}}_{13}(\boldsymbol{\theta})\rangle =-\sin\theta_{13}e^{\mathrm{i}\theta_{26}}\lvert b_{10}\rangle +\cos\theta_{13}e^{\mathrm{i}\theta_{27}}\lvert b_{11}\rangle .\tag{B11}
+{\lvert e^{\mathbb{C}}_{13}(\boldsymbol{\theta})\rangle =-\sin\theta_{13}e^{\mathrm{i}\theta_{26}}\lvert b_{10}\rangle +\cos\theta_{13}e^{\mathrm{i}\theta_{27}}\lvert b_{11}\rangle .}\tag{B11}
 ```
 
 For a phase parameter, the tangent is supported on a single leaf. In particular, $`\theta_{26}=\theta_{16+10}`$ is attached to $`\ell=10`$, so on the regular set where $`g^{\mathbb{C}}_{26,26}=\vert x_{10}\vert ^{2}>0`$,
@@ -246,7 +246,7 @@ For a phase parameter, the tangent is supported on a single leaf. In particular,
 <a id="A2.E59"></a>
 
 ```math
-\lvert e^{\mathbb{C}}_{26}(\boldsymbol{\theta})\rangle =\mathrm{i}e^{\mathrm{i}\theta_{26}}\lvert b_{10}\rangle .\tag{B12}
+{\lvert e^{\mathbb{C}}_{26}(\boldsymbol{\theta})\rangle =\mathrm{i}e^{\mathrm{i}\theta_{26}}\lvert b_{10}\rangle .}\tag{B12}
 ```
 
 Table [III](four-qubit-example.md#A2.T3) lists representative gate assignments that synthesize these normalized directions using the same Hopf gate skeleton. These assignments are physical gate settings and may lie outside the canonical coordinate ranges. All unspecified magnitude angles are set to zero; in complex rows, all unspecified phase angles are also set to zero.
@@ -274,7 +274,7 @@ For depth $`d=2`$, the magnitude layer is $`\mathcal{L}_{2}=\{4,5,6,7\}`$. A two
 <a id="A2.E60"></a>
 
 ```math
-00\mapsto\theta_{4},\qquad 01\mapsto\theta_{5},\qquad 10\mapsto\theta_{6},\qquad 11\mapsto\theta_{7}.\tag{B13}
+{00\mapsto\theta_{4},\qquad 01\mapsto\theta_{5},\qquad 10\mapsto\theta_{6},\qquad 11\mapsto\theta_{7}.}\tag{B13}
 ```
 
 <a id="A2.F5"></a>

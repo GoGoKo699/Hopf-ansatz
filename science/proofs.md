@@ -105,9 +105,9 @@ where $`\beta_{k}`$ does not depend on $`\theta_{i}`$. Thus
 <a id="A5.E116"></a>
 
 ```math
-\partial_{\theta_{i}}x_{k}=\begin{cases}-\alpha_{k}\sin\theta_{i}=-\tan\theta_{i}\,x_{k},&k\in\mathcal{L}_{L}(i),\\[2.0pt]
+{\partial_{\theta_{i}}x_{k}=\begin{cases}-\alpha_{k}\sin\theta_{i}=-\tan\theta_{i}\,x_{k},&k\in\mathcal{L}_{L}(i),\\[2.0pt]
 \ \ \beta_{k}\cos\theta_{i}=\ \cot\theta_{i}\,x_{k},&k\in\mathcal{L}_{R}(i),\\[2.0pt]
-0,&k\notin\mathcal{L}(i).\end{cases}\tag{E1}
+0,&k\notin\mathcal{L}(i).\end{cases}}\tag{E1}
 ```
 
 Step 2: Diagonal entries. Define the incoming mass at node $`i`$ by
@@ -222,8 +222,8 @@ Let $`\lvert \psi(\boldsymbol{\theta})\rangle =U_{\boldsymbol{\theta}}\lvert 0\r
 <a id="A5.E117"></a>
 
 ```math
-\partial_{\theta_{i}}E(\boldsymbol{\theta})=\partial_{\theta_{i}}\big(\langle \psi(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \big)\\
-=\langle \dot{\psi}_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle +\langle \psi(\boldsymbol{\theta})\rvert H\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle .\tag{E2}
+{\partial_{\theta_{i}}E(\boldsymbol{\theta})=\partial_{\theta_{i}}\big(\langle \psi(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \big)\\
+=\langle \dot{\psi}_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle +\langle \psi(\boldsymbol{\theta})\rvert H\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle .}\tag{E2}
 ```
 
 Since $`H`$ is Hermitian, $`\langle \psi(\boldsymbol{\theta})\rvert H\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle =\overline{\langle \dot{\psi}_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle },`$ hence
@@ -291,7 +291,7 @@ such that $`\|\psi_{L}\|=\|\psi_{R}\|=1`$ and, on the subtree $`\mathcal{L}(i)`$
 <a id="A5.E118"></a>
 
 ```math
-\sum_{k\in\mathcal{L}(i)}x_{k}(\boldsymbol{\theta})\lvert b_{k}\rangle =\gamma_{i}(\boldsymbol{\theta})\Big(\cos\theta_{i}\,\lvert \psi_{L}\rangle +\sin\theta_{i}\,\lvert \psi_{R}\rangle \Big),\tag{E3}
+{\sum_{k\in\mathcal{L}(i)}x_{k}(\boldsymbol{\theta})\lvert b_{k}\rangle =\gamma_{i}(\boldsymbol{\theta})\Big(\cos\theta_{i}\,\lvert \psi_{L}\rangle +\sin\theta_{i}\,\lvert \psi_{R}\rangle \Big),}\tag{E3}
 ```
 
 where the nonnegative scalar $`\gamma_{i}(\boldsymbol{\theta})`$ is the common product of ancestor trigonometric factors above node $`i`$ (hence independent of $`\theta_{i}`$). Equivalently, $`\gamma_{i}(\boldsymbol{\theta})^{2}=\sum_{k\in\mathcal{L}(i)}\vert x_{k}(\boldsymbol{\theta})\vert ^{2}.`$
@@ -301,7 +301,7 @@ Differentiating ([E3](proofs.md#A5.E118)) with respect to $`\theta_{i}`$ yields
 <a id="A5.E119"></a>
 
 ```math
-\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle =\gamma_{i}(\boldsymbol{\theta})\Big(-\sin\theta_{i}\,\lvert \psi_{L}\rangle +\cos\theta_{i}\,\lvert \psi_{R}\rangle \Big),\tag{E4}
+{\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle =\gamma_{i}(\boldsymbol{\theta})\Big(-\sin\theta_{i}\,\lvert \psi_{L}\rangle +\cos\theta_{i}\,\lvert \psi_{R}\rangle \Big),}\tag{E4}
 ```
 
 and therefore
@@ -317,7 +317,7 @@ In the real case this equals $`g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})`$, and 
 <a id="A5.E120"></a>
 
 ```math
-\lvert e_{i}(\boldsymbol{\theta})\rangle =\frac{\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle }{\sqrt{g_{i,i}(\boldsymbol{\theta})}}=-\sin\theta_{i}\,\lvert \psi_{L}\rangle +\cos\theta_{i}\,\lvert \psi_{R}\rangle .\tag{E5}
+{\lvert e_{i}(\boldsymbol{\theta})\rangle =\frac{\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle }{\sqrt{g_{i,i}(\boldsymbol{\theta})}}=-\sin\theta_{i}\,\lvert \psi_{L}\rangle +\cos\theta_{i}\,\lvert \psi_{R}\rangle .}\tag{E5}
 ```
 
 Step 3: Real ansatz synthesis. By Step 1, under $`\boldsymbol{\theta}^{(i)}`$ all amplitude weight is clamped into the subtree $`\mathcal{L}(i)`$ and the ancestor prefactor becomes $`1`$. By ([18](gradient-access.md#S3.E18)), the descendant angles below $`i`$ are unchanged, so the same $`\lvert \psi_{L}\rangle`$ and $`\lvert \psi_{R}\rangle`$ appear. Finally, by ([15](gradient-access.md#S3.E15)) we shift $`\theta_{i}\mapsto\theta_{i}+\pi/2`$, and using $`\cos(\theta_i+\pi/2)=-\sin\theta_{i}`$ and $`\sin(\theta_i+\pi/2)=\cos\theta_{i},`$ the resulting subtree superposition is exactly $`-\sin\theta_{i}\,\lvert \psi_{L}\rangle +\cos\theta_{i}\,\lvert \psi_{R}\rangle .`$ Therefore,
@@ -351,7 +351,7 @@ so
 <a id="A5.E121"></a>
 
 ```math
-\lvert e_{N+\ell}(\boldsymbol{\theta})\rangle =\frac{\mathrm{i}\,x_{\ell}(\boldsymbol{\theta})}{\vert x_{\ell}(\boldsymbol{\theta})\vert }\lvert b_{\ell}\rangle .\tag{E6}
+{\lvert e_{N+\ell}(\boldsymbol{\theta})\rangle =\frac{\mathrm{i}\,x_{\ell}(\boldsymbol{\theta})}{\vert x_{\ell}(\boldsymbol{\theta})\vert }\lvert b_{\ell}\rangle .}\tag{E6}
 ```
 
 Now construct $`\boldsymbol{\theta}^{(i)}`$ as in ([22](gradient-access.md#S3.E22))–([23](gradient-access.md#S3.E23)). The ancestor clamping forces the magnitude to be supported on the single leaf $`\ell`$ with $`r_{\ell}(\boldsymbol{\theta}^{(i)})=1`$ and $`r_{m}(\boldsymbol{\theta}^{(i)})=0`$ for $`m\neq\ell`$. The phase shift sets $`\theta^{(i)}_{N+\ell}=\theta_{N+\ell}+\pi/2,`$ so the prepared state is
@@ -511,7 +511,7 @@ For every non-final internal node $`1\leq j\leq N/2-1`$, set
 <a id="A5.Ex138"></a>
 
 ```math
-\theta_{j}=\begin{cases}\operatorname{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}>0,\\[2.0pt]
+\theta_{j}=\begin{cases}\mathrm{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}>0,\\[2.0pt]
 0,&w_{j}=0.\end{cases}
 ```
 
@@ -546,7 +546,7 @@ If $`S_{k}>0`$, set
 <a id="A5.Ex142"></a>
 
 ```math
-\theta_{N/2+k}=\operatorname{atan2}\!\big(x_{2k+1},x_{2k}\big)\pmod{2\pi}.
+\theta_{N/2+k}=\mathrm{atan2}\!\big(x_{2k+1},x_{2k}\big)\pmod{2\pi}.
 ```
 
 Then
@@ -582,7 +582,7 @@ For every internal node $`j=1,\ldots,N-1`$, set
 <a id="A5.Ex146"></a>
 
 ```math
-\theta_{j}=\begin{cases}\operatorname{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}>0,\\[2.0pt]
+\theta_{j}=\begin{cases}\mathrm{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}>0,\\[2.0pt]
 0,&w_{j}=0.\end{cases}
 ```
 

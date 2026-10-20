@@ -159,8 +159,8 @@ The Hopf ansatz uses the following single-qubit gates.
 <a id="S2.E1"></a>
 
 ```math
-R_{y}(\theta)=\begin{bmatrix}\cos\theta&-\sin\theta\\
-\sin\theta&\ \cos\theta\end{bmatrix},\tag{1}
+{R_{y}(\theta)=\begin{bmatrix}\cos\theta&-\sin\theta\\
+\sin\theta&\ \cos\theta\end{bmatrix},}\tag{1}
 ```
 
 which corresponds to the standard quantum gate $`R_{y}(2\theta)`$ under the conventional definition $`R_{y}(\varphi)=e^{-\mathrm{i}\varphi Y/2}`$. Its action on the computational basis is
@@ -172,8 +172,8 @@ which corresponds to the standard quantum gate $`R_{y}(2\theta)`$ under the conv
 <a id="S2.E2Xa"></a>
 
 ```math
-\begin{aligned}R_{y}(\theta)\lvert 0\rangle & =\cos\theta\lvert 0\rangle +\sin\theta\lvert 1\rangle , \\
-R_{y}(\theta)\lvert 1\rangle & =-\sin\theta\lvert 0\rangle +\cos\theta\lvert 1\rangle .\end{aligned}\tag{2}
+{\begin{aligned}R_{y}(\theta)\lvert 0\rangle & =\cos\theta\lvert 0\rangle +\sin\theta\lvert 1\rangle , \\
+R_{y}(\theta)\lvert 1\rangle & =-\sin\theta\lvert 0\rangle +\cos\theta\lvert 1\rangle .\end{aligned}}\tag{2}
 ```
 
 Given angles
@@ -189,7 +189,7 @@ in the real Hopf coordinate ranges, Algorithm [1](algorithms.md#algorithm-1) (Ap
 <a id="S2.E3"></a>
 
 ```math
-\mathrm{HopfReal}(\boldsymbol{\theta})\lvert 0\rangle ^{\otimes n}=\sum_{i=0}^{N-1}x_{i}\lvert b_{i}\rangle ,\tag{3}
+{\mathrm{HopfReal}(\boldsymbol{\theta})\lvert 0\rangle ^{\otimes n}=\sum_{i=0}^{N-1}x_{i}\lvert b_{i}\rangle ,}\tag{3}
 ```
 
 with real amplitudes $`x_{i}`$.
@@ -199,8 +199,8 @@ with real amplitudes $`x_{i}`$.
 <a id="S2.E4"></a>
 
 ```math
-R_{\mathbb{C}}(\theta_{a},\theta_{b},\theta_{c})=\begin{bmatrix}e^{\mathrm{i}\theta_{b}}\cos\theta_{a}&-e^{-\mathrm{i}\theta_{c}}\sin\theta_{a}\\
-e^{\mathrm{i}\theta_{c}}\sin\theta_{a}&\ \ e^{-\mathrm{i}\theta_{b}}\cos\theta_{a}\end{bmatrix},\tag{4}
+{R_{\mathbb{C}}(\theta_{a},\theta_{b},\theta_{c})=\begin{bmatrix}e^{\mathrm{i}\theta_{b}}\cos\theta_{a}&-e^{-\mathrm{i}\theta_{c}}\sin\theta_{a}\\
+e^{\mathrm{i}\theta_{c}}\sin\theta_{a}&\ \ e^{-\mathrm{i}\theta_{b}}\cos\theta_{a}\end{bmatrix},}\tag{4}
 ```
 
 with action
@@ -212,8 +212,8 @@ with action
 <a id="S2.E5Xa"></a>
 
 ```math
-\begin{aligned}R_{\mathbb{C}}(\theta_{a},\theta_{b},\theta_{c})\lvert 0\rangle & =e^{\mathrm{i}\theta_{b}}\cos\theta_{a}\lvert 0\rangle +e^{\mathrm{i}\theta_{c}}\sin\theta_{a}\lvert 1\rangle , \\
-R_{\mathbb{C}}(\theta_{a},\theta_{b},\theta_{c})\lvert 1\rangle & =-e^{-\mathrm{i}\theta_{c}}\sin\theta_{a}\lvert 0\rangle +e^{-\mathrm{i}\theta_{b}}\cos\theta_{a}\lvert 1\rangle .\end{aligned}\tag{5}
+{\begin{aligned}R_{\mathbb{C}}(\theta_{a},\theta_{b},\theta_{c})\lvert 0\rangle & =e^{\mathrm{i}\theta_{b}}\cos\theta_{a}\lvert 0\rangle +e^{\mathrm{i}\theta_{c}}\sin\theta_{a}\lvert 1\rangle , \\
+R_{\mathbb{C}}(\theta_{a},\theta_{b},\theta_{c})\lvert 1\rangle & =-e^{-\mathrm{i}\theta_{c}}\sin\theta_{a}\lvert 0\rangle +e^{-\mathrm{i}\theta_{b}}\cos\theta_{a}\lvert 1\rangle .\end{aligned}}\tag{5}
 ```
 
 This gate reduces to $`R_{y}(\theta_{a})`$ when $`\theta_{b}=\theta_{c}=0`$. For state preparation only the action on $`\lvert 0\rangle`$ is used; the action on $`\lvert 1\rangle`$ specifies a unitary extension and supports controlled use of the same gate family.
@@ -231,7 +231,7 @@ Algorithm [2](algorithms.md#algorithm-2) (Appendix [A](algorithms.md#A1.SSx2)) g
 <a id="S2.E6"></a>
 
 ```math
-\mathrm{HopfComplex}(\boldsymbol{\theta})\lvert 0\rangle ^{\otimes n}=\sum_{i=0}^{N-1}x_{i}\lvert b_{i}\rangle ,\tag{6}
+{\mathrm{HopfComplex}(\boldsymbol{\theta})\lvert 0\rangle ^{\otimes n}=\sum_{i=0}^{N-1}x_{i}\lvert b_{i}\rangle ,}\tag{6}
 ```
 
 with complex amplitudes satisfying $`\sum_{i}\vert x_{i}\vert ^{2}=1`$.
@@ -277,8 +277,8 @@ Let $`\boldsymbol{\theta}`$ denote the Hopf parameters and define the raw coordi
 <a id="S2.E7"></a>
 
 ```math
-\begin{split}g^{\mathbb{R}}_{i\ell}(\boldsymbol{\theta}):=\mathrm{Re}\!\Big[&\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle \\
-&-\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \psi(\boldsymbol{\theta})\rangle \langle \psi(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle \Big].\end{split}\tag{7}
+{\begin{split}g^{\mathbb{R}}_{i\ell}(\boldsymbol{\theta}):=\mathrm{Re}\!\Big[&\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle \\
+&-\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \psi(\boldsymbol{\theta})\rangle \langle \psi(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle \Big].\end{split}}\tag{7}
 ```
 
 Because $`\sum_{k=0}^{N-1}x_{k}^{2}=1`$ implies $`\langle \psi\vert \dot{\psi}_{i}\rangle =\sum_{k=0}^{N-1}x_{k}\,\partial_{\theta_{i}}x_{k}=0`$, the projection term vanishes, and hence
@@ -286,7 +286,7 @@ Because $`\sum_{k=0}^{N-1}x_{k}^{2}=1`$ implies $`\langle \psi\vert \dot{\psi}_{
 <a id="S2.E8"></a>
 
 ```math
-g^{\mathbb{R}}_{i\ell}(\boldsymbol{\theta})=\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle =\sum_{k=0}^{N-1}\frac{\partial x_{k}}{\partial\theta_{i}}\frac{\partial x_{k}}{\partial\theta_{\ell}}.\tag{8}
+{g^{\mathbb{R}}_{i\ell}(\boldsymbol{\theta})=\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle =\sum_{k=0}^{N-1}\frac{\partial x_{k}}{\partial\theta_{i}}\frac{\partial x_{k}}{\partial\theta_{\ell}}.}\tag{8}
 ```
 
 (B) Complex-state Hopf ansatz. Assume $`x_{k}(\boldsymbol{\theta})\in\mathbb{C}`$ and $`\sum_{k=0}^{N-1}\vert x_{k}(\boldsymbol{\theta})\vert ^{2}=1,`$ so that $`\psi(\boldsymbol{\theta})\in\mathbb{S}^{2N-1}\subset\mathbb{C}^{N}.`$ We define the parameter-space metric as the pullback of the ambient round-sphere metric on $`\mathbb{S}^{2N-1}`$:
@@ -294,7 +294,7 @@ g^{\mathbb{R}}_{i\ell}(\boldsymbol{\theta})=\langle \dot{\psi}_{i}(\boldsymbol{\
 <a id="S2.E9"></a>
 
 ```math
-g^{\mathbb{C}}_{i\ell}(\boldsymbol{\theta}):=\mathrm{Re}\,\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle .\tag{9}
+{g^{\mathbb{C}}_{i\ell}(\boldsymbol{\theta}):=\mathrm{Re}\,\langle \dot{\psi}_{i}(\boldsymbol{\theta})\vert \dot{\psi}_{\ell}(\boldsymbol{\theta})\rangle .}\tag{9}
 ```
 
 <a id="Thmdefinition4.p3.2"></a>
@@ -314,8 +314,8 @@ Let $`\lvert \psi(\boldsymbol{\theta})\rangle`$ be prepared by the Hopf ansatz i
 <a id="S2.E10"></a>
 
 ```math
-g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})=\prod_{m=1}^{d_{i}}\begin{cases}\cos^{2}\theta_{s_{m}},&q_{m}=0,\\
-\sin^{2}\theta_{s_{m}},&q_{m}=1.\end{cases}\tag{10}
+{g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})=\prod_{m=1}^{d_{i}}\begin{cases}\cos^{2}\theta_{s_{m}},&q_{m}=0,\\
+\sin^{2}\theta_{s_{m}},&q_{m}=1.\end{cases}}\tag{10}
 ```
 
 (B) Complex-state version. For parameters ordered as $`\theta_{1},\ldots,\theta_{N-1}`$ (magnitudes) followed by $`\theta_{N},\ldots,\theta_{2N-1}`$ (phases), the round-sphere pullback metric $`\boldsymbol{g}^{\mathbb{C}}`$ of Definition [4](chart-and-geometry.md#Thmdefinition4)(B) is diagonal with $`g^{\mathbb{C}}_{1,1}=1`$ and
@@ -323,8 +323,8 @@ g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})=\prod_{m=1}^{d_{i}}\begin{cases}\cos^{
 <a id="S2.E11"></a>
 
 ```math
-g^{\mathbb{C}}_{i,i}(\boldsymbol{\theta})=\begin{cases}g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta}),&1\leq i\leq N-1,\\[4.0pt]
-\vert x_{i-N}(\boldsymbol{\theta})\vert ^{2},&N\leq i\leq 2N-1.\end{cases}\tag{11}
+{g^{\mathbb{C}}_{i,i}(\boldsymbol{\theta})=\begin{cases}g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta}),&1\leq i\leq N-1,\\[4.0pt]
+\vert x_{i-N}(\boldsymbol{\theta})\vert ^{2},&N\leq i\leq 2N-1.\end{cases}}\tag{11}
 ```
 
 Thus, in the complex Hopf ansatz, the diagonal metric has two blocks: a magnitude block $`1\leq i\leq N-1`$, identical to the real Hopf metric, and a phase block $`N\leq i\leq 2N-1`$, whose entries are the leaf occupations $`\vert x_{i-N}(\boldsymbol{\theta})\vert ^{2}`$. Hence phase directions are weighted by local squared amplitudes, while magnitude directions inherit the real Hopf tree metric.

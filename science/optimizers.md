@@ -11,7 +11,7 @@ The starting point is the same cost-and-gradient loop used in standard variation
 <a id="A3.E61"></a>
 
 ```math
-C(\boldsymbol{\theta})=C\big(\lvert \psi(\boldsymbol{\theta})\rangle \big)\tag{C1}
+{C(\boldsymbol{\theta})=C\big(\lvert \psi(\boldsymbol{\theta})\rangle \big)}\tag{C1}
 ```
 
 and of the coordinate-gradient components
@@ -19,7 +19,7 @@ and of the coordinate-gradient components
 <a id="A3.E62"></a>
 
 ```math
-c_{i}:=\partial_{\theta_{i}}C(\boldsymbol{\theta}).\tag{C2}
+{c_{i}:=\partial_{\theta_{i}}C(\boldsymbol{\theta}).}\tag{C2}
 ```
 
 The Hopf structure then converts these coordinate data into state-sphere data using analytic information from the chart: the inverse map, diagonal metric, and raw Jacobian directions are all known explicitly.
@@ -49,7 +49,7 @@ In the real case define
 <a id="A3.E63"></a>
 
 ```math
-J^{\mathbb{R}}(\boldsymbol{\theta})\in\mathbb{R}^{N\times(N-1)},\qquad(J^{\mathbb{R}})_{aj}:=\frac{\partial x_{a}}{\partial\theta_{j}},\tag{C3}
+{J^{\mathbb{R}}(\boldsymbol{\theta})\in\mathbb{R}^{N\times(N-1)},\qquad(J^{\mathbb{R}})_{aj}:=\frac{\partial x_{a}}{\partial\theta_{j}},}\tag{C3}
 ```
 
 with $`a=0,\ldots,N-1`$ and $`j=1,\ldots,N-1`$. In the complex case define
@@ -57,7 +57,7 @@ with $`a=0,\ldots,N-1`$ and $`j=1,\ldots,N-1`$. In the complex case define
 <a id="A3.E64"></a>
 
 ```math
-J^{\mathbb{C}}(\boldsymbol{\theta})\in\mathbb{C}^{N\times(2N-1)},\qquad(J^{\mathbb{C}})_{aj}:=\frac{\partial x_{a}}{\partial\theta_{j}},\tag{C4}
+{J^{\mathbb{C}}(\boldsymbol{\theta})\in\mathbb{C}^{N\times(2N-1)},\qquad(J^{\mathbb{C}})_{aj}:=\frac{\partial x_{a}}{\partial\theta_{j}},}\tag{C4}
 ```
 
 with $`a=0,\ldots,N-1`$ and $`j=1,\ldots,2N-1`$.
@@ -78,9 +78,9 @@ The following logarithmic-derivative formulas hold literally on the regular set 
 <a id="A3.E65"></a>
 
 ```math
-\frac{\partial x_{a}}{\partial\theta_{j}}=\begin{cases}-\tan\theta_{j}\,x_{a},&j\in P(a),\ \varepsilon_{aj}=0,\\[2.0pt]
+{\frac{\partial x_{a}}{\partial\theta_{j}}=\begin{cases}-\tan\theta_{j}\,x_{a},&j\in P(a),\ \varepsilon_{aj}=0,\\[2.0pt]
 \ \ \cot\theta_{j}\,x_{a},&j\in P(a),\ \varepsilon_{aj}=1,\\[2.0pt]
-0,&j\notin P(a).\end{cases}\tag{C5}
+0,&j\notin P(a).\end{cases}}\tag{C5}
 ```
 
 Moreover, the real pullback metric is the Gram matrix
@@ -88,7 +88,7 @@ Moreover, the real pullback metric is the Gram matrix
 <a id="A3.E66"></a>
 
 ```math
-g^{\mathbb{R}}(\boldsymbol{\theta})=\big(J^{\mathbb{R}}(\boldsymbol{\theta})\big)^{\top}J^{\mathbb{R}}(\boldsymbol{\theta}).\tag{C6}
+{g^{\mathbb{R}}(\boldsymbol{\theta})=\big(J^{\mathbb{R}}(\boldsymbol{\theta})\big)^{\top}J^{\mathbb{R}}(\boldsymbol{\theta}).}\tag{C6}
 ```
 
 (B) Complex case. Write
@@ -104,10 +104,10 @@ where $`r_{a}`$ is produced by the internal-node magnitude angles. For $`1\leq j
 <a id="A3.E67"></a>
 
 ```math
-\frac{\partial x_{a}}{\partial\theta_{j}}=\begin{cases}-\tan\theta_{j}\,x_{a},&j\in P(a),\ \varepsilon_{aj}=0,\\[2.0pt]
+{\frac{\partial x_{a}}{\partial\theta_{j}}=\begin{cases}-\tan\theta_{j}\,x_{a},&j\in P(a),\ \varepsilon_{aj}=0,\\[2.0pt]
 \ \ \cot\theta_{j}\,x_{a},&j\in P(a),\ \varepsilon_{aj}=1,\\[2.0pt]
 \mathrm{i}\,x_{a},&j=N+a,\\[2.0pt]
-0,&\text{otherwise}.\end{cases}\tag{C7}
+0,&\text{otherwise}.\end{cases}}\tag{C7}
 ```
 
 Moreover, under the ambient round-sphere convention of Definition [4](chart-and-geometry.md#Thmdefinition4), the complex pullback metric is
@@ -115,7 +115,7 @@ Moreover, under the ambient round-sphere convention of Definition [4](chart-and-
 <a id="A3.E68"></a>
 
 ```math
-g^{\mathbb{C}}(\boldsymbol{\theta})=\operatorname{Re}\!\left[\big(J^{\mathbb{C}}(\boldsymbol{\theta})\big)^{\dagger}J^{\mathbb{C}}(\boldsymbol{\theta})\right].\tag{C8}
+{g^{\mathbb{C}}(\boldsymbol{\theta})=\mathrm{Re}\!\left[\big(J^{\mathbb{C}}(\boldsymbol{\theta})\big)^{\dagger}J^{\mathbb{C}}(\boldsymbol{\theta})\right].}\tag{C8}
 ```
 
 Thus the Hopf Jacobian is explicit, and its Gram matrix is exactly the pullback metric. Since the metric is diagonal, the differential map can be inverted componentwise on the regular set, rather than by solving a dense linear system.
@@ -141,8 +141,8 @@ For the complex ansatz, after realification
 <a id="A3.Ex65"></a>
 
 ```math
-J_{\mathbb{R}}:=\begin{bmatrix}\operatorname{Re}J^{\mathbb{C}}\\
-\operatorname{Im}J^{\mathbb{C}}\end{bmatrix},
+J_{\mathbb{R}}:=\begin{bmatrix}\mathrm{Re}J^{\mathbb{C}}\\
+\mathrm{Im}J^{\mathbb{C}}\end{bmatrix},
 ```
 
 the corresponding left inverse on $`\mathcal{U}_{\mathbb{C}}`$ is
@@ -164,8 +164,8 @@ Let $`\mathbb{S}_{\star}`$ denote the normalized state-vector sphere on which th
 <a id="A3.E69"></a>
 
 ```math
-\langle u,v\rangle_{\star}=\begin{cases}\langle u\vert v\rangle ,&\text{real case},\\[2.0pt]
-\operatorname{Re}\langle u\vert v\rangle ,&\text{complex round-sphere case}.\end{cases}\tag{C9}
+{\langle u,v\rangle_{\star}=\begin{cases}\langle u\vert v\rangle ,&\text{real case},\\[2.0pt]
+\mathrm{Re}\langle u\vert v\rangle ,&\text{complex round-sphere case}.\end{cases}}\tag{C9}
 ```
 
 The tangent projection at $`\lvert \psi\rangle \in\mathbb{S}_{\star}`$ is
@@ -173,7 +173,7 @@ The tangent projection at $`\lvert \psi\rangle \in\mathbb{S}_{\star}`$ is
 <a id="A3.E70"></a>
 
 ```math
-\Pi_{\psi}(w)=w-\langle\psi,w\rangle_{\star}\psi.\tag{C10}
+{\Pi_{\psi}(w)=w-\langle\psi,w\rangle_{\star}\psi.}\tag{C10}
 ```
 
 For $`u\in T_{\psi}\mathbb{S}_{\star}`$, the exact sphere exponential map is
@@ -181,20 +181,20 @@ For $`u\in T_{\psi}\mathbb{S}_{\star}`$, the exact sphere exponential map is
 <a id="A3.E71"></a>
 
 ```math
-\operatorname{Exp}_{\psi}(u)=\begin{cases}\psi,&\|u\|_{\star}=0,\\[4.0pt]
-\cos(\|u\|_\star)\psi+\dfrac{\sin(\|u\|_\star)}{\|u\|_{\star}}u,&\|u\|_{\star}>0.\end{cases}\tag{C11}
+{\mathrm{Exp}_{\psi}(u)=\begin{cases}\psi,&\|u\|_{\star}=0,\\[4.0pt]
+\cos(\|u\|_\star)\psi+\dfrac{\sin(\|u\|_\star)}{\|u\|_{\star}}u,&\|u\|_{\star}>0.\end{cases}}\tag{C11}
 ```
 
 <a id="A3.SSx2.p1.4"></a>
 
-Equivalently, if the geodesic is parameterized as $`\gamma(\eta)=\operatorname{Exp}_{\psi}(\eta u)`$, then its angular length is $`\eta\|u\|_{\star}`$. This is the exact-geodesic update used in Ref. [[24](../references/paper-bibliography.md#bib.bib2)].
+Equivalently, if the geodesic is parameterized as $`\gamma(\eta)=\mathrm{Exp}_{\psi}(\eta u)`$, then its angular length is $`\eta\|u\|_{\star}`$. This is the exact-geodesic update used in Ref. [[24](../references/paper-bibliography.md#bib.bib2)].
 
-The exact parallel transport of a tangent vector $`\zeta\in T_{\psi}\mathbb{S}_{\star}`$ along the same geodesic $`\gamma(\eta)=\operatorname{Exp}_{\psi}(\eta u)`$ is
+The exact parallel transport of a tangent vector $`\zeta\in T_{\psi}\mathbb{S}_{\star}`$ along the same geodesic $`\gamma(\eta)=\mathrm{Exp}_{\psi}(\eta u)`$ is
 
 <a id="A3.E72"></a>
 
 ```math
-\mathcal{T}_{\eta u}(\zeta)=\zeta-\sin(\eta\|u\|_\star)\frac{\langle u,\zeta\rangle_{\star}}{\|u\|_{\star}}\,\psi+\big[\cos(\eta\|u\|_\star)-1\big]\frac{\langle u,\zeta\rangle_{\star}}{\|u\|_{\star}^{2}}\,u,\tag{C12}
+{\mathcal{T}_{\eta u}(\zeta)=\zeta-\sin(\eta\|u\|_\star)\frac{\langle u,\zeta\rangle_{\star}}{\|u\|_{\star}}\,\psi+\big[\cos(\eta\|u\|_\star)-1\big]\frac{\langle u,\zeta\rangle_{\star}}{\|u\|_{\star}^{2}}\,u,}\tag{C12}
 ```
 
 with the continuous identity limit when $`\|u\|_{\star}=0`$. This is the transport used by Hopf-EGT-CG and by the Riemannian memory methods below. It is a vector-transport rule along the accepted geodesic; it is not a second state-update geodesic.
@@ -208,7 +208,7 @@ For brevity in this appendix, write
 <a id="A3.E73"></a>
 
 ```math
-\lvert \dot{\psi}_{i}\rangle :=\partial_{\theta_{i}}\lvert \psi(\boldsymbol{\theta})\rangle ,\qquad\lvert e_{i}\rangle :=\frac{\lvert \dot{\psi}_{i}\rangle }{\sqrt{g_{i,i}(\boldsymbol{\theta})}}\tag{C13}
+{\lvert \dot{\psi}_{i}\rangle :=\partial_{\theta_{i}}\lvert \psi(\boldsymbol{\theta})\rangle ,\qquad\lvert e_{i}\rangle :=\frac{\lvert \dot{\psi}_{i}\rangle }{\sqrt{g_{i,i}(\boldsymbol{\theta})}}}\tag{C13}
 ```
 
 where $`g_{i,i}`$ is the diagonal Hopf metric from Theorem [1](chart-and-geometry.md#Thmtheorem1). On the regular set,
@@ -216,7 +216,7 @@ where $`g_{i,i}`$ is the diagonal Hopf metric from Theorem [1](chart-and-geometr
 <a id="A3.E74"></a>
 
 ```math
-\langle e_{i},e_{j}\rangle_{\star}=\delta_{ij}.\tag{C14}
+{\langle e_{i},e_{j}\rangle_{\star}=\delta_{ij}.}\tag{C14}
 ```
 
 Thus the Hopf differential has the orthonormal-frame form
@@ -224,7 +224,7 @@ Thus the Hopf differential has the orthonormal-frame form
 <a id="A3.E75"></a>
 
 ```math
-D_{\boldsymbol{\theta}}\psi[\delta\boldsymbol{\theta}]=\sum_{i}\delta\theta_{i}\sqrt{g_{i,i}(\boldsymbol{\theta})}\,e_{i}.\tag{C15}
+{D_{\boldsymbol{\theta}}\psi[\delta\boldsymbol{\theta}]=\sum_{i}\delta\theta_{i}\sqrt{g_{i,i}(\boldsymbol{\theta})}\,e_{i}.}\tag{C15}
 ```
 
 If the coordinate gradient components $`c_{i}=\partial_{\theta_{i}}C`$ are known, the corresponding state-sphere gradient is
@@ -232,7 +232,7 @@ If the coordinate gradient components $`c_{i}=\partial_{\theta_{i}}C`$ are known
 <a id="A3.E76"></a>
 
 ```math
-G(\boldsymbol{\theta}):=\operatorname{grad}_{\mathbb{S}_{\star}}C=\sum_{i}\frac{c_{i}}{\sqrt{g_{i,i}(\boldsymbol{\theta})}}e_{i}=\sum_{i}\frac{c_{i}}{g_{i,i}(\boldsymbol{\theta})}\dot{\psi}_{i}.\tag{C16}
+{G(\boldsymbol{\theta}):=\mathrm{grad}_{\mathbb{S}_{\star}}C=\sum_{i}\frac{c_{i}}{\sqrt{g_{i,i}(\boldsymbol{\theta})}}e_{i}=\sum_{i}\frac{c_{i}}{g_{i,i}(\boldsymbol{\theta})}\dot{\psi}_{i}.}\tag{C16}
 ```
 
 In matrix notation this is $`G=Jg^{-1}\nabla_{\theta}C`$, where $`J`$ is the Hopf Jacobian and $`g=J^{\top}J`$ in the real case, or the corresponding realified Gram matrix in the complex round-sphere convention.
@@ -244,7 +244,7 @@ After a state-sphere update produces $`\psi_{k+1}`$, the next circuit parameters
 <a id="A3.E77"></a>
 
 ```math
-\boldsymbol{\theta}_{k+1}=\operatorname{Hopf}^{-1}(\psi_{k+1}),\tag{C17}
+{\boldsymbol{\theta}_{k+1}=\mathrm{Hopf}^{-1}(\psi_{k+1}),}\tag{C17}
 ```
 
 using Lemma [1](algorithms.md#Thmlemma1). This is the step that lets a classical state-sphere optimizer remain an executable Hopf-circuit optimizer.
@@ -258,7 +258,7 @@ The basic exact-geodesic-transport descent direction is
 <a id="A3.E78"></a>
 
 ```math
-v_{k}:=-G_{k},\tag{C18}
+{v_{k}:=-G_{k},}\tag{C18}
 ```
 
 where $`G_{k}=G(\boldsymbol{\theta}_{k})`$. The first-order Hopf-EGT update is
@@ -266,7 +266,7 @@ where $`G_{k}=G(\boldsymbol{\theta}_{k})`$. The first-order Hopf-EGT update is
 <a id="A3.E79"></a>
 
 ```math
-\psi_{k+1}=\operatorname{Exp}_{\psi_{k}}(\eta_{k}v_{k}),\qquad\boldsymbol{\theta}_{k+1}=\operatorname{Hopf}^{-1}(\psi_{k+1}).\tag{C19}
+{\psi_{k+1}=\mathrm{Exp}_{\psi_{k}}(\eta_{k}v_{k}),\qquad\boldsymbol{\theta}_{k+1}=\mathrm{Hopf}^{-1}(\psi_{k+1}).}\tag{C19}
 ```
 
 Infinitesimally, this reduces to the diagonal natural-gradient parameter step
@@ -274,7 +274,7 @@ Infinitesimally, this reduces to the diagonal natural-gradient parameter step
 <a id="A3.E80"></a>
 
 ```math
-\delta\theta_{i}=-\eta_{k}\frac{\partial_{\theta_{i}}C}{g_{i,i}}+O(\eta_{k}^{2}),\tag{C20}
+{\delta\theta_{i}=-\eta_{k}\frac{\partial_{\theta_{i}}C}{g_{i,i}}+O(\eta_{k}^{2}),}\tag{C20}
 ```
 
 but Eq. ([C19](optimizers.md#A3.E79)) keeps the state normalized exactly and uses the full sphere geodesic rather than a flat coordinate step.
@@ -284,7 +284,7 @@ Hopf-EGT-CG adds a transported conjugate-gradient memory direction. Let $`u_{k}\
 <a id="A3.E81"></a>
 
 ```math
-u_{0}=v_{0}=-G_{0}.\tag{C21}
+{u_{0}=v_{0}=-G_{0}.}\tag{C21}
 ```
 
 Given $`u_{k}`$, choose $`\eta_{k}>0`$ and update
@@ -292,7 +292,7 @@ Given $`u_{k}`$, choose $`\eta_{k}>0`$ and update
 <a id="A3.E82"></a>
 
 ```math
-\psi_{k+1}=\operatorname{Exp}_{\psi_{k}}(\eta_{k}u_{k}).\tag{C22}
+{\psi_{k+1}=\mathrm{Exp}_{\psi_{k}}(\eta_{k}u_{k}).}\tag{C22}
 ```
 
 Then transport the previous direction and previous gradient to $`T_{\psi_{k+1}}\mathbb{S}_{\star}`$:
@@ -300,7 +300,7 @@ Then transport the previous direction and previous gradient to $`T_{\psi_{k+1}}\
 <a id="A3.E83"></a>
 
 ```math
-\widetilde{u}_{k}:=\mathcal{T}_{\eta_{k}u_{k}}(u_{k}),\qquad\widetilde{G}_{k}:=\mathcal{T}_{\eta_{k}u_{k}}(G_{k}).\tag{C23}
+{\widetilde{u}_{k}:=\mathcal{T}_{\eta_{k}u_{k}}(u_{k}),\qquad\widetilde{G}_{k}:=\mathcal{T}_{\eta_{k}u_{k}}(G_{k}).}\tag{C23}
 ```
 
 <a id="A3.SSx4.p2.4"></a>
@@ -310,13 +310,13 @@ Using the hybrid Dai–Yuan/Hestenes–Stiefel coefficient in gradient notation 
 <a id="A3.E84"></a>
 
 ```math
-D_{k}:=\langle G_{k+1},\widetilde{u}_{k}\rangle_{\star}-\langle G_{k},u_{k}\rangle_{\star},\tag{C24}
+{D_{k}:=\langle G_{k+1},\widetilde{u}_{k}\rangle_{\star}-\langle G_{k},u_{k}\rangle_{\star},}\tag{C24}
 ```
 
 <a id="A3.E85"></a>
 
 ```math
-\beta_{k+1}^{\rm DY}:=\frac{\langle G_{k+1},G_{k+1}\rangle_{\star}}{D_{k}},\qquad\beta_{k+1}^{\rm HS}:=\frac{\langle G_{k+1},G_{k+1}-\widetilde{G}_{k}\rangle_{\star}}{D_{k}},\tag{C25}
+{\beta_{k+1}^{\rm DY}:=\frac{\langle G_{k+1},G_{k+1}\rangle_{\star}}{D_{k}},\qquad\beta_{k+1}^{\rm HS}:=\frac{\langle G_{k+1},G_{k+1}-\widetilde{G}_{k}\rangle_{\star}}{D_{k}},}\tag{C25}
 ```
 
 and
@@ -324,7 +324,7 @@ and
 <a id="A3.E86"></a>
 
 ```math
-\beta_{k+1}:=\max\{0,\min(\beta_{k+1}^{\rm DY},\beta_{k+1}^{\rm HS})\}.\tag{C26}
+{\beta_{k+1}:=\max\{0,\min(\beta_{k+1}^{\rm DY},\beta_{k+1}^{\rm HS})\}.}\tag{C26}
 ```
 
 If $`D_{k}`$ is numerically singular or the resulting direction is not a descent direction, we restart with $`u_{k+1}=-G_{k+1}`$. Otherwise,
@@ -332,7 +332,7 @@ If $`D_{k}`$ is numerically singular or the resulting direction is not a descent
 <a id="A3.E87"></a>
 
 ```math
-u_{k+1}=-G_{k+1}+\beta_{k+1}\widetilde{u}_{k}.\tag{C27}
+{u_{k+1}=-G_{k+1}+\beta_{k+1}\widetilde{u}_{k}.}\tag{C27}
 ```
 
 The line search is performed on the one-dimensional geodesic
@@ -340,7 +340,7 @@ The line search is performed on the one-dimensional geodesic
 <a id="A3.E88"></a>
 
 ```math
-\gamma_{k}(\eta)=\operatorname{Exp}_{\psi_{k}}(\eta u_{k}).\tag{C28}
+{\gamma_{k}(\eta)=\mathrm{Exp}_{\psi_{k}}(\eta u_{k}).}\tag{C28}
 ```
 
 The strong-Wolfe conditions take the sphere form
@@ -350,13 +350,13 @@ The strong-Wolfe conditions take the sphere form
 <a id="A3.E89"></a>
 
 ```math
-\begin{aligned}C(\gamma_{k}(\eta_{k}))-C(\psi_{k}) & \leq c_{1}\eta_{k}\langle G_{k},u_{k}\rangle_{\star},\end{aligned}\tag{C29}
+{\begin{aligned}C(\gamma_{k}(\eta_{k}))-C(\psi_{k}) & \leq c_{1}\eta_{k}\langle G_{k},u_{k}\rangle_{\star},\end{aligned}}\tag{C29}
 ```
 
 <a id="A3.E90"></a>
 
 ```math
-\begin{aligned}\left\vert \left\langle G_{k+1},\mathcal{T}_{\eta_{k}u_{k}}(u_{k})\right\rangle_{\star}\right\vert & \leq c_{2}\left\vert \langle G_{k},u_{k}\rangle_{\star}\right\vert ,\end{aligned}\tag{C30}
+{\begin{aligned}\left\vert \left\langle G_{k+1},\mathcal{T}_{\eta_{k}u_{k}}(u_{k})\right\rangle_{\star}\right\vert & \leq c_{2}\left\vert \langle G_{k},u_{k}\rangle_{\star}\right\vert ,\end{aligned}}\tag{C30}
 ```
 
 <a id="A3.SSx4.p3.3"></a>
@@ -374,7 +374,7 @@ The Riemannian L-BFGS variant [[39](../references/paper-bibliography.md#bib.bib4
 <a id="A3.E91"></a>
 
 ```math
-\psi_{k+1}=\operatorname{Exp}_{\psi_{k}}(\eta_{k}p_{k}),\tag{C31}
+{\psi_{k+1}=\mathrm{Exp}_{\psi_{k}}(\eta_{k}p_{k}),}\tag{C31}
 ```
 
 where $`p_{k}\in T_{\psi_{k}}\mathbb{S}_{\star}`$ is the L-BFGS search direction. The step and gradient-difference vectors at the new point are
@@ -382,7 +382,7 @@ where $`p_{k}\in T_{\psi_{k}}\mathbb{S}_{\star}`$ is the L-BFGS search direction
 <a id="A3.E92"></a>
 
 ```math
-s_{k}:=\mathcal{T}_{\eta_{k}p_{k}}(\eta_{k}p_{k}),\qquad y_{k}:=G_{k+1}-\mathcal{T}_{\eta_{k}p_{k}}(G_{k}).\tag{C32}
+{s_{k}:=\mathcal{T}_{\eta_{k}p_{k}}(\eta_{k}p_{k}),\qquad y_{k}:=G_{k+1}-\mathcal{T}_{\eta_{k}p_{k}}(G_{k}).}\tag{C32}
 ```
 
 The pair is accepted only when
@@ -390,7 +390,7 @@ The pair is accepted only when
 <a id="A3.E93"></a>
 
 ```math
-\langle s_{k},y_{k}\rangle_{\star}>0.\tag{C33}
+{\langle s_{k},y_{k}\rangle_{\star}>0.}\tag{C33}
 ```
 
 All older stored pairs are exactly transported along each newly accepted geodesic before the next two-loop recursion is applied. Thus every vector used by the recursion lies in the current tangent space.
@@ -400,7 +400,7 @@ Let the currently stored transported pairs be $`(s_{j},y_{j})`$, $`j=k-r,\ldots,
 <a id="A3.E94"></a>
 
 ```math
-\rho_{j}:=\frac{1}{\langle s_{j},y_{j}\rangle_{\star}}.\tag{C34}
+{\rho_{j}:=\frac{1}{\langle s_{j},y_{j}\rangle_{\star}}.}\tag{C34}
 ```
 
 The standard two-loop recursion is then applied with the pairing $`\langle\cdot,\cdot\rangle_{\star}`$. Starting from $`q=G_{k}`$, the backward loop uses
@@ -408,7 +408,7 @@ The standard two-loop recursion is then applied with the pairing $`\langle\cdot,
 <a id="A3.E95"></a>
 
 ```math
-\alpha_{j}=\rho_{j}\langle s_{j},q\rangle_{\star},\qquad q\leftarrow q-\alpha_{j}y_{j}.\tag{C35}
+{\alpha_{j}=\rho_{j}\langle s_{j},q\rangle_{\star},\qquad q\leftarrow q-\alpha_{j}y_{j}.}\tag{C35}
 ```
 
 The initial inverse-Hessian scale may be chosen as
@@ -416,7 +416,7 @@ The initial inverse-Hessian scale may be chosen as
 <a id="A3.E96"></a>
 
 ```math
-\gamma_{k}=\frac{\langle s_{k-1},y_{k-1}\rangle_{\star}}{\langle y_{k-1},y_{k-1}\rangle_{\star}},\tag{C36}
+{\gamma_{k}=\frac{\langle s_{k-1},y_{k-1}\rangle_{\star}}{\langle y_{k-1},y_{k-1}\rangle_{\star}},}\tag{C36}
 ```
 
 when a previous pair exists, and $`\gamma_{k}=1`$ otherwise. Setting $`r=\gamma_{k}q`$, the forward loop uses
@@ -424,7 +424,7 @@ when a previous pair exists, and $`\gamma_{k}=1`$ otherwise. Setting $`r=\gamma_
 <a id="A3.E97"></a>
 
 ```math
-\beta_{j}=\rho_{j}\langle y_{j},r\rangle_{\star},\qquad r\leftarrow r+s_{j}(\alpha_{j}-\beta_{j}).\tag{C37}
+{\beta_{j}=\rho_{j}\langle y_{j},r\rangle_{\star},\qquad r\leftarrow r+s_{j}(\alpha_{j}-\beta_{j}).}\tag{C37}
 ```
 
 The search direction is
@@ -432,7 +432,7 @@ The search direction is
 <a id="A3.E98"></a>
 
 ```math
-p_{k}=-\Pi_{\psi_{k}}(r),\tag{C38}
+{p_{k}=-\Pi_{\psi_{k}}(r),}\tag{C38}
 ```
 
 with restart to $`-G_{k}`$ if $`p_{k}`$ is not a descent direction. A geodesic line search, for instance the strong-Wolfe search ([C29](optimizers.md#A3.E89))–([C30](optimizers.md#A3.E90)), then chooses $`\eta_{k}`$.
@@ -452,7 +452,7 @@ After a step from $`\psi_{k-1}`$ to $`\psi_{k}`$, define
 <a id="A3.E99"></a>
 
 ```math
-s_{k-1}:=\mathcal{T}(\eta_{k-1}p_{k-1}),\qquad y_{k-1}:=G_{k}-\mathcal{T}(G_{k-1}),\tag{C39}
+{s_{k-1}:=\mathcal{T}(\eta_{k-1}p_{k-1}),\qquad y_{k-1}:=G_{k}-\mathcal{T}(G_{k-1}),}\tag{C39}
 ```
 
 where $`\mathcal{T}`$ denotes exact transport along the accepted geodesic. The two standard spectral choices are
@@ -460,7 +460,7 @@ where $`\mathcal{T}`$ denotes exact transport along the accepted geodesic. The t
 <a id="A3.E100"></a>
 
 ```math
-\alpha_{k}^{\rm BB1}=\frac{\langle s_{k-1},s_{k-1}\rangle_{\star}}{\langle s_{k-1},y_{k-1}\rangle_{\star}},\qquad\alpha_{k}^{\rm BB2}=\frac{\langle s_{k-1},y_{k-1}\rangle_{\star}}{\langle y_{k-1},y_{k-1}\rangle_{\star}}.\tag{C40}
+{\alpha_{k}^{\rm BB1}=\frac{\langle s_{k-1},s_{k-1}\rangle_{\star}}{\langle s_{k-1},y_{k-1}\rangle_{\star}},\qquad\alpha_{k}^{\rm BB2}=\frac{\langle s_{k-1},y_{k-1}\rangle_{\star}}{\langle y_{k-1},y_{k-1}\rangle_{\star}}.}\tag{C40}
 ```
 
 The implementation may use BB1, BB2, or alternate between them, with clipping $`\alpha_{k}\in[\alpha_{\min},\alpha_{\max}]`$. The update is
@@ -468,7 +468,7 @@ The implementation may use BB1, BB2, or alternate between them, with clipping $`
 <a id="A3.E101"></a>
 
 ```math
-\psi_{k+1}=\operatorname{Exp}_{\psi_{k}}(-\alpha_{k}G_{k}),\qquad\boldsymbol{\theta}_{k+1}=\operatorname{Hopf}^{-1}(\psi_{k+1}).\tag{C41}
+{\psi_{k+1}=\mathrm{Exp}_{\psi_{k}}(-\alpha_{k}G_{k}),\qquad\boldsymbol{\theta}_{k+1}=\mathrm{Hopf}^{-1}(\psi_{k+1}).}\tag{C41}
 ```
 
 For stability one may add a geodesic line-search safeguard, such as Armijo backtracking or the same strong-Wolfe/bounded geodesic search used above, seeded by the Barzilai–Borwein spectral step. This safeguard uses only objective and, when the curvature test is checked, gradient evaluations, and does not change the quantum-information interface.
