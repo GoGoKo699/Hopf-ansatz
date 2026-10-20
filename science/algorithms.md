@@ -361,44 +361,36 @@ Consider a single-qubit gate acting on one target and conditioned on a set of co
 m=\mathrm{popcount}(\mathtt{Ctrl}\lor\mathtt{Anti}).
 ```
 
-- **Sign-independence.** Negative controls are implemented by conjugating the corresponding control qubits by Pauli-$`X`$ (before and after the controlled operation). Since $`X`$ can be taken as a CNOT-free primitive in our accounting, the CNOT cost depends only on $`m`$ and not on how many controls are negative.
+**Sign-independence.** Negative controls are implemented by conjugating the corresponding control qubits by Pauli-$`X`$ (before and after the controlled operation). Since $`X`$ can be taken as a CNOT-free primitive in our accounting, the CNOT cost depends only on $`m`$ and not on how many controls are negative.
 
-- **Controlled-$`R_{y}`$.** Let $`C_{R}(m)`$ be the CNOT cost of an $`m`$-controlled $`R_{y}`$ gate (no ancilla). We use the piecewise model
+**Controlled-$`R_{y}`$.** Let $`C_{R}(m)`$ be the CNOT cost of an $`m`$-controlled $`R_{y}`$ gate (no ancilla). We use the piecewise model
 
+<a id="A1.Ex41"></a>
 
+```math
+C_{R}(m)=\begin{cases}0,&m=0,\\
+2^{m+1}-2,&1\leq m\leq 4,\\
+16(m+1)-40,&m\geq 5,\end{cases}
+```
 
-  <a id="A1.Ex41"></a>
+<a id="A1.I1.i2.p1.2"></a>
 
-  ```math
-  C_{R}(m)=\begin{cases}0,&m=0,\\
-  2^{m+1}-2,&1\leq m\leq 4,\\
-  16(m+1)-40,&m\geq 5,\end{cases}
-  ```
+where the small-$`m`$ values reflect best-known no-ancilla decompositions [[51](../references/paper-bibliography.md#bib.bib10), [52](../references/paper-bibliography.md#bib.bib9)], and the linear regime for $`m\geq 5`$ follows the explicit constructions of [[53](../references/paper-bibliography.md#bib.bib8)] (with $`n_{g}=m+1`$ total qubits involved).
 
+**Controlled-$`R_{\mathbb{C}}`$ (special unitary single-qubit gate).** Let $`C_{U}(m)`$ be the CNOT cost of an $`m`$-controlled special unitary single-qubit gate (no ancilla), which in our application is the promoted $`R_{\mathbb{C}}`$ gate. We use
 
+<a id="A1.Ex42"></a>
 
-  <a id="A1.I1.i2.p1.2"></a>
+```math
+C_{U}(m)=\begin{cases}0,&m=0,\\
+2^{m+1}-2,&1\leq m\leq 4,\\
+\begin{cases}20(m+1)-38,&m+1\ \mathrm{odd},\\
+20(m+1)-42,&m+1\ \mathrm{even},\end{cases}&m\geq 5,\end{cases}
+```
 
-  where the small-$`m`$ values reflect best-known no-ancilla decompositions [[51](../references/paper-bibliography.md#bib.bib10), [52](../references/paper-bibliography.md#bib.bib9)], and the linear regime for $`m\geq 5`$ follows the explicit constructions of [[53](../references/paper-bibliography.md#bib.bib8)] (with $`n_{g}=m+1`$ total qubits involved).
+<a id="A1.I1.i3.p1.2"></a>
 
-- **Controlled-$`R_{\mathbb{C}}`$ (special unitary single-qubit gate).** Let $`C_{U}(m)`$ be the CNOT cost of an $`m`$-controlled special unitary single-qubit gate (no ancilla), which in our application is the promoted $`R_{\mathbb{C}}`$ gate. We use
-
-
-
-  <a id="A1.Ex42"></a>
-
-  ```math
-  C_{U}(m)=\begin{cases}0,&m=0,\\
-  2^{m+1}-2,&1\leq m\leq 4,\\
-  \begin{cases}20(m+1)-38,&m+1\ \mathrm{odd},\\
-  20(m+1)-42,&m+1\ \mathrm{even},\end{cases}&m\geq 5,\end{cases}
-  ```
-
-
-
-  <a id="A1.I1.i3.p1.2"></a>
-
-  again using standard small-control decompositions [[51](../references/paper-bibliography.md#bib.bib10), [52](../references/paper-bibliography.md#bib.bib9)] and the linear no-ancilla constructions of [[53](../references/paper-bibliography.md#bib.bib8)].
+again using standard small-control decompositions [[51](../references/paper-bibliography.md#bib.bib10), [52](../references/paper-bibliography.md#bib.bib9)] and the linear no-ancilla constructions of [[53](../references/paper-bibliography.md#bib.bib8)].
 
 All rotation parameters are implemented directly as physical gate parameters; no multiplexing or angle recombination is used.
 
@@ -430,13 +422,12 @@ For $`n\in\{2,3,4,5\}`$, the real-state and complex-state versions of the Hopf a
 
 <a id="A1.Ex45"></a>
 
-```math
-\begin{array}{c|c|c}n&G_{\mathbb{R}}(n)&G_{\mathbb{C}}(n)\\
-\hline 2&4&4\\
-3&24&24\\
-4&100&100\\
-5&360&360\end{array}
-```
+| $`n`$ | $`G_{\mathbb{R}}(n)`$ | $`G_{\mathbb{C}}(n)`$ |
+| --- | --- | --- |
+| 2 | 4 | 4 |
+| 3 | 24 | 24 |
+| 4 | 100 | 100 |
+| 5 | 360 | 360 |
 
 These values are obtained by applying the CNOT-counting model above to the full generated gate lists, including the promoted $`R_{\mathbb{C}}`$ gates in the complex case.
 
