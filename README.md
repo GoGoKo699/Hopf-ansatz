@@ -1,137 +1,92 @@
-# The Hopf Ansatz: reference implementation and reproducibility
+# The Hopf Ansatz
 
-Reference code, engineering conventions, validation safeguards, and reproducible
-experiments for:
+**How can a universal state-preparation circuit also provide coordinates, local geometry, and measurable directions for optimization?** The Hopf ansatz uses one binary tree to prepare arbitrary normalized real and complex state vectors, recover angles from known amplitudes, and expose the metric and coordinate tangents.
 
-**A Compass on the Quantum State Sphere: The Hopf Ansatz for Arbitrary
-Pure-State Optimization**  
-Ruge Lin and Guangxi Li (2026)
+**Ruge Lin and Guangxi Li — [A Compass on the Quantum State Sphere: The Hopf Ansatz for Arbitrary Pure-State Optimization](https://arxiv.org/abs/2607.14231) (2026).**
 
-[Read the paper on arXiv](https://arxiv.org/abs/2607.14231)
-
-The Hopf ansatz is a fixed binary-tree circuit family for arbitrary normalized
-real and complex pure states. In addition to forward state preparation, it
-provides an explicit inverse map, a diagonal pullback metric, exactly preparable
-normalized coordinate tangents, structured gradient access, and
-geometry-aware optimization on the state sphere.
-
-## Choose a route
-
-| Goal | Start here |
+| Result | Scientific meaning |
 |---|---|
-| Check whether the repository supports a paper claim | [Claim support and evidence map](docs/CLAIM_SUPPORT.md) |
-| Implement the chart, inverse map, metric, tangents, or gate schedule | [Engineering guide](docs/ENGINEERING_GUIDE.md) |
-| Understand the numerical studies and safeguards | [Experiments and evidence](docs/EXPERIMENTS.md) |
-| Reproduce the scripts and generated data | [Reproducibility](REPRODUCIBILITY.md) |
-| Inspect the companion reverse-gradient constructions | [Hopf-QBP repository](https://github.com/GoGoKo699/Hopf-QBP) |
+| Real and complex Hopf charts | A dimension-matched representation of the normalized state-vector sphere, with an explicit amplitude-to-angle inverse |
+| Diagonal pullback metric | Subtree probability masses and leaf occupations supply local geometric weights |
+| Preparable coordinate tangents | Each nonzero tangent becomes a normalized state on the same circuit skeleton |
+| Structured gradient access | Transition moments and signed branches organize derivative access by tree depth and phase family |
+| Geometry-aware optimization | The chart supports sphere-based updates and the paper's matched numerical studies |
 
-## Implementation
+For $`N=2^n`$, the real chart has $`N-1`$ parameters and the complex chart has $`2N-1`$, retaining the global phase of the state vector. The complex diagonal metric is the ambient round-sphere metric; the real metric agrees with the pullback Fubini–Study metric. Coordinate singularities and the distinction between compiled circuit families and measurement repetitions are part of the scientific account.
 
-For `n` qubits and `N = 2**n`, the real chart uses `N - 1` angles; the
-complex chart adds `N` leaf phases. The core API in `hopf_utils.py` provides
-forward and inverse maps, exact Jacobians, diagonal metrics, normalized tangent
-assignments, and deterministic real/complex gate schedules with optional Qibo
-circuit checks.
+## Read the science
 
-The optimization scripts combine boundary-safe coordinate gradients with
-state-sphere geometry. The experiments cover real and complex synthetic tasks,
-a fixed-state finite-shot estimator, and a local `n = 4` layerwise circuit
-check. The resource ledger assigns logical CNOT costs under a declared
-no-clean-ancilla model.
+The [complete scientific account](science/README.md) contains the paper's main text and every appendix, with original equation, statement, algorithm, figure, table, and reference identifiers. Follow the topic route below, or use the [reviewer crosswalk](review/README.md) to find a specific item from the paper.
 
-Coordinate conventions, singular-boundary handling, and implementation examples
-are in the [engineering guide](docs/ENGINEERING_GUIDE.md). The
-[claim map](docs/CLAIM_SUPPORT.md) connects each result to its checks and scope;
-the paper supplies the formal proofs.
+| To understand | Read |
+|---|---|
+| The question and relation to earlier work | [Motivation](science/motivation.md) |
+| State preparation, inverse coordinates, and the metric | [Chart and geometry](science/chart-and-geometry.md) and [algorithms](science/algorithms.md) |
+| Tangent states, transition moments, and indexed access | [Gradient access](science/gradient-access.md) |
+| A complete concrete construction | [Four-qubit example](science/four-qubit-example.md) |
+| Jacobians, sphere updates, and optimizer mechanisms | [Geometry-native optimizers](science/optimizers.md) |
+| QFI and fixed-readout CFI objectives | [Metrological objectives](science/metrological-objectives.md) |
+| Full analytical arguments | [Proofs](science/proofs.md) |
+| Numerical comparisons and their interpretation | [Numerical studies](science/numerical-studies.md) and [experimental details](docs/EXPERIMENTS.md) |
+| Implementation conventions and API | [Engineering guide](docs/ENGINEERING_GUIDE.md) |
 
-## Quick start
+Each result has one scientific home. The engineering guide supplies bit order, angle conventions, boundary handling, and implementation details; [the bibliography](references/paper-bibliography.md) preserves the paper's attribution.
 
-Use Python 3.10 or newer.
+## Learn the project
+
+The single educational anchor is **Michael A. Nielsen and Isaac L. Chuang, _Quantum Computation and Quantum Information_, 10th Anniversary Edition**. The [educational bridge](learning/ANCHOR.md) selects relevant sections, translates conventions, and develops the geometry needed to connect that foundation to this work.
+
+The [30-milestone map](learning/MILESTONES.md) contains **12 background/preliminaries milestones and 18 narrative/innovation milestones**. Both phases progress from local objects and mechanisms to the complete scientific story. Every milestone has an understanding target, dependencies, a conceptual connection, and source links.
+
+## Verify and reproduce
+
+Start with the [reviewer route](review/README.md): paper item → full statement and proof → implementation → executable check. The [reproduction guide](verification/README.md) gives environment setup, commands, data generation, figure reproduction, and expected results.
+
+Use Python 3.10 or newer. From the repository root:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-```
-
-Install Qibo only for explicit circuit checks:
-
-```bash
-python -m pip install -r requirements-optional.txt
-```
-
-Run the core map, inverse, metric, tangent, and optional Qibo checks:
-
-```bash
 python hopf_utils.py
 ```
 
-For the small checks, full experiments, diagnostics, and figure generation, use
-[REPRODUCIBILITY.md](REPRODUCIBILITY.md).
-
-## Evidence snapshots
-
-The committed figures summarize the complex optimization study, fixed-state
-finite-shot estimator, and local layerwise circuit check.
+Install `requirements-optional.txt` for the explicit Qibo circuit checks. The small checks exercise coordinate maps, metrics, tangents, and logical gate schedules; the full experiments regenerate the numerical studies. General analytical statements are established by their written proofs.
 
 <p align="center">
-  <img src="hopf_complex.png" width="31%" alt="Complex Hopf optimization stress-test summary">
-  <img src="finite_shot_sanity.png" width="31%" alt="Finite-shot signed-branch gradient error">
-  <img src="VQE_qibo.png" width="31%" alt="Local Qibo layerwise-gradient VQE safeguard">
+  <img src="hopf_complex.png" width="31%" alt="Complex Hopf optimization study">
+  <img src="finite_shot_sanity.png" width="31%" alt="Finite-shot signed-branch estimator convergence">
+  <img src="VQE_qibo.png" width="31%" alt="Four-qubit layerwise circuit validation">
 </p>
 
-- `hopf_complex.png` summarizes a focused complex-chart optimization study.
-- `finite_shot_sanity.png` isolates the statistical convergence of one signed-branch estimator.
-- `VQE_qibo.png` checks local real and complex layerwise circuit realizability at `n = 4`.
+These supplementary implementation figures are described in [Experiments and evidence](docs/EXPERIMENTS.md); the original paper figures appear with their captions in the scientific account.
 
-The exact meaning, settings, and limitations of each panel are documented in
-[docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
+## Companion paper
 
-## Repository map
-
-| Path | Role |
-|---|---|
-| `hopf_utils.py` | Coordinate maps, inverse maps, Jacobians, metrics, tangent assignments, native gate schedules, and optional Qibo circuit checks. |
-| `hopf_gate_count.py` | Generated-schedule versus closed-form assigned CNOT safeguard. |
-| `hopf_data.py` | Multi-size real-Hopf geometry-native optimization data generator. |
-| `adam_data.py` | Real Hopf-Adam and ideal Möttönen-parameter-shift-equivalent baselines. |
-| `diagnose_hopf.py` | Streaming completeness and numerical diagnostics for geometry-native CSV data. |
-| `diagnose_adam.py` | Streaming diagnostics for the Adam baseline CSV data. |
-| `plot_hopf.py` | Aggregate and per-task plots from regenerated real-Hopf and Adam datasets. |
-| `hopf_complex.py` | Focused complex-Hopf stress test, diagnostics, and committed summary figure. |
-| `finite_shot_sanity_check.py` | Fixed-state signed-branch estimator check and committed statistical figure. |
-| `VQE_qibo.py` | Local real/complex layerwise-gradient circuit safeguard and committed VQE figure. |
-| `docs/CLAIM_SUPPORT.md` | Claim-to-code and claim-to-evidence map. |
-| `docs/ENGINEERING_GUIDE.md` | Self-contained implementation and adaptation guide. |
-| `docs/EXPERIMENTS.md` | Experimental designs, outputs, reported results, and interpretation limits. |
-| `REPRODUCIBILITY.md` | Clean-environment commands and complete data-regeneration workflow. |
-
-## Related work
-
-The companion [Hopf-QBP repository](https://github.com/GoGoKo699/Hopf-QBP)
-provides exact-logical global-frame, direct-phase, and checkpointed
-reverse-gradient constructions. The two repositories have no runtime dependency
-on one another.
+[Hopf-QBP](https://github.com/GoGoKo699/Hopf-QBP) develops shared finite-shot records for the complete Hopf-coordinate gradient. Its paper is [Compass in the Mirror: Quantum Backpropagation with the Hopf Ansatz](https://arxiv.org/abs/2610.14177). The repositories use the same educational anchor and reading structure and are independently runnable.
 
 ## Citation
 
-For the Hopf ansatz and the scientific results in this repository, cite:
-
-**Ruge Lin and Guangxi Li, “A Compass on the Quantum State Sphere: The Hopf
-Ansatz for Arbitrary Pure-State Optimization,” arXiv:2607.14231 (2026).**
+**Ruge Lin and Guangxi Li, “A Compass on the Quantum State Sphere: The Hopf Ansatz for Arbitrary Pure-State Optimization,” arXiv:2607.14231 (2026).**
 
 ```bibtex
-@article{lin2026hopf,
-  title   = {A Compass on the Quantum State Sphere:
-             The Hopf Ansatz for Arbitrary Pure-State Optimization},
-  author  = {Lin, Ruge and Li, Guangxi},
-  journal = {arXiv preprint arXiv:2607.14231},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2607.14231}
+@misc{lin2026hopf,
+  title = {A Compass on the Quantum State Sphere: The Hopf Ansatz for Arbitrary Pure-State Optimization},
+  author = {Lin, Ruge and Li, Guangxi},
+  year = {2026},
+  eprint = {2607.14231},
+  archivePrefix = {arXiv},
+  primaryClass = {quant-ph},
+  url = {https://arxiv.org/abs/2607.14231}
 }
 ```
 
+Machine-readable citation metadata is available in [CITATION.cff](CITATION.cff).
+
+## Purpose and contact
+
+This repository serves as a record of the work and a guide for the author’s self-directed learning. For discussion or potential collaboration, please contact Ruge Lin at [gogoko699@gmail.com](mailto:gogoko699@gmail.com).
+
 ## License
 
-This software is released under the [MIT License](LICENSE).
+The software is released under the [MIT License](LICENSE). The scientific account identifies the authors and the arXiv source of the paper.

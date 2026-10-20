@@ -1,0 +1,1803 @@
+{
+  "arxiv": "2607.14231v1",
+  "paper_url": "https://arxiv.org/abs/2607.14231v1",
+  "source_html_url": "https://arxiv.org/html/2607.14231v1",
+  "source_html_sha256": "3fd3c2e21f531c171f60861b798d4df15b4f4f6680d4dd840f34cd1570261152",
+  "label_convention": "Printed PDF identifiers; original HTML IDs retained as stable anchors.",
+  "counts": {
+    "Section": 48,
+    "Statement": 14,
+    "Equation": 121,
+    "Figure": 6,
+    "Table": 3,
+    "Algorithm": 7,
+    "Reference": 56
+  },
+  "items": [
+    {
+      "kind": "Section",
+      "label": "Abstract",
+      "description": "",
+      "source_id": "abstract1",
+      "target": "science/README.md#abstract1"
+    },
+    {
+      "kind": "Section",
+      "label": "I Introduction",
+      "description": "",
+      "source_id": "S1",
+      "target": "science/motivation.md#S1"
+    },
+    {
+      "kind": "Section",
+      "label": "II A universal Hopf variational chart",
+      "description": "",
+      "source_id": "S2",
+      "target": "science/chart-and-geometry.md#S2"
+    },
+    {
+      "kind": "Section",
+      "label": "Hopf geometry on the state sphere",
+      "description": "",
+      "source_id": "S2.SSx1",
+      "target": "science/chart-and-geometry.md#S2.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "III Hopf gradient access and scaling",
+      "description": "",
+      "source_id": "S3",
+      "target": "science/gradient-access.md#S3"
+    },
+    {
+      "kind": "Section",
+      "label": "Gradient estimation from signed branch states",
+      "description": "",
+      "source_id": "S3.SSx1",
+      "target": "science/gradient-access.md#S3.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "Magnitude-layer batching",
+      "description": "",
+      "source_id": "S3.SSx2",
+      "target": "science/gradient-access.md#S3.SSx2"
+    },
+    {
+      "kind": "Section",
+      "label": "Single phase-layer batching for the complex ansatz",
+      "description": "",
+      "source_id": "S3.SSx3",
+      "target": "science/gradient-access.md#S3.SSx3"
+    },
+    {
+      "kind": "Section",
+      "label": "Complete estimator and scaling analysis",
+      "description": "",
+      "source_id": "S3.SSx4",
+      "target": "science/gradient-access.md#S3.SSx4"
+    },
+    {
+      "kind": "Section",
+      "label": "IV Numerical simulations",
+      "description": "",
+      "source_id": "S4",
+      "target": "science/numerical-studies.md#S4"
+    },
+    {
+      "kind": "Section",
+      "label": "Stress-test design",
+      "description": "",
+      "source_id": "S4.SSx1",
+      "target": "science/numerical-studies.md#S4.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "Aggregate results",
+      "description": "",
+      "source_id": "S4.SSx2",
+      "target": "science/numerical-studies.md#S4.SSx2"
+    },
+    {
+      "kind": "Section",
+      "label": "Per-task convergence",
+      "description": "",
+      "source_id": "S4.SSx3",
+      "target": "science/numerical-studies.md#S4.SSx3"
+    },
+    {
+      "kind": "Section",
+      "label": "V Conclusion",
+      "description": "",
+      "source_id": "S5",
+      "target": "science/conclusion.md#S5"
+    },
+    {
+      "kind": "Section",
+      "label": "Data and code availability",
+      "description": "",
+      "source_id": "Sx1",
+      "target": "science/conclusion.md#Sx1"
+    },
+    {
+      "kind": "Section",
+      "label": "References",
+      "description": "",
+      "source_id": "bib",
+      "target": "references/paper-bibliography.md#bib"
+    },
+    {
+      "kind": "Section",
+      "label": "Appendix A Algorithms and subroutines",
+      "description": "",
+      "source_id": "A1",
+      "target": "science/algorithms.md#A1"
+    },
+    {
+      "kind": "Section",
+      "label": "Inverse Hopf map",
+      "description": "",
+      "source_id": "A1.SSx1",
+      "target": "science/algorithms.md#A1.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "Gate-schedule routines",
+      "description": "",
+      "source_id": "A1.SSx2",
+      "target": "science/algorithms.md#A1.SSx2"
+    },
+    {
+      "kind": "Section",
+      "label": "CNOT counting model",
+      "description": "",
+      "source_id": "A1.SSx3",
+      "target": "science/algorithms.md#A1.SSx3"
+    },
+    {
+      "kind": "Section",
+      "label": "Appendix B A four-qubit example of the Hopf ansatz",
+      "description": "",
+      "source_id": "A2",
+      "target": "science/four-qubit-example.md#A2"
+    },
+    {
+      "kind": "Section",
+      "label": "Hopf tree and leaf-phase indexing",
+      "description": "",
+      "source_id": "A2.SSx1",
+      "target": "science/four-qubit-example.md#A2.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "Ansatz circuit",
+      "description": "",
+      "source_id": "A2.SSx2",
+      "target": "science/four-qubit-example.md#A2.SSx2"
+    },
+    {
+      "kind": "Section",
+      "label": "Metric and Jacobian entries",
+      "description": "",
+      "source_id": "A2.SSx3",
+      "target": "science/four-qubit-example.md#A2.SSx3"
+    },
+    {
+      "kind": "Section",
+      "label": "Representative normalized coordinate tangents",
+      "description": "",
+      "source_id": "A2.SSx4",
+      "target": "science/four-qubit-example.md#A2.SSx4"
+    },
+    {
+      "kind": "Section",
+      "label": "Layerwise derivative and branch circuits",
+      "description": "",
+      "source_id": "A2.SSx5",
+      "target": "science/four-qubit-example.md#A2.SSx5"
+    },
+    {
+      "kind": "Section",
+      "label": "Appendix C Geometry-native optimizers for the Hopf ansatz",
+      "description": "",
+      "source_id": "A3",
+      "target": "science/optimizers.md#A3"
+    },
+    {
+      "kind": "Section",
+      "label": "Jacobian formulas and inverse differential map",
+      "description": "",
+      "source_id": "A3.SSx1",
+      "target": "science/optimizers.md#A3.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "State-sphere conventions",
+      "description": "",
+      "source_id": "A3.SSx2",
+      "target": "science/optimizers.md#A3.SSx2"
+    },
+    {
+      "kind": "Section",
+      "label": "Lifting Hopf coordinate gradients to the state sphere",
+      "description": "",
+      "source_id": "A3.SSx3",
+      "target": "science/optimizers.md#A3.SSx3"
+    },
+    {
+      "kind": "Section",
+      "label": "Hopf exact geodesic transport with conjugate gradients",
+      "description": "",
+      "source_id": "A3.SSx4",
+      "target": "science/optimizers.md#A3.SSx4"
+    },
+    {
+      "kind": "Section",
+      "label": "Hopf Riemannian L-BFGS",
+      "description": "",
+      "source_id": "A3.SSx5",
+      "target": "science/optimizers.md#A3.SSx5"
+    },
+    {
+      "kind": "Section",
+      "label": "Hopf Riemannian Barzilai–Borwein",
+      "description": "",
+      "source_id": "A3.SSx6",
+      "target": "science/optimizers.md#A3.SSx6"
+    },
+    {
+      "kind": "Section",
+      "label": "Summary of the optimizer family",
+      "description": "",
+      "source_id": "A3.SSx7",
+      "target": "science/optimizers.md#A3.SSx7"
+    },
+    {
+      "kind": "Section",
+      "label": "Appendix D Metrological objectives as chain-rule observables",
+      "description": "",
+      "source_id": "A4",
+      "target": "science/metrological-objectives.md#A4"
+    },
+    {
+      "kind": "Section",
+      "label": "A general chain-rule form",
+      "description": "",
+      "source_id": "A4.SSx1",
+      "target": "science/metrological-objectives.md#A4.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "Pure-state QFI objective",
+      "description": "",
+      "source_id": "A4.SSx2",
+      "target": "science/metrological-objectives.md#A4.SSx2"
+    },
+    {
+      "kind": "Section",
+      "label": "Fixed-readout Ramsey CFI objective",
+      "description": "",
+      "source_id": "A4.SSx3",
+      "target": "science/metrological-objectives.md#A4.SSx3"
+    },
+    {
+      "kind": "Section",
+      "label": "Compiled-setting scaling",
+      "description": "",
+      "source_id": "A4.SSx4",
+      "target": "science/metrological-objectives.md#A4.SSx4"
+    },
+    {
+      "kind": "Section",
+      "label": "Appendix E Proofs of the main results",
+      "description": "",
+      "source_id": "A5",
+      "target": "science/proofs.md#A5"
+    },
+    {
+      "kind": "Section",
+      "label": "Closed-form product formula for Hopf amplitudes",
+      "description": "",
+      "source_id": "A5.SSx1",
+      "target": "science/proofs.md#A5.SSx1"
+    },
+    {
+      "kind": "Section",
+      "label": "Proof of Theorem 1",
+      "description": "",
+      "source_id": "A5.SSx2",
+      "target": "science/proofs.md#A5.SSx2"
+    },
+    {
+      "kind": "Section",
+      "label": "Proof of Theorem 2",
+      "description": "",
+      "source_id": "A5.SSx3",
+      "target": "science/proofs.md#A5.SSx3"
+    },
+    {
+      "kind": "Section",
+      "label": "Proof of Theorem 3",
+      "description": "",
+      "source_id": "A5.SSx4",
+      "target": "science/proofs.md#A5.SSx4"
+    },
+    {
+      "kind": "Section",
+      "label": "Proof of Theorem 4",
+      "description": "",
+      "source_id": "A5.SSx5",
+      "target": "science/proofs.md#A5.SSx5"
+    },
+    {
+      "kind": "Section",
+      "label": "Proof of Lemma 1",
+      "description": "",
+      "source_id": "A5.SSx6",
+      "target": "science/proofs.md#A5.SSx6"
+    },
+    {
+      "kind": "Section",
+      "label": "Proof of Theorem 6",
+      "description": "",
+      "source_id": "A5.SSx7",
+      "target": "science/proofs.md#A5.SSx7"
+    },
+    {
+      "kind": "Section",
+      "label": "Acknowledgements",
+      "description": "",
+      "source_id": "S5.acknowledgements1",
+      "target": "science/conclusion.md#S5.acknowledgements1"
+    },
+    {
+      "kind": "Statement",
+      "label": "Definition 1 (Hopf binary tree) .",
+      "description": "",
+      "source_id": "Thmdefinition1",
+      "target": "science/chart-and-geometry.md#Thmdefinition1"
+    },
+    {
+      "kind": "Statement",
+      "label": "Definition 2 (Hopf coordinate system) .",
+      "description": "",
+      "source_id": "Thmdefinition2",
+      "target": "science/chart-and-geometry.md#Thmdefinition2"
+    },
+    {
+      "kind": "Statement",
+      "label": "Definition 3 (Hopf ansatz) .",
+      "description": "",
+      "source_id": "Thmdefinition3",
+      "target": "science/chart-and-geometry.md#Thmdefinition3"
+    },
+    {
+      "kind": "Statement",
+      "label": "Definition 4 (Metrics in parameter space) .",
+      "description": "",
+      "source_id": "Thmdefinition4",
+      "target": "science/chart-and-geometry.md#Thmdefinition4"
+    },
+    {
+      "kind": "Statement",
+      "label": "Theorem 1 (Diagonal metric of the Hopf ansatz) .",
+      "description": "",
+      "source_id": "Thmtheorem1",
+      "target": "science/chart-and-geometry.md#Thmtheorem1"
+    },
+    {
+      "kind": "Statement",
+      "label": "Definition 5 (Normalized coordinate tangent) .",
+      "description": "",
+      "source_id": "Thmdefinition5",
+      "target": "science/gradient-access.md#Thmdefinition5"
+    },
+    {
+      "kind": "Statement",
+      "label": "Theorem 2 (Gradient estimation for VQE) .",
+      "description": "",
+      "source_id": "Thmtheorem2",
+      "target": "science/gradient-access.md#Thmtheorem2"
+    },
+    {
+      "kind": "Statement",
+      "label": "Theorem 3 (Normalized coordinate tangents as quantum states (Hopf)) .",
+      "description": "",
+      "source_id": "Thmtheorem3",
+      "target": "science/gradient-access.md#Thmtheorem3"
+    },
+    {
+      "kind": "Statement",
+      "label": "Theorem 4 (Uniform per-setting cost of Hopf gradient configurations) .",
+      "description": "",
+      "source_id": "Thmtheorem4",
+      "target": "science/gradient-access.md#Thmtheorem4"
+    },
+    {
+      "kind": "Statement",
+      "label": "Lemma 1 (Inverse Hopf map and classical cost) .",
+      "description": "",
+      "source_id": "Thmlemma1",
+      "target": "science/algorithms.md#Thmlemma1"
+    },
+    {
+      "kind": "Statement",
+      "label": "Lemma 2 (CNOT counting model for mixed-sign multi-controls) .",
+      "description": "",
+      "source_id": "Thmlemma2",
+      "target": "science/algorithms.md#Thmlemma2"
+    },
+    {
+      "kind": "Statement",
+      "label": "Theorem 5 (CNOT counts for Hopf ansatze under the piecewise no-ancilla model) .",
+      "description": "",
+      "source_id": "Thmtheorem5",
+      "target": "science/algorithms.md#Thmtheorem5"
+    },
+    {
+      "kind": "Statement",
+      "label": "Theorem 6 (Jacobian formulas and Gram forms) .",
+      "description": "",
+      "source_id": "Thmtheorem6",
+      "target": "science/optimizers.md#Thmtheorem6"
+    },
+    {
+      "kind": "Statement",
+      "label": "Lemma 3 (Closed-form product formula for Hopf amplitudes) .",
+      "description": "",
+      "source_id": "Thmlemma3",
+      "target": "science/proofs.md#Thmlemma3"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (1)",
+      "description": "",
+      "source_id": "S2.E1",
+      "target": "science/chart-and-geometry.md#S2.E1"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (2)",
+      "description": "",
+      "source_id": "S2.E2",
+      "target": "science/chart-and-geometry.md#S2.E2"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (3)",
+      "description": "",
+      "source_id": "S2.E3",
+      "target": "science/chart-and-geometry.md#S2.E3"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (4)",
+      "description": "",
+      "source_id": "S2.E4",
+      "target": "science/chart-and-geometry.md#S2.E4"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (5)",
+      "description": "",
+      "source_id": "S2.E5",
+      "target": "science/chart-and-geometry.md#S2.E5"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (6)",
+      "description": "",
+      "source_id": "S2.E6",
+      "target": "science/chart-and-geometry.md#S2.E6"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (7)",
+      "description": "",
+      "source_id": "S2.E7",
+      "target": "science/chart-and-geometry.md#S2.E7"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (8)",
+      "description": "",
+      "source_id": "S2.E8",
+      "target": "science/chart-and-geometry.md#S2.E8"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (9)",
+      "description": "",
+      "source_id": "S2.E9",
+      "target": "science/chart-and-geometry.md#S2.E9"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (10)",
+      "description": "",
+      "source_id": "S2.E10",
+      "target": "science/chart-and-geometry.md#S2.E10"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (11)",
+      "description": "",
+      "source_id": "S2.E11",
+      "target": "science/chart-and-geometry.md#S2.E11"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (12)",
+      "description": "",
+      "source_id": "S3.E12",
+      "target": "science/gradient-access.md#S3.E12"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (13)",
+      "description": "",
+      "source_id": "S3.E13",
+      "target": "science/gradient-access.md#S3.E13"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (14)",
+      "description": "",
+      "source_id": "S3.E14",
+      "target": "science/gradient-access.md#S3.E14"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (15)",
+      "description": "",
+      "source_id": "S3.E15",
+      "target": "science/gradient-access.md#S3.E15"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (16)",
+      "description": "",
+      "source_id": "S3.E16",
+      "target": "science/gradient-access.md#S3.E16"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (17)",
+      "description": "",
+      "source_id": "S3.E17",
+      "target": "science/gradient-access.md#S3.E17"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (18)",
+      "description": "",
+      "source_id": "S3.E18",
+      "target": "science/gradient-access.md#S3.E18"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (19)",
+      "description": "",
+      "source_id": "S3.E19",
+      "target": "science/gradient-access.md#S3.E19"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (20)",
+      "description": "",
+      "source_id": "S3.E20",
+      "target": "science/gradient-access.md#S3.E20"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (21)",
+      "description": "",
+      "source_id": "S3.E21",
+      "target": "science/gradient-access.md#S3.E21"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (22)",
+      "description": "",
+      "source_id": "S3.E22",
+      "target": "science/gradient-access.md#S3.E22"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (23)",
+      "description": "",
+      "source_id": "S3.E23",
+      "target": "science/gradient-access.md#S3.E23"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (24)",
+      "description": "",
+      "source_id": "S3.E24",
+      "target": "science/gradient-access.md#S3.E24"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (25)",
+      "description": "",
+      "source_id": "S3.E25",
+      "target": "science/gradient-access.md#S3.E25"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (26)",
+      "description": "",
+      "source_id": "S3.E26",
+      "target": "science/gradient-access.md#S3.E26"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (27)",
+      "description": "",
+      "source_id": "S3.E27",
+      "target": "science/gradient-access.md#S3.E27"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (28)",
+      "description": "",
+      "source_id": "S3.E28",
+      "target": "science/gradient-access.md#S3.E28"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (29)",
+      "description": "",
+      "source_id": "S3.E29",
+      "target": "science/gradient-access.md#S3.E29"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (30)",
+      "description": "",
+      "source_id": "S3.E30",
+      "target": "science/gradient-access.md#S3.E30"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (31)",
+      "description": "",
+      "source_id": "S3.E31",
+      "target": "science/gradient-access.md#S3.E31"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (32)",
+      "description": "",
+      "source_id": "S3.E32",
+      "target": "science/gradient-access.md#S3.E32"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (33)",
+      "description": "",
+      "source_id": "S3.E33",
+      "target": "science/gradient-access.md#S3.E33"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (34)",
+      "description": "",
+      "source_id": "S3.E34",
+      "target": "science/gradient-access.md#S3.E34"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (35)",
+      "description": "",
+      "source_id": "S3.E35",
+      "target": "science/gradient-access.md#S3.E35"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (36)",
+      "description": "",
+      "source_id": "S3.E36",
+      "target": "science/gradient-access.md#S3.E36"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (37)",
+      "description": "",
+      "source_id": "S3.E37",
+      "target": "science/gradient-access.md#S3.E37"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (38)",
+      "description": "",
+      "source_id": "S3.E38",
+      "target": "science/gradient-access.md#S3.E38"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (39)",
+      "description": "",
+      "source_id": "S3.E39",
+      "target": "science/gradient-access.md#S3.E39"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (40)",
+      "description": "",
+      "source_id": "S3.E40",
+      "target": "science/gradient-access.md#S3.E40"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (41)",
+      "description": "",
+      "source_id": "S3.E41",
+      "target": "science/gradient-access.md#S3.E41"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (42)",
+      "description": "",
+      "source_id": "S3.E42",
+      "target": "science/gradient-access.md#S3.E42"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (A1)",
+      "description": "",
+      "source_id": "A1.E43",
+      "target": "science/algorithms.md#A1.E43"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (A2)",
+      "description": "",
+      "source_id": "A1.E44",
+      "target": "science/algorithms.md#A1.E44"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (A3)",
+      "description": "",
+      "source_id": "A1.E45",
+      "target": "science/algorithms.md#A1.E45"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (A4)",
+      "description": "",
+      "source_id": "A1.E46",
+      "target": "science/algorithms.md#A1.E46"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (A5)",
+      "description": "",
+      "source_id": "A1.E47",
+      "target": "science/algorithms.md#A1.E47"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B1)",
+      "description": "",
+      "source_id": "A2.E48",
+      "target": "science/four-qubit-example.md#A2.E48"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B2)",
+      "description": "",
+      "source_id": "A2.E49",
+      "target": "science/four-qubit-example.md#A2.E49"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B3)",
+      "description": "",
+      "source_id": "A2.E50",
+      "target": "science/four-qubit-example.md#A2.E50"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B4)",
+      "description": "",
+      "source_id": "A2.E51",
+      "target": "science/four-qubit-example.md#A2.E51"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B5)",
+      "description": "",
+      "source_id": "A2.E52",
+      "target": "science/four-qubit-example.md#A2.E52"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B6)",
+      "description": "",
+      "source_id": "A2.E53",
+      "target": "science/four-qubit-example.md#A2.E53"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B7)",
+      "description": "",
+      "source_id": "A2.E54",
+      "target": "science/four-qubit-example.md#A2.E54"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B8)",
+      "description": "",
+      "source_id": "A2.E55",
+      "target": "science/four-qubit-example.md#A2.E55"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B9)",
+      "description": "",
+      "source_id": "A2.E56",
+      "target": "science/four-qubit-example.md#A2.E56"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B10)",
+      "description": "",
+      "source_id": "A2.E57",
+      "target": "science/four-qubit-example.md#A2.E57"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B11)",
+      "description": "",
+      "source_id": "A2.E58",
+      "target": "science/four-qubit-example.md#A2.E58"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B12)",
+      "description": "",
+      "source_id": "A2.E59",
+      "target": "science/four-qubit-example.md#A2.E59"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (B13)",
+      "description": "",
+      "source_id": "A2.E60",
+      "target": "science/four-qubit-example.md#A2.E60"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C1)",
+      "description": "",
+      "source_id": "A3.E61",
+      "target": "science/optimizers.md#A3.E61"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C2)",
+      "description": "",
+      "source_id": "A3.E62",
+      "target": "science/optimizers.md#A3.E62"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C3)",
+      "description": "",
+      "source_id": "A3.E63",
+      "target": "science/optimizers.md#A3.E63"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C4)",
+      "description": "",
+      "source_id": "A3.E64",
+      "target": "science/optimizers.md#A3.E64"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C5)",
+      "description": "",
+      "source_id": "A3.E65",
+      "target": "science/optimizers.md#A3.E65"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C6)",
+      "description": "",
+      "source_id": "A3.E66",
+      "target": "science/optimizers.md#A3.E66"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C7)",
+      "description": "",
+      "source_id": "A3.E67",
+      "target": "science/optimizers.md#A3.E67"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C8)",
+      "description": "",
+      "source_id": "A3.E68",
+      "target": "science/optimizers.md#A3.E68"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C9)",
+      "description": "",
+      "source_id": "A3.E69",
+      "target": "science/optimizers.md#A3.E69"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C10)",
+      "description": "",
+      "source_id": "A3.E70",
+      "target": "science/optimizers.md#A3.E70"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C11)",
+      "description": "",
+      "source_id": "A3.E71",
+      "target": "science/optimizers.md#A3.E71"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C12)",
+      "description": "",
+      "source_id": "A3.E72",
+      "target": "science/optimizers.md#A3.E72"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C13)",
+      "description": "",
+      "source_id": "A3.E73",
+      "target": "science/optimizers.md#A3.E73"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C14)",
+      "description": "",
+      "source_id": "A3.E74",
+      "target": "science/optimizers.md#A3.E74"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C15)",
+      "description": "",
+      "source_id": "A3.E75",
+      "target": "science/optimizers.md#A3.E75"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C16)",
+      "description": "",
+      "source_id": "A3.E76",
+      "target": "science/optimizers.md#A3.E76"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C17)",
+      "description": "",
+      "source_id": "A3.E77",
+      "target": "science/optimizers.md#A3.E77"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C18)",
+      "description": "",
+      "source_id": "A3.E78",
+      "target": "science/optimizers.md#A3.E78"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C19)",
+      "description": "",
+      "source_id": "A3.E79",
+      "target": "science/optimizers.md#A3.E79"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C20)",
+      "description": "",
+      "source_id": "A3.E80",
+      "target": "science/optimizers.md#A3.E80"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C21)",
+      "description": "",
+      "source_id": "A3.E81",
+      "target": "science/optimizers.md#A3.E81"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C22)",
+      "description": "",
+      "source_id": "A3.E82",
+      "target": "science/optimizers.md#A3.E82"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C23)",
+      "description": "",
+      "source_id": "A3.E83",
+      "target": "science/optimizers.md#A3.E83"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C24)",
+      "description": "",
+      "source_id": "A3.E84",
+      "target": "science/optimizers.md#A3.E84"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C25)",
+      "description": "",
+      "source_id": "A3.E85",
+      "target": "science/optimizers.md#A3.E85"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C26)",
+      "description": "",
+      "source_id": "A3.E86",
+      "target": "science/optimizers.md#A3.E86"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C27)",
+      "description": "",
+      "source_id": "A3.E87",
+      "target": "science/optimizers.md#A3.E87"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C28)",
+      "description": "",
+      "source_id": "A3.E88",
+      "target": "science/optimizers.md#A3.E88"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C29)",
+      "description": "",
+      "source_id": "A3.E89",
+      "target": "science/optimizers.md#A3.E89"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C30)",
+      "description": "",
+      "source_id": "A3.E90",
+      "target": "science/optimizers.md#A3.E90"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C31)",
+      "description": "",
+      "source_id": "A3.E91",
+      "target": "science/optimizers.md#A3.E91"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C32)",
+      "description": "",
+      "source_id": "A3.E92",
+      "target": "science/optimizers.md#A3.E92"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C33)",
+      "description": "",
+      "source_id": "A3.E93",
+      "target": "science/optimizers.md#A3.E93"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C34)",
+      "description": "",
+      "source_id": "A3.E94",
+      "target": "science/optimizers.md#A3.E94"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C35)",
+      "description": "",
+      "source_id": "A3.E95",
+      "target": "science/optimizers.md#A3.E95"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C36)",
+      "description": "",
+      "source_id": "A3.E96",
+      "target": "science/optimizers.md#A3.E96"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C37)",
+      "description": "",
+      "source_id": "A3.E97",
+      "target": "science/optimizers.md#A3.E97"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C38)",
+      "description": "",
+      "source_id": "A3.E98",
+      "target": "science/optimizers.md#A3.E98"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C39)",
+      "description": "",
+      "source_id": "A3.E99",
+      "target": "science/optimizers.md#A3.E99"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C40)",
+      "description": "",
+      "source_id": "A3.E100",
+      "target": "science/optimizers.md#A3.E100"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (C41)",
+      "description": "",
+      "source_id": "A3.E101",
+      "target": "science/optimizers.md#A3.E101"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D1)",
+      "description": "",
+      "source_id": "A4.E102",
+      "target": "science/metrological-objectives.md#A4.E102"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D2)",
+      "description": "",
+      "source_id": "A4.E103",
+      "target": "science/metrological-objectives.md#A4.E103"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D3)",
+      "description": "",
+      "source_id": "A4.E104",
+      "target": "science/metrological-objectives.md#A4.E104"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D4)",
+      "description": "",
+      "source_id": "A4.E105",
+      "target": "science/metrological-objectives.md#A4.E105"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D5)",
+      "description": "",
+      "source_id": "A4.E106",
+      "target": "science/metrological-objectives.md#A4.E106"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D6)",
+      "description": "",
+      "source_id": "A4.E107",
+      "target": "science/metrological-objectives.md#A4.E107"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D7)",
+      "description": "",
+      "source_id": "A4.E108",
+      "target": "science/metrological-objectives.md#A4.E108"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D8)",
+      "description": "",
+      "source_id": "A4.E109",
+      "target": "science/metrological-objectives.md#A4.E109"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D9)",
+      "description": "",
+      "source_id": "A4.E110",
+      "target": "science/metrological-objectives.md#A4.E110"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D10)",
+      "description": "",
+      "source_id": "A4.E111",
+      "target": "science/metrological-objectives.md#A4.E111"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D11)",
+      "description": "",
+      "source_id": "A4.E112",
+      "target": "science/metrological-objectives.md#A4.E112"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D12)",
+      "description": "",
+      "source_id": "A4.E113",
+      "target": "science/metrological-objectives.md#A4.E113"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D13)",
+      "description": "",
+      "source_id": "A4.E114",
+      "target": "science/metrological-objectives.md#A4.E114"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (D14)",
+      "description": "",
+      "source_id": "A4.E115",
+      "target": "science/metrological-objectives.md#A4.E115"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (E1)",
+      "description": "",
+      "source_id": "A5.E116",
+      "target": "science/proofs.md#A5.E116"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (E2)",
+      "description": "",
+      "source_id": "A5.E117",
+      "target": "science/proofs.md#A5.E117"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (E3)",
+      "description": "",
+      "source_id": "A5.E118",
+      "target": "science/proofs.md#A5.E118"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (E4)",
+      "description": "",
+      "source_id": "A5.E119",
+      "target": "science/proofs.md#A5.E119"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (E5)",
+      "description": "",
+      "source_id": "A5.E120",
+      "target": "science/proofs.md#A5.E120"
+    },
+    {
+      "kind": "Equation",
+      "label": "Equation (E6)",
+      "description": "",
+      "source_id": "A5.E121",
+      "target": "science/proofs.md#A5.E121"
+    },
+    {
+      "kind": "Figure",
+      "label": "Figure 1",
+      "description": "Aggregate final precision and threshold hitting over all stress tests and system sizes $`n=6,\\ldots,10`$ . The top row shows final optimality gaps after $`200`$ accepted updates; the gray dashed line marks the $`10^{-8}`$ reference threshold. The bottom row shows the first accepted update at which each crossing trace reaches that threshold; the parenthetical labels report the number crossing within $`200`$ updates out of the total number of traces. In every box plot, the box spans the interquartile range, the horizontal line marks the median, and the whiskers extend to the most extreme values within $`1.5`$ interquartile ranges. Colored circles are the individual task-size-seed traces. Optimizer colors are used consistently in this figure and Fig. 2 : orange for Hopf-Adam, red for Möttönen-ideal-PS-Adam, dark blue for EGT-CG, indigo for R-BB, and teal for R-LBFGS. Lower values are better. The metric-aware Hopf methods concentrate near the numerical floor in VQE and have numerical-precision medians in the metrology-inspired aggregate; their main distinction is the size of the slow-convergence tail.",
+      "source_id": "S4.F1",
+      "target": "science/numerical-studies.md#S4.F1"
+    },
+    {
+      "kind": "Figure",
+      "label": "Figure 2",
+      "description": "Per-task convergence at $`n=10`$ , with ten deterministic pseudo-random initial-state seeds per task. The top row shows the parent-Hamiltonian, scrambled-Hamming-spectrum, and small-gap-spectrum VQE tasks. The bottom row shows the single-target Fisher, QFI extremal-superposition, and balanced two-target Fisher tasks. Each curve is the mean optimality gap across the ten seeds, and each translucent band is the corresponding standard error of the mean. Optimizer colors match Fig. 1 , and the legend’s line styles are used consistently in all six panels. The gray dashed line marks the $`10^{-8}`$ reference threshold. The vertical scale is logarithmic and lower values are better. Because several metric-aware traces reach the plotting floor, these panels are primarily per-task convergence diagnostics; the final-gap and threshold-hit distributions are summarized in Fig. 1 .",
+      "source_id": "S4.F2",
+      "target": "science/numerical-studies.md#S4.F2"
+    },
+    {
+      "kind": "Figure",
+      "label": "Figure 3",
+      "description": "Binary tree for preparing a $`4`$ -qubit state in Hopf coordinates. A bit- $`0`$ branch multiplies the amplitude by $`\\cos\\theta_{j}`$ , and a bit- $`1`$ branch multiplies it by $`\\sin\\theta_{j}`$ . The displayed $`\\theta_{j}`$ labels are the Hopf magnitude parameters associated with internal nodes, while the blue labels $`\\theta_{16},\\ldots,\\theta_{31}`$ are the complex leaf phases. Circled numbers indicate the gate-application order generated by Algorithms A and A . The binary labels inside the nodes are padded path labels identifying the corresponding subtree or leaf, rather than the breadth-first internal-node indices.",
+      "source_id": "A2.F3",
+      "target": "science/four-qubit-example.md#A2.F3"
+    },
+    {
+      "kind": "Figure",
+      "label": "Figure 4",
+      "description": "Four-qubit Hopf ansatz circuit derived from the tree in Fig. 3 . The green gates are the magnitude rotations shared by the real-state and complex-state versions of the Hopf ansatz. In the complex ansatz, each final-layer gate $`\\theta_{j}`$ with $`8\\leq j\\leq 15`$ is promoted to an $`R_{\\mathbb{C}}`$ gate carrying the magnitude angle $`\\theta_{j}`$ and the two sibling leaf phases listed in Table 1 . All quantum circuit diagrams in this work were produced using the quantum-circuit-drawio-library [ 54 ] .",
+      "source_id": "A2.F4",
+      "target": "science/four-qubit-example.md#A2.F4"
+    },
+    {
+      "kind": "Table",
+      "label": "Table I",
+      "description": "Circuit synthesis from Algorithms A and A . Control, anti-control, and target qubit locations are encoded as bitmasks in $`\\mathtt{Ctrl}`$ , $`\\mathtt{Anti}`$ , and $`\\mathtt{Targ}`$ (a ‘ $`1`$ ’ denotes an active qubit). Throughout, we order qubits as $`(q_{n},\\ldots,q_{1})`$ from left to right in bitmasks. Thus, for $`n=4`$ , $`\\mathtt{Targ}=1000`$ targets qubit $`4`$ and $`\\mathtt{Targ}=0001`$ targets qubit $`1`$ . For the complex ansatz, an integer index denotes a magnitude-only $`R_{y}`$ gate, while a length-three index denotes a promoted $`R_{\\mathbb{C}}`$ gate carrying one magnitude angle and two leaf phases.",
+      "source_id": "A2.T1",
+      "target": "science/four-qubit-example.md#A2.T1"
+    },
+    {
+      "kind": "Table",
+      "label": "Table II",
+      "description": "Diagonal metric entries for the real $`n=4`$ Hopf ansatz. The prefix is the length- $`d_{j}`$ binary expansion of $`j-2^{d_{j}}`$ , padded with leading zeros.",
+      "source_id": "A2.T2",
+      "target": "science/four-qubit-example.md#A2.T2"
+    },
+    {
+      "kind": "Table",
+      "label": "Table III",
+      "description": "Representative gate assignments that synthesize normalized coordinate tangents in the $`n=4`$ example. The rows distinguish real magnitude tangents from complex magnitude tangents; the latter keep the original leaf phases on the relevant subtree, as required by Theorem 3 .",
+      "source_id": "A2.T3",
+      "target": "science/four-qubit-example.md#A2.T3"
+    },
+    {
+      "kind": "Figure",
+      "label": "Figure 5",
+      "description": "Indexed derivative preparation for the $`d=2`$ magnitude layer of the four-qubit real Hopf ansatz. The index register $`I_{1}I_{2}`$ selects one of the tangent-state assignments $`\\boldsymbol{\\theta}^{(j)}`$ with $`j\\in\\{4,5,6,7\\}`$ according to Eq. ( 60 ). Conditioned on the observed index, the system register is in the corresponding normalized coordinate tangent.",
+      "source_id": "A2.F5",
+      "target": "science/four-qubit-example.md#A2.F5"
+    },
+    {
+      "kind": "Figure",
+      "label": "Figure 6",
+      "description": "Indexed signed-branch preparation for the same $`d=2`$ magnitude layer. The branch $`a=0`$ prepares the baseline state $`\\mathrm{HopfReal}(\\boldsymbol{\\theta})\\ket{0}^{\\otimes 4}`$ , while the branch $`a=1`$ prepares the index-selected tangent state $`\\mathrm{HopfReal}(\\boldsymbol{\\theta}^{(j)})\\ket{0}^{\\otimes 4}`$ . Measuring $`a`$ in the $`X`$ basis, equivalently by adding a Hadamard before $`Z`$ -basis readout, yields the signed branch states used in the estimator.",
+      "source_id": "A2.F6",
+      "target": "science/four-qubit-example.md#A2.F6"
+    },
+    {
+      "kind": "Algorithm",
+      "label": "Algorithm 1",
+      "description": "Hopf magnitude circuit schedule",
+      "source_id": "A1.SSx2.p3.3",
+      "target": "science/algorithms.md#A1.SSx2.p3.3"
+    },
+    {
+      "kind": "Algorithm",
+      "label": "Subroutine 1",
+      "description": "Hamming-weight grouping",
+      "source_id": "A1.SSx2.p5.1",
+      "target": "science/algorithms.md#A1.SSx2.p5.1"
+    },
+    {
+      "kind": "Algorithm",
+      "label": "Subroutine 2",
+      "description": "Pair matching",
+      "source_id": "A1.SSx2.p6.3",
+      "target": "science/algorithms.md#A1.SSx2.p6.3"
+    },
+    {
+      "kind": "Algorithm",
+      "label": "Subroutine 3",
+      "description": "Anti-control masks",
+      "source_id": "A1.SSx2.p7.3",
+      "target": "science/algorithms.md#A1.SSx2.p7.3"
+    },
+    {
+      "kind": "Algorithm",
+      "label": "Subroutine 4",
+      "description": "Real angle indices",
+      "source_id": "A1.SSx2.p8.3",
+      "target": "science/algorithms.md#A1.SSx2.p8.3"
+    },
+    {
+      "kind": "Algorithm",
+      "label": "Subroutine 5",
+      "description": "Complex angle indices",
+      "source_id": "A1.SSx2.p9.3",
+      "target": "science/algorithms.md#A1.SSx2.p9.3"
+    },
+    {
+      "kind": "Algorithm",
+      "label": "Algorithm 2",
+      "description": "Complex Hopf circuit schedule",
+      "source_id": "A1.SSx2.p10.3",
+      "target": "science/algorithms.md#A1.SSx2.p10.3"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [1]",
+      "description": "",
+      "source_id": "bib.bib16",
+      "target": "references/paper-bibliography.md#bib.bib16"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [2]",
+      "description": "",
+      "source_id": "bib.bib17",
+      "target": "references/paper-bibliography.md#bib.bib17"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [3]",
+      "description": "",
+      "source_id": "bib.bib18",
+      "target": "references/paper-bibliography.md#bib.bib18"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [4]",
+      "description": "",
+      "source_id": "bib.bib39",
+      "target": "references/paper-bibliography.md#bib.bib39"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [5]",
+      "description": "",
+      "source_id": "bib.bib31",
+      "target": "references/paper-bibliography.md#bib.bib31"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [6]",
+      "description": "",
+      "source_id": "bib.bib25",
+      "target": "references/paper-bibliography.md#bib.bib25"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [7]",
+      "description": "",
+      "source_id": "bib.bib26",
+      "target": "references/paper-bibliography.md#bib.bib26"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [8]",
+      "description": "",
+      "source_id": "bib.bib27",
+      "target": "references/paper-bibliography.md#bib.bib27"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [9]",
+      "description": "",
+      "source_id": "bib.bib28",
+      "target": "references/paper-bibliography.md#bib.bib28"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [10]",
+      "description": "",
+      "source_id": "bib.bib29",
+      "target": "references/paper-bibliography.md#bib.bib29"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [11]",
+      "description": "",
+      "source_id": "bib.bib14",
+      "target": "references/paper-bibliography.md#bib.bib14"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [12]",
+      "description": "",
+      "source_id": "bib.bib12",
+      "target": "references/paper-bibliography.md#bib.bib12"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [13]",
+      "description": "",
+      "source_id": "bib.bib11",
+      "target": "references/paper-bibliography.md#bib.bib11"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [14]",
+      "description": "",
+      "source_id": "bib.bib13",
+      "target": "references/paper-bibliography.md#bib.bib13"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [15]",
+      "description": "",
+      "source_id": "bib.bib15",
+      "target": "references/paper-bibliography.md#bib.bib15"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [16]",
+      "description": "",
+      "source_id": "bib.bib5",
+      "target": "references/paper-bibliography.md#bib.bib5"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [17]",
+      "description": "",
+      "source_id": "bib.bib32",
+      "target": "references/paper-bibliography.md#bib.bib32"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [18]",
+      "description": "",
+      "source_id": "bib.bib55",
+      "target": "references/paper-bibliography.md#bib.bib55"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [19]",
+      "description": "",
+      "source_id": "bib.bib56",
+      "target": "references/paper-bibliography.md#bib.bib56"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [20]",
+      "description": "",
+      "source_id": "bib.bib1",
+      "target": "references/paper-bibliography.md#bib.bib1"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [21]",
+      "description": "",
+      "source_id": "bib.bib4",
+      "target": "references/paper-bibliography.md#bib.bib4"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [22]",
+      "description": "",
+      "source_id": "bib.bib3",
+      "target": "references/paper-bibliography.md#bib.bib3"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [23]",
+      "description": "",
+      "source_id": "bib.bib6",
+      "target": "references/paper-bibliography.md#bib.bib6"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [24]",
+      "description": "",
+      "source_id": "bib.bib2",
+      "target": "references/paper-bibliography.md#bib.bib2"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [25]",
+      "description": "",
+      "source_id": "bib.bib19",
+      "target": "references/paper-bibliography.md#bib.bib19"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [26]",
+      "description": "",
+      "source_id": "bib.bib20",
+      "target": "references/paper-bibliography.md#bib.bib20"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [27]",
+      "description": "",
+      "source_id": "bib.bib21",
+      "target": "references/paper-bibliography.md#bib.bib21"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [28]",
+      "description": "",
+      "source_id": "bib.bib7",
+      "target": "references/paper-bibliography.md#bib.bib7"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [29]",
+      "description": "",
+      "source_id": "bib.bib22",
+      "target": "references/paper-bibliography.md#bib.bib22"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [30]",
+      "description": "",
+      "source_id": "bib.bib24",
+      "target": "references/paper-bibliography.md#bib.bib24"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [31]",
+      "description": "",
+      "source_id": "bib.bib23",
+      "target": "references/paper-bibliography.md#bib.bib23"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [32]",
+      "description": "",
+      "source_id": "bib.bib33",
+      "target": "references/paper-bibliography.md#bib.bib33"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [33]",
+      "description": "",
+      "source_id": "bib.bib34",
+      "target": "references/paper-bibliography.md#bib.bib34"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [34]",
+      "description": "",
+      "source_id": "bib.bib35",
+      "target": "references/paper-bibliography.md#bib.bib35"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [35]",
+      "description": "",
+      "source_id": "bib.bib36",
+      "target": "references/paper-bibliography.md#bib.bib36"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [36]",
+      "description": "",
+      "source_id": "bib.bib37",
+      "target": "references/paper-bibliography.md#bib.bib37"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [37]",
+      "description": "",
+      "source_id": "bib.bib38",
+      "target": "references/paper-bibliography.md#bib.bib38"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [38]",
+      "description": "",
+      "source_id": "bib.bib51",
+      "target": "references/paper-bibliography.md#bib.bib51"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [39]",
+      "description": "",
+      "source_id": "bib.bib49",
+      "target": "references/paper-bibliography.md#bib.bib49"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [40]",
+      "description": "",
+      "source_id": "bib.bib50",
+      "target": "references/paper-bibliography.md#bib.bib50"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [41]",
+      "description": "",
+      "source_id": "bib.bib54",
+      "target": "references/paper-bibliography.md#bib.bib54"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [42]",
+      "description": "",
+      "source_id": "bib.bib42",
+      "target": "references/paper-bibliography.md#bib.bib42"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [43]",
+      "description": "",
+      "source_id": "bib.bib30",
+      "target": "references/paper-bibliography.md#bib.bib30"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [44]",
+      "description": "",
+      "source_id": "bib.bib41",
+      "target": "references/paper-bibliography.md#bib.bib41"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [45]",
+      "description": "",
+      "source_id": "bib.bib40",
+      "target": "references/paper-bibliography.md#bib.bib40"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [46]",
+      "description": "",
+      "source_id": "bib.bib44",
+      "target": "references/paper-bibliography.md#bib.bib44"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [47]",
+      "description": "",
+      "source_id": "bib.bib45",
+      "target": "references/paper-bibliography.md#bib.bib45"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [48]",
+      "description": "",
+      "source_id": "bib.bib43",
+      "target": "references/paper-bibliography.md#bib.bib43"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [49]",
+      "description": "",
+      "source_id": "bib.bib46",
+      "target": "references/paper-bibliography.md#bib.bib46"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [50]",
+      "description": "",
+      "source_id": "bib.bib53",
+      "target": "references/paper-bibliography.md#bib.bib53"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [51]",
+      "description": "",
+      "source_id": "bib.bib10",
+      "target": "references/paper-bibliography.md#bib.bib10"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [52]",
+      "description": "",
+      "source_id": "bib.bib9",
+      "target": "references/paper-bibliography.md#bib.bib9"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [53]",
+      "description": "",
+      "source_id": "bib.bib8",
+      "target": "references/paper-bibliography.md#bib.bib8"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [54]",
+      "description": "",
+      "source_id": "bib.bib47",
+      "target": "references/paper-bibliography.md#bib.bib47"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [55]",
+      "description": "",
+      "source_id": "bib.bib48",
+      "target": "references/paper-bibliography.md#bib.bib48"
+    },
+    {
+      "kind": "Reference",
+      "label": "Reference [56]",
+      "description": "",
+      "source_id": "bib.bib52",
+      "target": "references/paper-bibliography.md#bib.bib52"
+    }
+  ]
+}

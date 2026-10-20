@@ -3,7 +3,7 @@
 This guide specifies the Hopf coordinate maps, native gate schedules, geometry,
 gradient interfaces, and numerical safeguards. For experiment settings and
 commands, see [Experiments](EXPERIMENTS.md) and
-[Reproducibility](../REPRODUCIBILITY.md).
+[Reproducibility](../verification/README.md).
 
 ## 1. Input and output contracts
 

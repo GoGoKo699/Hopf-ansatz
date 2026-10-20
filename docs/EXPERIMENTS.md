@@ -2,7 +2,7 @@
 
 This page specifies the tasks, optimizer comparisons, gradient-access checks,
 and logical resource checks. Setup, data generation, diagnostics, and plotting
-commands are collected in [REPRODUCIBILITY.md](../REPRODUCIBILITY.md).
+commands are collected in [Verification and reproduction](../verification/README.md).
 
 ## 1. Evidence map
 
