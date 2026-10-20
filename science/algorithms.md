@@ -35,7 +35,7 @@ For the non-final internal nodes, namely $`1\leq j\leq N/2-1`$, set
 <a id="A1.E44"></a>
 
 ```math
-{\theta_{j}:=\begin{cases}\mathrm{atan2}\!\big(S_{R}(j),S_{L}(j)\big),&S(j)>0,\\[2.0pt]
+{\theta_{j}:=\begin{cases}\mathrm{atan2}\!\big(S_{R}(j),S_{L}(j)\big),&S(j)\gt 0,\\[2.0pt]
 0,&S(j)=0,\end{cases}\qquad\theta_{j}\in[0,\pi/2].}\tag{A2}
 ```
 
@@ -44,7 +44,7 @@ For the final-layer internal nodes, write $`j=N/2+k`$ with $`k=0,\ldots,N/2-1`$.
 <a id="A1.E45"></a>
 
 ```math
-{\theta_{N/2+k}:=\begin{cases}\mathrm{atan2}\!\big(x_{2k+1},x_{2k}\big)\pmod{2\pi},&x_{2k}^{2}+x_{2k+1}^{2}>0,\\[2.0pt]
+{\theta_{N/2+k}:=\begin{cases}\mathrm{atan2}\!\big(x_{2k+1},x_{2k}\big)\pmod{2\pi},&x_{2k}^{2}+x_{2k+1}^{2}\gt 0,\\[2.0pt]
 0,&x_{2k}=x_{2k+1}=0.\end{cases}}\tag{A3}
 ```
 
@@ -79,7 +79,7 @@ Set
 <a id="A1.E46"></a>
 
 ```math
-{\theta_{j}:=\begin{cases}\mathrm{atan2}\!\big(S_{R,r}(j),S_{L,r}(j)\big),&S_{r}(j)>0,\\[2.0pt]
+{\theta_{j}:=\begin{cases}\mathrm{atan2}\!\big(S_{R,r}(j),S_{L,r}(j)\big),&S_{r}(j)\gt 0,\\[2.0pt]
 0,&S_{r}(j)=0,\end{cases}\qquad j=1,\ldots,N-1.}\tag{A4}
 ```
 
@@ -210,7 +210,7 @@ We do not use length-one lists for magnitude-only complex gates.
 | Line | Algorithm |
 | ---: | --- |
 | Input | <a id="alg0.l1b"></a>Sorted lists $`A`$ and $`B`$ (ascending). |
-| Output | <a id="alg0.l2b"></a>Two lists $`A^{\prime}`$ and $`B^{\prime}`$ (of equal length) obtained by scanning $`B`$ from largest to smallest and pairing each $`b`$ with the current largest $`a\in A`$ such that $`a<b`$ (with $`a`$ reusable), and emitting the resulting pairs ordered by increasing $`a`$, with $`b`$ decreasing within each group. |
+| Output | <a id="alg0.l2b"></a>Two lists $`A^{\prime}`$ and $`B^{\prime}`$ (of equal length) obtained by scanning $`B`$ from largest to smallest and pairing each $`b`$ with the current largest $`a\in A`$ such that $`a\lt b`$ (with $`a`$ reusable), and emitting the resulting pairs ordered by increasing $`a`$, with $`b`$ decreasing within each group. |
 | Complexity | <a id="alg0.l3b"></a>$`O(\vert A\vert +\vert B\vert )`$. |
 | 1 | <a id="alg0.l4b"></a>**procedure** FindPairs($`A`$, $`B`$) |
 | 2 | <a id="alg0.l5b"></a>&emsp;&emsp;$`\widetilde{A}\leftarrow[\,]`$, $`\widetilde{B}\leftarrow[\,]`$ |
@@ -219,7 +219,7 @@ We do not use length-one lists for magnitude-only complex gates.
 | 5 | <a id="alg0.l8b"></a>&emsp;&emsp;&emsp;**while** $`i\geq 0`$ **and** $`A[i]\geq b`$ **do** |
 | 6 | <a id="alg0.l9b"></a>&emsp;&emsp;&emsp;&emsp;&emsp;$`i\leftarrow i-1`$ |
 | 7 | <a id="alg0.l10b"></a>&emsp;&emsp;&emsp;**end** **while** |
-| 8 | <a id="alg0.l11b"></a>&emsp;&emsp;&emsp;**if** $`i<0`$ **then** |
+| 8 | <a id="alg0.l11b"></a>&emsp;&emsp;&emsp;**if** $`i\lt 0`$ **then** |
 | 9 | <a id="alg0.l12b"></a>&emsp;&emsp;&emsp;&emsp;&emsp;**break** |
 | 10 | <a id="alg0.l13a"></a>&emsp;&emsp;&emsp;**end** **if** |
 | 11 | <a id="alg0.l14a"></a>&emsp;&emsp;&emsp;append $`A[i]`$ to $`\widetilde{A}`$ |
@@ -230,7 +230,7 @@ We do not use length-one lists for magnitude-only complex gates.
 | 16 | <a id="alg0.l19a"></a>&emsp;&emsp;**while** $`r\geq 0`$ **do** |
 | 17 | <a id="alg0.l20a"></a>&emsp;&emsp;&emsp;$`a\leftarrow\widetilde{A}[r]`$ |
 | 18 | <a id="alg0.l21a"></a>&emsp;&emsp;&emsp;$`\ell\leftarrow r`$ |
-| 19 | <a id="alg0.l22a"></a>&emsp;&emsp;&emsp;**while** $`\ell>0`$ **and** $`\widetilde{A}[\ell-1]=a`$ **do** |
+| 19 | <a id="alg0.l22a"></a>&emsp;&emsp;&emsp;**while** $`\ell\gt 0`$ **and** $`\widetilde{A}[\ell-1]=a`$ **do** |
 | 20 | <a id="alg0.l23"></a>&emsp;&emsp;&emsp;&emsp;&emsp;$`\ell\leftarrow\ell-1`$ |
 | 21 | <a id="alg0.l24"></a>&emsp;&emsp;&emsp;**end** **while** |
 | 22 | <a id="alg0.l25"></a>&emsp;&emsp;&emsp;**for** $`t=\ell`$ **to** $`r`$ **do** |
@@ -491,7 +491,7 @@ Moreover, under the no-ancilla counting model above,
 <a id="A1.Ex50"></a>
 
 ```math
-G_{\mathbb{R}}(n)<8nN,\qquad G_{\mathbb{C}}(n)<9nN
+G_{\mathbb{R}}(n)\lt 8nN,\qquad G_{\mathbb{C}}(n)\lt 9nN
 ```
 
 for all sufficiently large $`n`$.

@@ -309,7 +309,7 @@ Our first structural result shows that the Hopf chart diagonalizes the pullback 
 
 Let $`\lvert \psi(\boldsymbol{\theta})\rangle`$ be prepared by the Hopf ansatz in Definition [3](chart-and-geometry.md#Thmdefinition3).
 
-(A) Real-state version. For $`\boldsymbol{\theta}=(\theta_{1},\ldots,\theta_{N-1})`$, the metric $`\boldsymbol{g}^{\mathbb{R}}`$ of ([8](chart-and-geometry.md#S2.E8)) is diagonal and $`g^{\mathbb{R}}_{1,1}=1`$. For $`i>1`$, let $`d_{i}=\lfloor\log_{2}i\rfloor`$, and let $`q_{1}\cdots q_{d_{i}}`$ be the length-$`d_{i}`$ binary expansion of $`i-2^{d_{i}}`$, padded with leading zeros and written most-significant bit first. Let $`s_{1},\ldots,s_{d_{i}}`$ be the ancestor indices from the root $`s_{1}=1`$ to the parent of node $`i`$. Then
+(A) Real-state version. For $`\boldsymbol{\theta}=(\theta_{1},\ldots,\theta_{N-1})`$, the metric $`\boldsymbol{g}^{\mathbb{R}}`$ of ([8](chart-and-geometry.md#S2.E8)) is diagonal and $`g^{\mathbb{R}}_{1,1}=1`$. For $`i\gt 1`$, let $`d_{i}=\lfloor\log_{2}i\rfloor`$, and let $`q_{1}\cdots q_{d_{i}}`$ be the length-$`d_{i}`$ binary expansion of $`i-2^{d_{i}}`$, padded with leading zeros and written most-significant bit first. Let $`s_{1},\ldots,s_{d_{i}}`$ be the ancestor indices from the root $`s_{1}=1`$ to the parent of node $`i`$. Then
 
 <a id="S2.E10"></a>
 

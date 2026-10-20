@@ -125,7 +125,7 @@ Define the regular parameter regions
 <a id="A3.Ex63"></a>
 
 ```math
-\mathcal{U}_{\mathbb{R}}:=\left\{\boldsymbol{\theta}\mid g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})>0\ \forall i\right\},\qquad\mathcal{U}_{\mathbb{C}}:=\left\{\boldsymbol{\theta}\mid g^{\mathbb{C}}_{i,i}(\boldsymbol{\theta})>0\ \forall i\right\}.
+\mathcal{U}_{\mathbb{R}}:=\left\{\boldsymbol{\theta}\mid g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})\gt 0\ \forall i\right\},\qquad\mathcal{U}_{\mathbb{C}}:=\left\{\boldsymbol{\theta}\mid g^{\mathbb{C}}_{i,i}(\boldsymbol{\theta})\gt 0\ \forall i\right\}.
 ```
 
 On $`\mathcal{U}_{\mathbb{R}}`$, the Jacobian $`J^{\mathbb{R}}`$ has full column rank and its Moore–Penrose left inverse is
@@ -182,7 +182,7 @@ For $`u\in T_{\psi}\mathbb{S}_{\star}`$, the exact sphere exponential map is
 
 ```math
 {\mathrm{Exp}_{\psi}(u)=\begin{cases}\psi,&\|u\|_{\star}=0,\\[4.0pt]
-\cos(\|u\|_\star)\psi+\dfrac{\sin(\|u\|_\star)}{\|u\|_{\star}}u,&\|u\|_{\star}>0.\end{cases}}\tag{C11}
+\cos(\|u\|_\star)\psi+\dfrac{\sin(\|u\|_\star)}{\|u\|_{\star}}u,&\|u\|_{\star}\gt 0.\end{cases}}\tag{C11}
 ```
 
 <a id="A3.SSx2.p1.4"></a>
@@ -287,7 +287,7 @@ Hopf-EGT-CG adds a transported conjugate-gradient memory direction. Let $`u_{k}\
 {u_{0}=v_{0}=-G_{0}.}\tag{C21}
 ```
 
-Given $`u_{k}`$, choose $`\eta_{k}>0`$ and update
+Given $`u_{k}`$, choose $`\eta_{k}\gt 0`$ and update
 
 <a id="A3.E82"></a>
 
@@ -361,7 +361,7 @@ The strong-Wolfe conditions take the sphere form
 
 <a id="A3.SSx4.p3.3"></a>
 
-with $`0<c_{1}<c_{2}<1`$. These are the cost-and-gradient tests used by the EGT-CG optimizer of Ref. [[24](../references/paper-bibliography.md#bib.bib2)]. They require additional objective and, when the curvature condition is checked, gradient evaluations; they do not require any new quantum primitive beyond the cost and Hopf-gradient queries.
+with $`0\lt c_{1}\lt c_{2}\lt 1`$. These are the cost-and-gradient tests used by the EGT-CG optimizer of Ref. [[24](../references/paper-bibliography.md#bib.bib2)]. They require additional objective and, when the curvature condition is checked, gradient evaluations; they do not require any new quantum primitive beyond the cost and Hopf-gradient queries.
 
 <a id="A3.SSx5"></a>
 
@@ -390,7 +390,7 @@ The pair is accepted only when
 <a id="A3.E93"></a>
 
 ```math
-{\langle s_{k},y_{k}\rangle_{\star}>0.}\tag{C33}
+{\langle s_{k},y_{k}\rangle_{\star}\gt 0.}\tag{C33}
 ```
 
 All older stored pairs are exactly transported along each newly accepted geodesic before the next two-loop recursion is applied. Thus every vector used by the recursion lies in the current tangent space.

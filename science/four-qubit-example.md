@@ -241,7 +241,7 @@ For the complex ansatz, the corresponding magnitude tangent keeps the two leaf p
 {\lvert e^{\mathbb{C}}_{13}(\boldsymbol{\theta})\rangle =-\sin\theta_{13}e^{\mathrm{i}\theta_{26}}\lvert b_{10}\rangle +\cos\theta_{13}e^{\mathrm{i}\theta_{27}}\lvert b_{11}\rangle .}\tag{B11}
 ```
 
-For a phase parameter, the tangent is supported on a single leaf. In particular, $`\theta_{26}=\theta_{16+10}`$ is attached to $`\ell=10`$, so on the regular set where $`g^{\mathbb{C}}_{26,26}=\vert x_{10}\vert ^{2}>0`$,
+For a phase parameter, the tangent is supported on a single leaf. In particular, $`\theta_{26}=\theta_{16+10}`$ is attached to $`\ell=10`$, so on the regular set where $`g^{\mathbb{C}}_{26,26}=\vert x_{10}\vert ^{2}\gt 0`$,
 
 <a id="A2.E59"></a>
 

@@ -234,7 +234,7 @@ Since $`H`$ is Hermitian, $`\langle \psi(\boldsymbol{\theta})\rvert H\lvert \dot
 \partial_{\theta_{i}}E(\boldsymbol{\theta})=2\,\mathrm{Re}\!\left[\langle \dot{\psi}_{i}(\boldsymbol{\theta})\rvert H\lvert \psi(\boldsymbol{\theta})\rangle \right].
 ```
 
-Whenever $`g_{i,i}(\boldsymbol{\theta})>0`$, Definition [5](gradient-access.md#Thmdefinition5) gives
+Whenever $`g_{i,i}(\boldsymbol{\theta})\gt 0`$, Definition [5](gradient-access.md#Thmdefinition5) gives
 
 <a id="A5.Ex116"></a>
 
@@ -312,7 +312,7 @@ and therefore
 \|\lvert \dot{\psi}_{i}(\boldsymbol{\theta})\rangle \|^{2}=\gamma_{i}(\boldsymbol{\theta})^{2}.
 ```
 
-In the real case this equals $`g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})`$, and in the complex case (magnitude block) it equals $`g^{\mathbb{C}}_{i,i}(\boldsymbol{\theta})`$ (consistent with Theorem [1](chart-and-geometry.md#Thmtheorem1)). Hence, whenever $`g_{i,i}(\boldsymbol{\theta})>0`$, we have
+In the real case this equals $`g^{\mathbb{R}}_{i,i}(\boldsymbol{\theta})`$, and in the complex case (magnitude block) it equals $`g^{\mathbb{C}}_{i,i}(\boldsymbol{\theta})`$ (consistent with Theorem [1](chart-and-geometry.md#Thmtheorem1)). Hence, whenever $`g_{i,i}(\boldsymbol{\theta})\gt 0`$, we have
 
 <a id="A5.E120"></a>
 
@@ -410,7 +410,7 @@ For a fixed magnitude parameter $`i\in\mathcal{L}_{d}`$, Theorem [3](gradient-ac
 0,\qquad\tfrac{\pi}{2},\qquad\theta_{j},\qquad\theta_{j}+\tfrac{\pi}{2}.
 ```
 
-When the preparation is made coherent over all $`i\in\mathcal{L}_{d}`$, the nonzero assignment at a gate of depth $`h`$ is selected by a single mixed-polarity prefix condition on the layer index: selection of its right subtree for $`h<d`$, equality with the gate for $`h=d`$, or equality with its depth-$`d`$ ancestor for $`h>d`$. Hence each gate location requires only $`O(1)`$ index-conditioned cases, with no angle multiplexing.
+When the preparation is made coherent over all $`i\in\mathcal{L}_{d}`$, the nonzero assignment at a gate of depth $`h`$ is selected by a single mixed-polarity prefix condition on the layer index: selection of its right subtree for $`h\lt d`$, equality with the gate for $`h=d`$, or equality with its depth-$`d`$ ancestor for $`h\gt d`$. Hence each gate location requires only $`O(1)`$ index-conditioned cases, with no angle multiplexing.
 
 By Lemma [2](algorithms.md#Thmlemma2), the CNOT cost of a controlled single-qubit gate is linear in the total number of controls once the small-control regime is absorbed into constants. Hence each index-conditioned case costs $`O(n)`$ CNOTs. Since there are $`N-1=O(N)`$ gate locations and only $`O(1)`$ cases per location, the total compiled execution cost of the indexed derivative setting $`\lvert \Phi_{d}(\boldsymbol{\theta})\rangle`$ is
 
@@ -511,11 +511,11 @@ For every non-final internal node $`1\leq j\leq N/2-1`$, set
 <a id="A5.Ex138"></a>
 
 ```math
-\theta_{j}=\begin{cases}\mathrm{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}>0,\\[2.0pt]
+\theta_{j}=\begin{cases}\mathrm{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}\gt 0,\\[2.0pt]
 0,&w_{j}=0.\end{cases}
 ```
 
-Equivalently, when $`w_{j}>0`$,
+Equivalently, when $`w_{j}\gt 0`$,
 
 <a id="A5.Ex139"></a>
 
@@ -541,7 +541,7 @@ It remains only to recover the signs inside each final sibling pair. For a final
 S_{k}:=\sqrt{x_{2k}^{2}+x_{2k+1}^{2}}.
 ```
 
-If $`S_{k}>0`$, set
+If $`S_{k}\gt 0`$, set
 
 <a id="A5.Ex142"></a>
 
@@ -582,7 +582,7 @@ For every internal node $`j=1,\ldots,N-1`$, set
 <a id="A5.Ex146"></a>
 
 ```math
-\theta_{j}=\begin{cases}\mathrm{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}>0,\\[2.0pt]
+\theta_{j}=\begin{cases}\mathrm{atan2}\!\big(\sqrt{w_{2j+1}},\sqrt{w_{2j}}\big),&w_{j}\gt 0,\\[2.0pt]
 0,&w_{j}=0.\end{cases}
 ```
 

@@ -10,7 +10,7 @@ We next address gradient access. In the Hopf chart, coordinate tangents are exac
 
 **Definition 5 (Normalized coordinate tangent).**
 
-Let $`g_{i\ell}(\boldsymbol{\theta})`$ be the parameter-space metric of Definition [4](chart-and-geometry.md#Thmdefinition4). Whenever $`g_{i,i}(\boldsymbol{\theta})>0`$, define
+Let $`g_{i\ell}(\boldsymbol{\theta})`$ be the parameter-space metric of Definition [4](chart-and-geometry.md#Thmdefinition4). Whenever $`g_{i,i}(\boldsymbol{\theta})\gt 0`$, define
 
 <a id="S3.E12"></a>
 
@@ -61,7 +61,7 @@ Let
 \mathrm{HopfComplex}(\boldsymbol{\theta})\lvert 0\rangle ^{\otimes n},\end{cases}
 ```
 
-with parameters arranged on the Hopf binary tree as in Definitions [2](chart-and-geometry.md#Thmdefinition2) and [3](chart-and-geometry.md#Thmdefinition3). For any parameter index $`i`$ with $`g_{i,i}(\boldsymbol{\theta})>0`$, there exists an explicit gate-parameter assignment $`\boldsymbol{\theta}^{(i)}`$ on the same ordered Hopf circuit skeleton such that
+with parameters arranged on the Hopf binary tree as in Definitions [2](chart-and-geometry.md#Thmdefinition2) and [3](chart-and-geometry.md#Thmdefinition3). For any parameter index $`i`$ with $`g_{i,i}(\boldsymbol{\theta})\gt 0`$, there exists an explicit gate-parameter assignment $`\boldsymbol{\theta}^{(i)}`$ on the same ordered Hopf circuit skeleton such that
 
 <a id="S3.E14"></a>
 

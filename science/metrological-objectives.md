@@ -155,7 +155,7 @@ A natural minimized metrology cost is the regularized quantum Cramér–Rao prox
 <a id="A4.E107"></a>
 
 ```math
-{\mathcal{C}_{Q}(\boldsymbol{\theta})=\frac{1}{F_{Q}(\boldsymbol{\theta})+\eta},\qquad\eta>0.}\tag{D6}
+{\mathcal{C}_{Q}(\boldsymbol{\theta})=\frac{1}{F_{Q}(\boldsymbol{\theta})+\eta},\qquad\eta\gt 0.}\tag{D6}
 ```
 
 This cost defines a local probe-state benchmark associated with the optimal-measurement QFI. A fixed experimental readout realizes this benchmark only when it saturates the QFI at the operating point. By contrast, the fixed-readout Ramsey objective below is a classical Fisher-information objective for a specified parity measurement. Let
@@ -265,7 +265,7 @@ At an interior operating point satisfying
 <a id="A4.Ex86"></a>
 
 ```math
-0<p(\boldsymbol{\theta})<1,
+0\lt p(\boldsymbol{\theta})\lt 1,
 ```
 
 the fixed-readout classical Fisher information is
@@ -281,12 +281,12 @@ and the minimized local inverse-CFI cost is
 <a id="A4.Ex88"></a>
 
 ```math
-\mathcal{C}_{\mathrm{Ram}}(\boldsymbol{\theta})=\frac{1}{F_{C}(\boldsymbol{\theta})+\eta},\qquad\eta>0.
+\mathcal{C}_{\mathrm{Ram}}(\boldsymbol{\theta})=\frac{1}{F_{C}(\boldsymbol{\theta})+\eta},\qquad\eta\gt 0.
 ```
 
 The derivatives below are taken on this interior domain. At the boundary points $`p(\boldsymbol{\theta})\in\{0,1\}`$, the quotient defining $`F_{C}`$ is singular and must instead be treated by a separate limiting prescription or by explicitly regularizing the Bernoulli denominator $`p(1-p)`$. The additive constant $`\eta`$ in the inverse cost does not by itself regularize this denominator.
 
-For $`0<p(\boldsymbol{\theta})<1`$, the chain-rule coefficients with respect to $`p`$ and $`q`$ are
+For $`0\lt p(\boldsymbol{\theta})\lt 1`$, the chain-rule coefficients with respect to $`p`$ and $`q`$ are
 
 <a id="A4.EGx4"></a>
 
