@@ -1,7 +1,10 @@
 # Verification and reproduction
 
-The deterministic scripts below regenerate the CSV datasets, diagnostics, and
-figures from the repository sources.
+The commands below regenerate the CSV datasets, diagnostics, and figures from
+the repository sources. The classical numerical studies use fixed seeds.
+Finite-shot Qibo trajectories can vary between runs: the initialization seed
+does not seed Qibo's measurement sampler. The `--sampler statevector` path
+uses a seeded NumPy generator for its finite-shot samples.
 
 The commands below assume they are run from the repository root.
 
@@ -61,6 +64,35 @@ specifies the chart-clipping tolerances. The default diagonal-metric division
 floor is `1e-12`, set by `--metric-eps`.
 
 
+## Check the metric against the Jacobian
+
+This finite three-qubit check compares the full Gram matrix with the diagonal
+metric for both charts. It uses the real pairing for the complex ambient-sphere
+metric, including the global-phase direction.
+
+```bash
+python - <<'PYTHON'
+import numpy as np
+from hopf_utils import jacobian, metric_diagonal, theta_from_vector
+
+rng = np.random.default_rng(7)
+for case in ("real", "complex"):
+    state = rng.normal(size=8)
+    if case == "complex":
+        state = state + 1j * rng.normal(size=8)
+    state /= np.linalg.norm(state)
+    theta = theta_from_vector(state, case)
+    J = jacobian(theta, case)
+    gram = np.real(J.conj().T @ J)
+    diagonal = np.diag(metric_diagonal(theta, case))
+    print(case, "Gram-metric max residual:", np.max(np.abs(gram - diagonal)))
+    np.testing.assert_allclose(gram, diagonal, atol=1e-12, rtol=0)
+PYTHON
+```
+
+Both residuals should be below `1e-12`; a failed comparison raises an assertion.
+The [metric proof](../science/proofs.md#A5.SSx2) establishes the all-size identity.
+
 ## What to inspect in the output
 
 The [reviewer route](../review/README.md) connects these checks to the complete
@@ -70,7 +102,7 @@ the linked proofs; finite runs check their implementation.
 
 | Check | Expected result | Interpretation |
 |---|---|---|
-| `python hopf_utils.py` | Real and complex state round-trip residuals near floating-point precision; normalized tangent synthesis error below `1e-10`; both synthesis messages report correct. | The script prints diagnostics, so inspect them as well as its exit status. Optional Qibo residuals compare the prepared state column. |
+| `python hopf_utils.py` | Real and complex state round-trip residuals near floating-point precision; signed-boundary and tiny-leaf relative errors below `1e-14`; normalized tangent synthesis error below `1e-10`; both synthesis messages report correct. | The tiny-leaf regression includes amplitudes down to `1e-200`. The script prints diagnostics, so inspect them as well as its exit status. Optional Qibo residuals compare the prepared state column. |
 | `hopf_gate_count.py --nmin 2 --nmax 6` | Real assigned counts `4, 24, 100, 360, 1168`; complex counts `4, 24, 100, 360, 1300`. | Integer schedule counts and closed forms use the declared no-clean-ancilla charges. |
 | `finite_shot_sanity_check.py` | Exact branch and tree/Jacobian residuals near roundoff; all state/probability normalization diagnostics small. | Sampling error is separate. The default error-versus-shots slope is approximately `-0.5`; a three-trial smoke run is not a precise slope measurement. |
 | `hopf_complex.py --quick` | Scrambler, gradient and metric-lift residuals pass the built-in `1e-8` check; the small CSV and plot are produced. | Inspect the printed completeness and finite-value diagnostics. The full study's normalization and matched-start alert threshold is `1e-10`. |
@@ -82,6 +114,28 @@ tree/Jacobian residuals around `2.5e-16`, and mean relative errors around
 signed branch. These are reference diagnostics for the fixed seed, not
 universal tolerances for statistical data. See [experiment definitions and
 reported results](../docs/EXPERIMENTS.md).
+
+## Source revision for the reported numerical study
+
+The committed numerical figures and reported aggregate summaries use the numerical
+implementation preserved at
+[`a9cf3d2e247555d732eff6b7cd4147924b2fc5b0`](https://github.com/GoGoKo699/Hopf-ansatz/tree/a9cf3d2e247555d732eff6b7cd4147924b2fc5b0).
+The current implementation computes inverse coordinates using stable bottom-up
+subtree norms, avoiding cancellation of tiny nonzero subtrees. Optimization
+trajectories and their aggregate summaries can change with this numerical
+implementation. The full reported archive has not been regenerated with that
+inverse.
+
+For reproduction of the reported numerical study, create a separate checkout:
+
+```bash
+git worktree add --detach ../Hopf-ansatz-paper-results a9cf3d2e247555d732eff6b7cd4147924b2fc5b0
+cd ../Hopf-ansatz-paper-results
+```
+
+Run the environment setup above and the full CSV, diagnostic, and plot commands
+below in that checkout. Use the current repository checkout for the identity
+checks, smoke tests, and new numerical studies.
 
 ## Generate the full synthetic CSV data
 

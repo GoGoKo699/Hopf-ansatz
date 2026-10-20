@@ -542,20 +542,24 @@ def qibo_circuit(
 # =============================================================================
 
 def theta_from_vector(vector, case):
+    """Recover Hopf coordinates using bottom-up subtree norms.
+
+    Combining child norms with hypot avoids cancellation between cumulative
+    probabilities and underflow from squaring tiny amplitudes.
+    The tree requires O(N) arithmetic and O(N) storage.
+    """
     d = len(vector)
     n = int(np.log2(d))
     if (1 << n) != d:
         raise ValueError("Length of vector must be a power of 2.")
 
     v = np.asarray(vector)
-    if np.iscomplexobj(v):
-        magsq = v.real**2 + v.imag**2
-    else:
-        magsq = v**2
-
-    ps = np.empty(d + 1, dtype=float)
-    ps[0] = 0.0
-    np.cumsum(magsq, out=ps[1:])
+    subtree_norm = np.empty(2 * d, dtype=float)
+    subtree_norm[d:] = np.abs(v)
+    for node in range(d - 1, 0, -1):
+        subtree_norm[node] = np.hypot(
+            subtree_norm[2 * node], subtree_norm[2 * node + 1]
+        )
 
     if case == 'real':
         theta_list = np.empty(d - 1, dtype=float)
@@ -566,7 +570,6 @@ def theta_from_vector(vector, case):
             block_size = 1 << (n - col)
             start = delta * block_size
             mid = start + (block_size >> 1)
-            end = start + block_size
 
             if col == n - 1:
                 a = v[start]
@@ -576,28 +579,17 @@ def theta_from_vector(vector, case):
                 else:
                     theta_list[j] = np.mod(np.arctan2(b, a), 2*np.pi)
             else:
-                left = ps[mid] - ps[start]
-                right = ps[end] - ps[mid]
-                theta_list[j] = np.arctan2(np.sqrt(right), np.sqrt(left))
+                left = subtree_norm[2 * (j + 1)]
+                right = subtree_norm[2 * (j + 1) + 1]
+                theta_list[j] = np.arctan2(right, left)
         return theta_list
 
     if case == 'complex':
         theta_list = np.empty(2 * d - 1, dtype=float)
         # 1. Magnitude angles
-        for j in range(d - 1):
-            col = (j + 1).bit_length() - 1
-            offset = (1 << col) - 1
-            delta = j - offset
-            block_size = 1 << (n - col)
-            start = delta * block_size
-            mid = start + (block_size >> 1)
-            end = start + block_size
-
-            left = ps[mid] - ps[start]
-            right = ps[end] - ps[mid]
-            theta_list[j] = np.arctan2(np.sqrt(right), np.sqrt(left))
+        theta_list[:d - 1] = np.arctan2(subtree_norm[3::2], subtree_norm[2::2])
         # 2. Phase angles
-        theta_list[d - 1:] = np.mod(np.angle(v), 2*np.pi)
+        theta_list[d - 1:] = np.where(v == 0, 0.0, np.mod(np.angle(v), 2*np.pi))
         return theta_list
 
     raise ValueError("case must be 'real' or 'complex'.")
@@ -946,10 +938,64 @@ def metric_diagonal(theta_list, case):
 # Sanity Checks
 # =============================================================================
 
+def inverse_boundary_checks():
+    """Check signed boundaries and tiny leaves without norm-based underflow."""
+    max_boundary_error = 0.0
+    max_tiny_relative_error = 0.0
+    for case in ("real", "complex"):
+        dtype = float if case == "real" else complex
+        phases = (1.0, -1.0) if case == "real" else (1.0, -1.0, 1j, -1j)
+        for leaf in range(8):
+            for phase in phases:
+                state = np.zeros(8, dtype=dtype)
+                state[leaf] = phase
+                theta = theta_from_vector(state, case)
+                rebuilt = vector_from_theta(theta, case)
+                if not np.all(np.isfinite(rebuilt)):
+                    raise AssertionError("Nonfinite inverse boundary reconstruction.")
+                max_boundary_error = max(
+                    max_boundary_error, float(np.max(np.abs(rebuilt - state)))
+                )
+        for signs in ((1, 1), (1, -1), (-1, 1), (-1, -1)):
+            state = np.zeros(8, dtype=dtype)
+            state[4:6] = [0.6 * signs[0], 0.8 * signs[1]]
+            rebuilt = vector_from_theta(theta_from_vector(state, case), case)
+            if not np.all(np.isfinite(rebuilt)):
+                raise AssertionError("Nonfinite signed-pair reconstruction.")
+            max_boundary_error = max(
+                max_boundary_error, float(np.max(np.abs(rebuilt - state)))
+            )
+        for magnitude in (1e-9, 1e-50, 1e-200):
+            for phase in phases:
+                state = np.zeros(8, dtype=dtype)
+                state[0] = 1.0
+                state[-1] = magnitude * phase
+                rebuilt = vector_from_theta(theta_from_vector(state, case), case)
+                # A squared norm would hide the 1e-200 regression by underflow.
+                relative_error = abs((rebuilt[-1] - state[-1]) / state[-1])
+                if not np.isfinite(relative_error):
+                    raise AssertionError("Nonfinite tiny-leaf reconstruction error.")
+                max_tiny_relative_error = max(
+                    max_tiny_relative_error, float(relative_error)
+                )
+
+    signed_zeros = np.array([1.0, complex(-0.0, 0.0), complex(0.0, -0.0), 0j])
+    zero_phases = theta_from_vector(signed_zeros, "complex")[3:][signed_zeros == 0]
+    if (max_boundary_error > 1e-14 or max_tiny_relative_error > 1e-14
+            or np.any(zero_phases != 0.0)):
+        raise AssertionError("Hopf inverse boundary/tiny-leaf regression check failed.")
+    print(f"  Signed boundary reconstruction error: {max_boundary_error:.2e}")
+    print(f"  Tiny-leaf relative error (down to 1e-200): {max_tiny_relative_error:.2e}")
+    print("  Zero complex leaves have phase 0.")
+
+
 def sanity_checks(n):
     np.set_printoptions(precision=3, suppress=True)
     print(f"\n=== Hopf Utils Sanity Checks (n={n}) ===")
     rng = np.random.default_rng(42)
+
+    print("\n[Inverse Boundary Checks]")
+    inverse_boundary_checks()
     
     # ---------------------------
     # 1. REAL CASE
