@@ -27,7 +27,7 @@ and the associated subtree norms
 <a id="A1.E43"></a>
 
 ```math
-S_{L}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{L}(j)}x_{\ell}^{2}},\qquad S_{R}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{R}(j)}x_{\ell}^{2}},\qquad S(j):=\sqrt{S_{L}(j)^{2}+S_{R}(j)^{2}}.\tag{A1}
+{S_{L}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{L}(j)}x_{\ell}^{2}},\qquad S_{R}(j):=\sqrt{\sum_{\ell\in\mathcal{L}_{R}(j)}x_{\ell}^{2}},\qquad S(j):=\sqrt{S_{L}(j)^{2}+S_{R}(j)^{2}}.}\tag{A1}
 ```
 
 For the non-final internal nodes, namely $`1\leq j\leq N/2-1`$, set
